@@ -33,7 +33,7 @@
 ## Prerequisites
 
 Prior to running this lab, you must have a Bluemix account and access to a lab laptop.
-Instructions are available in [prereqs](https://github.com/palistra/devops-demolabs/0-prereqs.md) to create your Bluemix account, log into the Bluemix UI, and create a unique namespace.
+Instructions are available in [prereqs](https://github.com/palistra/blob/master/devops-demolabs/0-prereqs.md) to create your Bluemix account, log into the Bluemix UI, and create a unique namespace.
 
 ## Task 1: Verify your environment
 
