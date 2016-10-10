@@ -5,11 +5,17 @@
 
 > **Tasks**:
 >- [Prerequisites](#prerequisites)
+- [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-Bluemix)
+- [Task 2: Download your public images](#task-2-download-your-public-images)
+- [Task 3: Log into IBM Containers using the CLI](#task-3-log-into-ibm-containers-using-the-cli)
 - [Task 1: Verify your environment](#task-1-verify-your-environment)
 - [Task 2: Download your public images](#task-2-download-your-public-images)
 - [Task 3: Log into IBM Containers using the CLI](#task-3-log-into-ibm-containers-using-the-cli)
 
+1. ffff
+4. jjjj
 
+## Task 1: Log into IBM Bluemix
 
 
 
@@ -33,7 +39,7 @@
 ## Prerequisites
 
 Prior to running this lab, you must have a Bluemix account and access to a lab laptop.
-Instructions are available in [prereqs](https://github.com/palistra/devops-demolabs/blob/master/0-prereqs.md) 
+Instructions are available in [prereqs](https://github.com/palistra/devops-demolabs/blob/master/0-prereqs.md)
 to create your Bluemix account, log into the Bluemix UI, and create a unique namespace.
 
 ## Task 1: Verify your environment
