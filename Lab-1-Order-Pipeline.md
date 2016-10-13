@@ -1,31 +1,79 @@
-# Lab 1: Set-up Pipeline for Order
-> **Difficulty**: Easy
-
-> **Time**: 20 minutes
-
-> **Tasks**:
->- [Prerequisites](#prerequisites)
-- [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-Bluemix)
-- [Task 2: Create Simple Cloud Foundry Toolchain](#task-2-create-simple-cloud-foundry-toolchain)
-- [Task 3: Add and Configure GitHub Integration](#task-3-add-and-configure-github-integration)
-- [Task 4: Add and Configure Delivery Pipeline](#task-4-add-and-configure-delivery-pipeline)
+# Objective
+This series of labs shows how to set up a productive toolchain with a sample that consists of three microservices. After you finish this part of the series, you will be familiar with a toolchain that demonstrates practices from the IBM® Bluemix® Garage Method. Toolchains are available in the US South region only.
 
 ## Prerequisites
+Prior to running these labs, you must have a Bluemix account and access to a lab laptop.
 
-Prior to running this lab, you must have a Bluemix account and access to a lab laptop.
+- [Lab 0: Create Toolchain](#lab-0-Create-Toolchain)
+- [Lab 1: Set-up Pipeline for Order](#lab-1-Set-up-Pipeline-for-Order)
+- [Lab 2: Set-up Pipeline for Catalog](#lab-2-Set-up-Pipeline-for-Catalog)
+- [Lab 3: Set-up Pipeline for UI](#lab-3-Set-up-Pipeline-for-UI)
+- [Lab 4: Add Slack Integration](#lab-4-Add-Slack-Integration)
+- [Lab 5: Deliver a UI Change](#lab-5-Deliver-a-UI-Change)
 
-- [Task 1: Verify your environment](#task-1-verify-your-environment)
-- [Task 2: Download your public images](#task-2-download-your-public-images)
-- [Task 3: Log into IBM Containers using the CLI](#task-3-log-into-ibm-containers-using-the-cli)
+
+# Lab 0: Create Toolchain
+**Tasks**:
+- [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-Bluemix)
+- [Task 2: Create Toolchain](#task-2-create-toolchain)
+- [Task 3: Add and Configure GitHub Integration](#task-3-add-and-configure-github-integration)
 
 ## Task 1: Log into IBM Bluemix
-1. Log into IBM Bluemix.
+1. If you are not already logged into IBM Bluemix, log into IBM Bluemix.
+![Bluemix](https://github.com/palistra/devops-demolabs/blob/master/screenshots/bluemix-login.jpg)
+
+## Task 2: Create Toolchain
+  1. Click on DevOps.
+![DevOps](https://github.com/palistra/devops-demolabs/blob/master/screenshots/DevOpsImage.jpg)
+  2. Click on Toolchains.
+![Toolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/Toolchain.jpg)
+  3. Click on the "+" plus icon on the right side of the screen.
+![AddToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/AddToolchain.jpg)
+
+## Task 3: Add and Configure GitHub Interation
+  1. Add and Configure Order
+  2. Add and Configure Catalog
+  3. Add and Configure UI
+
+# Lab 1: Set-up Pipeline for Order
+
+**Tasks**:
+- [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-Bluemix)
+- [Task 2: Add and Configure Order Delivery Pipeline](#task-2-add-and-configure-order-delivery-pipeline)
+Add Dev Stage and Jobs
+Run Dev Stage
+Add Test Stage and Jobs
+Run Test Stage
+Add Prod Stage and Jobs
+Run Prod Stage
+
+## Task 1: Log into IBM Bluemix
+1. If you are not already logged into IBM Bluemix, log into IBM Bluemix.
 ![Bluemix](https://github.com/palistra/devops-demolabs/blob/master/screenshots/bluemix-login.jpg)
 
 
 
-## Task 2: Create Toolchain
 
+
+## Task 4: Add and Configure Delivery Pipeline for UI
+1. Add Delivery Pipeline
+2. Add and Configure Dev Environment Stage
+    1. Examine Input
+    2. Add Deploy Job
+    3. Examine Environment Properties
+3. Add and Configure Test Environment Stage
+    1. Examine Input
+    2. Add Deploy Job
+    3. Add Sauce Lab Job
+        1. Tester Type
+        2. Configure Service Instance
+    4. Examine Environment Properties
+4. Add and Configure Prod Environment Stage
+    1. Examine Input
+    2. Add Deploy Job
+    3. Examine Environment Properties
+# Lab 2: Set-up Pipeline for Catalog
+## Task 2: Create Toolchain
 ## Task 3: Add and Configure GitHub Interation for UI
 1. Add
 2. Configure
@@ -46,8 +94,6 @@ Prior to running this lab, you must have a Bluemix account and access to a lab l
     1. Examine Input
     2. Add Deploy Job
     3. Examine Environment Properties
-
-
 
 
 
