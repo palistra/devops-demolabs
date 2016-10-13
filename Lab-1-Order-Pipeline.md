@@ -5,9 +5,9 @@ This series of labs shows how to set up a productive toolchain with a sample tha
 Prior to running these labs, you must have a Bluemix account and access to a lab laptop.
 
 - [Lab 0: Create Toolchain](#lab-0-Create-Toolchain)
-- [Lab 1: Set-up Pipeline for Order](#lab-1-Set-up-Pipeline-for-Order)
-- [Lab 2: Set-up Pipeline for Catalog](#lab-2-Set-up-Pipeline-for-Catalog)
-- [Lab 3: Set-up Pipeline for UI](#lab-3-Set-up-Pipeline-for-UI)
+- [Lab 1: Set-up Toolchain for Order](#lab-1-Set-up-Toolchain-for-Order)
+- [Lab 2: Set-up Toolchain for Catalog](#lab-2-Set-up-Toolchain-for-Catalog)
+- [Lab 3: Set-up Toolchain for UI](#lab-3-Set-up-Toolchain-for-UI)
 - [Lab 4: Add Slack Integration](#lab-4-Add-Slack-Integration)
 - [Lab 5: Deliver a UI Change](#lab-5-Deliver-a-UI-Change)
 
@@ -16,6 +16,12 @@ Prior to running these labs, you must have a Bluemix account and access to a lab
 **Tasks**:
 - [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-Bluemix)
 - [Task 2: Create Toolchain](#task-2-create-toolchain)
+- [Task 3: Add and Configure GitHub Integration](#task-3-add-and-configure-github-integration)
+
+# Lab 1: Set-up Toolchain for Order
+**Tasks**:
+- [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-Bluemix)
+- [Task 2: Create Toolchain for Order](#task-2-create-toolchain-for-order)
 - [Task 3: Add and Configure GitHub Integration](#task-3-add-and-configure-github-integration)
 
 ## Task 1: Log into IBM Bluemix
@@ -29,6 +35,13 @@ Prior to running these labs, you must have a Bluemix account and access to a lab
 ![Toolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/Toolchain.jpg)
   3. Click on the "+" plus icon on the right side of the screen.
 ![AddToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/AddToolchain.jpg)
+  4. Click on "Build your own toolchain"
+![BuildYourOwnToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/BuildYourOwnToolchain.jpg)
+  5. Under Toolchain Settings, enter the name "order-toolchain-lab".
+![BuildYourOwnToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/OrderToolchainName.jpg)
+
+
+
 
 ## Task 3: Add and Configure GitHub Interation
   1. Add and Configure Order
