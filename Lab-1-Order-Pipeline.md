@@ -20,7 +20,7 @@ Prior to running this lab, you must have a Bluemix account and access to a lab l
 
 ## Task 1: Log into IBM Bluemix
 1. Log into IBM Bluemix.
-![Bluemix](https://github.com/palistra/devops-demolabs/screenshots/bluemix-login.jpg)
+![Bluemix](https://github.com/palistra/devops-demolabs/blob/master/screenshots/bluemix-login.jpg)
 
 
 
