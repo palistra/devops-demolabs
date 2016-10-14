@@ -26,7 +26,7 @@ Prior to running these labs, you must have a Bluemix account and access to a lab
   1. Click on **DevOps**.
 ![DevOps](https://github.com/palistra/devops-demolabs/blob/master/screenshots/DevOpsImage.jpg)
   2. Click on **Toolchains**.
-![Toolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/Toolchain.jpg)
+![Toolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/ToolChain.jpg)
   3. Click on the **+** plus icon on the right side of the screen.
 ![AddToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/AddToolchain.jpg)
   4. Click on **Build your own toolchain**.
