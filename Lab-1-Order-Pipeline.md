@@ -15,7 +15,8 @@ Prior to running these labs, you must have a Bluemix account and access to a lab
 - [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-Bluemix)
 - [Task 2: Create Toolchain for Order](#task-2-create-toolchain-for-order)
 - [Task 3: Add and Configure GitHub Integration for Order](#task-3-add-and-configure-github-integration-for-order)
-- [Task 4: Add and Configure Order Delivery Pipeline](#task-4-add-and-configure-order-delivery-pipeline)
+- [Task 4: Add Order Delivery Pipeline](#task-4-add-order-delivery-pipeline)
+- [Task 5: Configure Order Delivery Pipeline](#task-4-configure-order-delivery-pipeline)
 - [Task 4: Add and Configure GitHub Integration for Order](#task-3-add-and-configure-github-integration-for-order)
 
 ## Task 1: Log into IBM Bluemix
@@ -50,7 +51,7 @@ The code for the Order microservice already exists in a GitHub repository (https
   3. The orders-toolchain-lab tool integrations is displayed.
        ![CreateNewGitHubResult](https://github.com/palistra/devops-demolabs/blob/master/screenshots/CreateNewGitHubResult.jpg)
 
-## Task 4: Add and Configure Order Delivery Pipeline
+## Task 4: Add Order Delivery Pipeline
 Now that you have a GitHub repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
 
   1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
@@ -58,6 +59,21 @@ Now that you have a GitHub repository clone of the code, we will add a Delivery 
   3. Under 'Pipeline name:', enter "orders-toolchain-lab" and select the 'Show apps in the VIEW APP menu' checkbox.
   ![CreateDeliveryPipeline](https://github.com/palistra/devops-demolabs/blob/master/screenshots/CreateDeliveryPipeline.jpg)
   4. Click **Create Integration**.
+  5. The orders-toolchain-lab delivery pipeline is displayed.
+    ![CreateDeliveryPipelineResult](https://github.com/palistra/devops-demolabs/blob/master/screenshots/CreateDeliveryPipelineResult.jpg)
+
+## Task 5: Configure Order Delivery Pipeline
+  6. Now to configure the orders-toolchain-lab delivery pipeline.  Click on the **Delivery Pipeline** tile.
+    ![ClickConfigureDeliveryToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/ClickConfigureDeliveryToolchain.jpg)
+  7. Four stages will be added: Build, Dev, Test and Prod.
+    1. The **Build** stage has one job, performing the initial build of the code from the GitHub Repository.
+    2. The **Dev** stage has one job, taking the output from the Build stage and deploying on Bluemix into the *dev* space.
+    3. The **Test** stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the *qs* space, then performing automated tests.
+    4. The **Prod** stage has one job, taking the output from the Prod stage and deploying on Bluemix into the *prod* space.
+    DThese will deploy (respectively) to the dev, qa and prod Bluemix spaces.  The Dev and Prod stages will have one job each (deploy to the Bluemix space) while the Test stage will have two stages (deploy to the Bluemix space and perform an automated test).
+
+  On the 'Pipeline: All Stages' page, click **ADD STAGE**. The Stage Configuration page opens.
+  8.
 
 
 
