@@ -31,15 +31,15 @@ Prior to running these labs, you must have a Bluemix account and access to a lab
 ![AddToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/AddToolchain.jpg)
   4. Click on **Build your own toolchain**.
 ![BuildYourOwnToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/BuildYourOwnToolchain.jpg)
-  5. Under Toolchain Settings, enter the name "orders-toolchain-lab" and click **Create**.
+  5. Under 'Toolchain Settings', enter the name "orders-toolchain-lab" and click **Create**.
 ![BuildYourOwnToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/OrdersToolchainName.jpg)
 Your Toolchain is created and you are redirected to the Toolchain panel.
 
 ## Task 3: Add and Configure GitHub Integration for Order
-The code for the Order microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_OrdersAPI).  We will clone this repository and link to it.
+The code for the Order microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_OrdersAPI).  We will clone this repository and link to the clone.
 
-  1. Click on the "+" plus icon on the right side of the screen to add a Tool Integration.
-  2. Click on GitHub to add integration with GitHub to the Toolchain.
+  1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
+  2. Click on **GitHub** to add integration with GitHub to the Toolchain.
 ![ClickOnGitHub](https://github.com/palistra/devops-demolabs/blob/master/screenshots/ClickOnGitHub.jpg)
      1. Select 'Clone' as the Repository type.
      2. Enter "https://github.com/githubuserid/orders-api-toolchain-lab.git" for the New Repository Name.
@@ -50,11 +50,15 @@ The code for the Order microservice already exists in a GitHub repository (https
   3. The orders-toolchain-lab tool integrations is displayed.
        ![CreateNewGitHubResult](https://github.com/palistra/devops-demolabs/blob/master/screenshots/CreateNewGitHubResult.jpg)
 
+## Task 4: Add and Configure Order Delivery Pipeline
+Now that you have a GitHub repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
 
-  Enter "htps://github.com/githubuserid/
+  1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
+  2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
+  3. Under 'Pipeline name:', enter "orders-toolchain-lab" and select the 'Show apps in the VIEW APP menu' checkbox.
+  ![CreateDeliveryPipeline](https://github.com/palistra/devops-demolabs/blob/master/screenshots/CreateDeliveryPipeline.jpg)
+  4. Click **Create Integration**.
 
-  order-toolchain-lab"
-  mmm
 
 
 ## Task 3: Add and Configure GitHub Interation
