@@ -94,18 +94,20 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 <br>
 <img src="screenshots/ClickConfigureDeliveryToolchain.jpg" alt="ClickConfigureDeliveryToolchain">
 <li>Add the **Build** stage and jobs.
-    1. Click on **ADD STAGE**.
-    2. On the **INPUT** tab, enter "Build" for Stage Name. Note that:
-      * 'Input Type' is set to a SCM Repository, in this case, Git.
-      * 'Git Repository' is set to the name of the Git Repository we just cloned.
-      * 'Git URL' is set to the URL of the Git Repository we just cloned.
-      * 'Branch' is set to "Master".
-      * 'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
-
-![CreateOrderDeliveryPipelineBuildStage](screenshots/CreateOrderDeliveryPipelineBuildStage.jpg)
-<li>Click the **Jobs** tab.
-<li>Click **ADD JOB**.
-<li>Click the **+** and select **Build** for the JOB TYPE.
+<ol compact>
+    <li>Click on **ADD STAGE**.
+    <li>On the **INPUT** tab, enter "Build" for Stage Name. Note that:
+    <ul compact>
+    <li>'Input Type' is set to a SCM Repository, in this case, Git.
+    <li>'Git Repository' is set to the name of the Git Repository we just cloned.
+    <li>'Git URL' is set to the URL of the Git Repository we just cloned.
+    <li>'Branch' is set to "Master".
+    <li>'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
+    <br>
+    <img src="screenshots/CreateOrderDeliveryPipelineBuildStage.jpg" alt="CreateOrderDeliveryPipelineBuildStage">
+    <li>Click the **Jobs** tab.
+    <li>Click **ADD JOB**.
+    <li>Click the **+** and select **Build** for the JOB TYPE.
 
       ![AddBuildJobToOrderDeliveryPipelineBuildStage](screenshots/AddBuildJobToOrderDeliveryPipelineBuildStage.jpg)
 
