@@ -63,7 +63,7 @@ The code for the Order microservice already exists in a GitHub repository (https
 <li>Click <b>Create Integration</b>.
 </ul>
 
-  3. The orders-toolchain-lab tool integrations is displayed.
+  The orders-toolchain-lab tool integrations is displayed.
   ![CreateNewGitHubResult](screenshots/CreateNewGitHubResult.jpg)
 
 ## Task 4: Add Order Delivery Pipeline
@@ -79,10 +79,10 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 
 ## Task 5: Configure Order Delivery Pipeline
   1. Now to configure the orders-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
-    1. The **Build** stage has one job, performing the initial build of the code from the GitHub Repository.
-    2. The **Dev** stage has one job, taking the output from the Build stage and deploying on Bluemix into the *dev* space.
-    3. The **Test** stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the *qs* space, then performing automated tests.
-    4. The **Prod** stage has one job, taking the output from the Prod stage and deploying on Bluemix into the *prod* space.
+    * The **Build** stage has one job, performing the initial build of the code from the GitHub Repository.
+    * The **Dev** stage has one job, taking the output from the Build stage and deploying on Bluemix into the *dev* space.
+    * The **Test** stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the *qs* space, then performing automated tests.
+    * The **Prod** stage has one job, taking the output from the Prod stage and deploying on Bluemix into the *prod* space.
 
     Click on the **Delivery Pipeline** tile.
     ![ClickConfigureDeliveryToolchain](screenshots/ClickConfigureDeliveryToolchain.jpg)
