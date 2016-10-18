@@ -145,7 +145,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>'Target' is set to "US South - https://api.ng/bluemix.net" as this is where the code will be deployed.
     <li>'Space' is set to "dev".
     <li>Type the following into the "Deploy Script". This will create and deploy the cloudantNoSQLDB service and then deploy the application.
-    <code>    
+    <pre>    
         #!/bin/bash
         cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
         # Push app
@@ -153,7 +153,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
         cf push "${CF_APP_NAME}"
         # View logs
         #cf logs "${CF_APP_NAME}" --recent
-    </code>    
+    </pre>    
     <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
     <br>
     <img src="screenshots/DevStageDevJobOrderDeliveryPipeline.jpg" alt="DevStageDevJobOrderDeliveryPipeline.jpg">
