@@ -117,15 +117,66 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
     <br>
     <img src="screenshots/BuildJobToOrderDeliveryPipelineBuildStageConfiguration.jpg" alt="BuildJobToOrderDeliveryPipelineBuildStageConfiguration">
+    </ul>
     <li>Click <b>Save</b> to save the <b>Build</b> stage.
     <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> stage.  This stage has not been run. Click on the <b>Run Stage</b> icon to run the build.
     <br>
-<img src="screenshots/RunBuildButton.jpg" alt="RunBuildButton">
-
-    </ul>
+    <img src="screenshots/RunBuildButton.jpg" alt="RunBuildButton">
+    The JOBS section shows the Build was successful.
+    <br>
+    <img src="screenshots/BuildSuccessful.jpg" alt="BuildSuccessful.jpg">
+    <p>The <b>Build</b> stage has been successfully added and executed.
 </ol>
-<li>Add the <b>Dev</b> stage.
+<li>Add the <b>Dev</b> stage and jobs (Remember, just on job, deploying to the <i>dev</i> space ).
 <ol compact>
+    <li>Click on <b>ADD STAGE</b>.
+    <li>On the <b>INPUT</b> tab, enter "Dev" for Stage Name. Note that:
+    <ul compact>
+    <li>'Input Type' is set to Build Artifacts (from the <b>Build</b> stage).
+    <li>'Stage' and 'Job' are both 'Build'.
+    <li>'Stage Trigger' is set to "Run jobs when the previous stage is completed", resulting in the Dev stage running when the <b>Build</b> stage successfully completes.
+    </ul>
+    <li>Click the <b>Jobs</b> tab.
+    <li>Click <b>ADD JOB</b>.
+    <li>Click the <b>+</b> and select <b>Deploy</b> for the JOB TYPE.
+    <li>On the Job configuration panel, note that:
+    <ul compact>
+    <li>'Deployer Type' is set to "Cloud Foundry" (other options are available on the pull-down).
+    <li>'Target' is set to "US South - https://api.ng/bluemix.net" as this is where the code will be deployed.
+    <li>'Space' is set to "dev".
+    <li>Type the following into the "Deploy Script". This will create and deploy the cloudantNoSQLDB service and then deploy the application.
+    </code>    
+        #!/bin/bash
+        cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
+        # Push app
+        export CF_APP_NAME="dev-$CF_APP"
+        cf push "${CF_APP_NAME}"
+        # View logs
+        #cf logs "${CF_APP_NAME}" --recent
+    <code>    
+    <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
+    <br>
+    <img src="screenshots/DevStageDevJobOrderDeliveryPipeline.jpg" alt="DevStageDevJobOrderDeliveryPipeline.jpg">
+    </ul>
+</code>    
+    #!/bin/bash
+    cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
+    # Push app
+    export CF_APP_NAME="dev-$CF_APP"
+    cf push "${CF_APP_NAME}"
+    # View logs
+    #cf logs "${CF_APP_NAME}" --recent
+<code>    
+
+
+    <li>Click <b>Save</b> to save the <b>Build</b> stage.
+    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> stage.  This stage has not been run. Click on the <b>Run Stage</b> icon to run the build.
+    <br>
+    <img src="screenshots/RunBuildButton.jpg" alt="RunBuildButton">
+    The JOBS section shows the Build was successful.
+    <br>
+    <img src="screenshots/BuildSuccessful.jpg" alt="BuildSuccessful.jpg">
+    <p>The <b>Build</b> stage has been successfully added and executed.
 </ol>
 <li>Add the <b>Test</b> stage.
 <ol compact>
