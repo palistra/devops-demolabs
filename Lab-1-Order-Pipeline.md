@@ -55,9 +55,12 @@ The code for the Order microservice already exists in a GitHub repository (https
 <li>Enter "https://github.com/githubuserid/orders-api-toolchain-lab.git" for the New Repository Name.
 <li>Enter "https://github.com/open-toolchain/Microservices_OrdersAPI" for the Source repository URL.
 <li>Ensure The 'Enable GitHub Issues' checkbox is selected.
+</ul>
 
      ![CreateNewGitHub](screenshots/CreateNewGitHub.jpg)
-<li>Click **Create Integration**.
+
+<ul>     
+<li>Click <b>Create Integration</b>.
 </ul>
 
   3. The orders-toolchain-lab tool integrations is displayed.
