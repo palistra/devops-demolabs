@@ -72,9 +72,11 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
   1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
   2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
   3. Under 'Pipeline name:', enter "orders-toolchain-lab" and select the 'Show apps in the VIEW APP menu' checkbox.
+
   ![CreateDeliveryPipeline](screenshots/CreateDeliveryPipeline.jpg)
   4. Click **Create Integration**.
   5. The orders-toolchain-lab delivery pipeline is displayed.
+
     ![CreateDeliveryPipelineResult](screenshots/CreateDeliveryPipelineResult.jpg)
 
 ## Task 5: Configure Order Delivery Pipeline
@@ -85,6 +87,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     * The **Prod** stage has one job, taking the output from the Prod stage and deploying on Bluemix into the *prod* space.
 
     Click on the **Delivery Pipeline** tile.
+
     ![ClickConfigureDeliveryToolchain](screenshots/ClickConfigureDeliveryToolchain.jpg)
   2. Add the **Build** stage and jobs.
     1. Click on **ADD STAGE**.
