@@ -52,7 +52,7 @@ The code for the Order microservice already exists in a GitHub repository (https
        ![CreateNewGitHubResult](https://github.com/palistra/devops-demolabs/blob/master/screenshots/CreateNewGitHubResult.jpg)
 
 ## Task 4: Add Order Delivery Pipeline
-Now that you have a GitHub repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
+Now that you have a Git repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
 
   1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
   2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
@@ -63,13 +63,39 @@ Now that you have a GitHub repository clone of the code, we will add a Delivery 
     ![CreateDeliveryPipelineResult](https://github.com/palistra/devops-demolabs/blob/master/screenshots/CreateDeliveryPipelineResult.jpg)
 
 ## Task 5: Configure Order Delivery Pipeline
-  6. Now to configure the orders-toolchain-lab delivery pipeline.  Click on the **Delivery Pipeline** tile.
-    ![ClickConfigureDeliveryToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/ClickConfigureDeliveryToolchain.jpg)
-  7. Four stages will be added: Build, Dev, Test and Prod.
+  1. Now to configure the orders-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
     1. The **Build** stage has one job, performing the initial build of the code from the GitHub Repository.
     2. The **Dev** stage has one job, taking the output from the Build stage and deploying on Bluemix into the *dev* space.
     3. The **Test** stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the *qs* space, then performing automated tests.
     4. The **Prod** stage has one job, taking the output from the Prod stage and deploying on Bluemix into the *prod* space.
+
+    Click on the **Delivery Pipeline** tile.
+    ![ClickConfigureDeliveryToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/ClickConfigureDeliveryToolchain.jpg)
+  2. Add the **Build** stage and jobs.
+    1. Click on **ADD STAGE**.
+    2. Enter "Build" for Stage Name. Note that:
+      3. 'Input Type' is set to a SCM Repository, in this case, Git.
+      4. 'Git Repository' is set to the name of the Git Repository we just cloned.
+      5. 'Git URL' is set to the URL of the Git Repository we just cloned.
+      6. 'Branch' is set to "Master".
+      7. 'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
+![CreateOrderDeliveryPipelineBuildStage](screenshots/CreateOrderDeliveryPipelineBuildStage.jpg)
+
+
+
+
+  3. Add the **Dev** stage.
+  4. Add the **Test** stage.
+  5. Add the **Prod** stage.
+
+
+
+   DThese will deploy (respectively) to the dev, qa and prod Bluemix spaces. The Dev and Prod stages will have one job each (deploy to the Bluemix space) while the Test stage will have two stages (deploy to the Bluemix space and perform an automated test).
+
+    On the 'Pipeline: All Stages' page, click **ADD STAGE**. The Stage Configuration page opens. 8.
+
+
+  8.
     DThese will deploy (respectively) to the dev, qa and prod Bluemix spaces.  The Dev and Prod stages will have one job each (deploy to the Bluemix space) while the Test stage will have two stages (deploy to the Bluemix space and perform an automated test).
 
   On the 'Pipeline: All Stages' page, click **ADD STAGE**. The Stage Configuration page opens.
