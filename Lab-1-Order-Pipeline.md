@@ -122,12 +122,12 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> stage.  This stage has not been run. Click on the <b>Run Stage</b> icon to run the build.
     <br>
     <img src="screenshots/RunBuildButton.jpg" alt="RunBuildButton">
-    The JOBS section shows the Build was successful.
+    <p>The JOBS section shows the Build was successful.
     <br>
     <img src="screenshots/BuildSuccessful.jpg" alt="BuildSuccessful.jpg">
     <p>The <b>Build</b> stage has been successfully added and executed.
 </ol>
-<li>Add the <b>Dev</b> stage and jobs (Remember, just on job, deploying to the <i>dev</i> space ).
+<li>Add the <b>Dev</b> stage and jobs (Remember, just one job, deploying to the <i>dev</i> space ).
 <ol compact>
     <li>Click on <b>ADD STAGE</b>.
     <li>On the <b>INPUT</b> tab, enter "Dev" for Stage Name. Note that:
@@ -145,7 +145,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>'Target' is set to "US South - https://api.ng/bluemix.net" as this is where the code will be deployed.
     <li>'Space' is set to "dev".
     <li>Type the following into the "Deploy Script". This will create and deploy the cloudantNoSQLDB service and then deploy the application.
-    </code>    
+    <code>    
         #!/bin/bash
         cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
         # Push app
@@ -153,30 +153,27 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
         cf push "${CF_APP_NAME}"
         # View logs
         #cf logs "${CF_APP_NAME}" --recent
-    <code>    
+    </code>    
     <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
     <br>
     <img src="screenshots/DevStageDevJobOrderDeliveryPipeline.jpg" alt="DevStageDevJobOrderDeliveryPipeline.jpg">
     </ul>
-</code>    
-    #!/bin/bash
-    cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
-    # Push app
-    export CF_APP_NAME="dev-$CF_APP"
-    cf push "${CF_APP_NAME}"
-    # View logs
-    #cf logs "${CF_APP_NAME}" --recent
-<code>    
-
-
-    <li>Click <b>Save</b> to save the <b>Build</b> stage.
-    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> stage.  This stage has not been run. Click on the <b>Run Stage</b> icon to run the build.
+    <li>The bash script just entered into the Deploy Script references the <i>CF_APP_NAME</i> environment variable ($CF_APP is provided by default).  CF_APP_NAME needs to be added to the environment variables.
+    <li>Click the <b>ENVIRONMENT PROPERTIES<b> tab.
+    <li>Click <b>ADD PROPERTY<b> and select <b>Text Property</b>.
+    <li>Enter "CF_APP_NAME" as the 'Name'.  Do not enter anything for the 'Value'.
+    <li>Click <b>Save</b> to save the <b>Dev</b> stage.
+    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Dev</b> stage has not been run. Click on the <b>Run Stage</b> icon to run the <b>Dev</b> stage and deploy the order API.
     <br>
-    <img src="screenshots/RunBuildButton.jpg" alt="RunBuildButton">
-    The JOBS section shows the Build was successful.
+    <img src="screenshots/RunningDevStageOrderDeliveryPipeline.jpg" alt="RunningDevStageOrderDeliveryPipeline">
+    <p>The JOBS section shows the Deploy was successful.
+    <li>LAST EXECUTION RESULT displays the url to the successfully deployed application (dev-orders-toolchain-lab.mybluemix.net) as well as a link to the runtime log.
     <br>
-    <img src="screenshots/BuildSuccessful.jpg" alt="BuildSuccessful.jpg">
-    <p>The <b>Build</b> stage has been successfully added and executed.
+    <img src="screenshots/DevStageOrderDeliveryPipelineExecutionResult.jpg" alt="DevStageOrderDeliveryPipelineExecutionResult">
+    <br>Click on "dev-orders-toolchain-lab.mybluemix.net" to access the running application.
+    <br>
+    <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
+    <p>The <b>Dev</b> stage has been successfully added and executed.
 </ol>
 <li>Add the <b>Test</b> stage.
 <ol compact>
