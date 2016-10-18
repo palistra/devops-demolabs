@@ -57,7 +57,7 @@ The code for the Order microservice already exists in a GitHub repository (https
 <li>Ensure The 'Enable GitHub Issues' checkbox is selected.
 </ul>
 
-     ![CreateNewGitHub](screenshots/CreateNewGitHub.jpg)
+![CreateNewGitHub](screenshots/CreateNewGitHub.jpg)
 
 <ul>     
 <li>Click <b>Create Integration</b>.
