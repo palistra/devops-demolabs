@@ -85,18 +85,18 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 <ol compact>
 <li>Now to configure the orders-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
 <ul compact>
-<li>The **Build** stage has one job, performing the initial build of the code from the GitHub Repository.
-<li>The **Dev** stage has one job, taking the output from the Build stage and deploying on Bluemix into the *dev* space.
-<li>The **Test** stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the *qs* space, then performing automated tests.
-<li>The **Prod** stage has one job, taking the output from the Prod stage and deploying on Bluemix into the *prod* space.
+<li>The <b>Build</b> stage has one job, performing the initial build of the code from the GitHub Repository.
+<li>The <b>Dev</b> stage has one job, taking the output from the Build stage and deploying on Bluemix into the *dev* space.
+<li>The <b>Test</b> stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the *qs* space, then performing automated tests.
+<li>The <b>Prod</b> stage has one job, taking the output from the Prod stage and deploying on Bluemix into the *prod* space.
 </ul>
-<p>Click on the **Delivery Pipeline** tile.
+<p>Click on the <b>Delivery Pipeline</b> tile.
 <br>
 <img src="screenshots/ClickConfigureDeliveryToolchain.jpg" alt="ClickConfigureDeliveryToolchain">
-<li>Add the **Build** stage and jobs.
+<li>Add the <b>Build</b> stage and jobs.
 <ol compact>
-    <li>Click on **ADD STAGE**.
-    <li>On the **INPUT** tab, enter "Build" for Stage Name. Note that:
+    <li>Click on <b>ADD STAGE</b>.
+    <li>On the <b>INPUT</b> tab, enter "Build" for Stage Name. Note that:
     <ul compact>
     <li>'Input Type' is set to a SCM Repository, in this case, Git.
     <li>'Git Repository' is set to the name of the Git Repository we just cloned.
@@ -106,9 +106,9 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <br>
     <img src="screenshots/CreateOrderDeliveryPipelineBuildStage.jpg" alt="CreateOrderDeliveryPipelineBuildStage">
     </ul>
-    <li>Click the **Jobs** tab.
-    <li>Click **ADD JOB**.
-    <li>Click the **+** and select **Build** for the JOB TYPE.
+    <li>Click the <b>Jobs</b> tab.
+    <li>Click <b>ADD JOB</b>.
+    <li>Click the <b>+</b> and select <b>Build</b> for the JOB TYPE.
     <br>
     <img src="screenshots/AddBuildJobToOrderDeliveryPipelineBuildStage.jpg" alt="AddBuildJobToOrderDeliveryPipelineBuildStage">
     <li>On the Job configuration panel, note that:
@@ -119,9 +119,9 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <img src="screenshots/BuildJobToOrderDeliveryPipelineBuildStageConfiguration.jpg" alt="BuildJobToOrderDeliveryPipelineBuildStageConfiguration">
     </ul>
 </ol>
-  3. Add the **Dev** stage.
-  4. Add the **Test** stage.
-  5. Add the **Prod** stage.
+  3. Add the <b>Dev</b> stage.
+  4. Add the <b>Test</b> stage.
+  5. Add the <b>Prod</b> stage.
 
 
 
