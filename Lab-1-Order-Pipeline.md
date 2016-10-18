@@ -101,6 +101,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
       * 'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
 
     ![CreateOrderDeliveryPipelineBuildStage](screenshots/CreateOrderDeliveryPipelineBuildStage.jpg)
+
     3. Click the **Jobs** tab.
     4. Click **ADD JOB**.
     5. Click the **+** and select **Build** for the JOB TYPE.
