@@ -39,7 +39,8 @@ Prior to running these labs, you must have a Bluemix account and access to a lab
   5. Under 'Toolchain Settings', enter the name "orders-toolchain-lab" and click **Create**.
 
   ![BuildYourOwnToolchain](screenshots/OrdersToolchainName.jpg)
-Your Toolchain is created and you are redirected to the Toolchain panel.
+
+  Your Toolchain is created and you are redirected to the Toolchain panel.
 
 ## Task 3: Add and Configure GitHub Integration for Order
 The code for the Order microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_OrdersAPI).  We will clone this repository and link to the clone.
