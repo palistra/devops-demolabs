@@ -1,5 +1,5 @@
 # Objective
-This series of labs shows how to set up a productive toolchain with a sample that consists of three microservices. After you finish this part of the series, you will be familiar with a toolchain that demonstrates practices from the IBMè¢Ó Bluemixè¢Ó Garage Method. Toolchains are available in the US South region only.
+This series of labs shows how to set up a productive toolchain with a sample that consists of three microservices. After you finish this part of the series, you will be familiar with a toolchain that demonstrates practices from the IBM¬Æ Bluemix¬Æ Garage Method. Toolchains are available in the US South region only.
 
 ## Prerequisites
 Prior to running these labs, you must have a Bluemix account and access to a lab laptop.
@@ -54,7 +54,7 @@ The code for the Order microservice already exists in a GitHub repository (https
 <li>Select 'Clone' as the Repository type.
 <li>Enter "https://github.com/githubuserid/orders-api-toolchain-lab.git" for the New Repository Name.
 <li>Enter "https://github.com/open-toolchain/Microservices_OrdersAPI" for the Source repository URL.
-<li>Ensure The 'Enable GitHub Issues' checkbox is selected.
+<li>Ensure the 'Enable GitHub Issues' checkbox is selected.
 </ul>
 
 ![CreateNewGitHub](screenshots/CreateNewGitHub.jpg)
@@ -90,6 +90,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     Click on the **Delivery Pipeline** tile.
 
     ![ClickConfigureDeliveryToolchain](screenshots/ClickConfigureDeliveryToolchain.jpg)
+
   2. Add the **Build** stage and jobs.
     1. Click on **ADD STAGE**.
     2. On the **INPUT** tab, enter "Build" for Stage Name. Note that:
@@ -98,6 +99,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
       * 'Git URL' is set to the URL of the Git Repository we just cloned.
       * 'Branch' is set to "Master".
       * 'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
+
     ![CreateOrderDeliveryPipelineBuildStage](screenshots/CreateOrderDeliveryPipelineBuildStage.jpg)
     3. Click the **Jobs** tab.
     4. Click **ADD JOB**.
