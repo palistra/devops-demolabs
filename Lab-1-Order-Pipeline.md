@@ -86,9 +86,9 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 <li>Now to configure the orders-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
 <ul compact>
 <li>The <b>Build</b> stage has one job, performing the initial build of the code from the GitHub Repository.
-<li>The <b>Dev</b> stage has one job, taking the output from the Build stage and deploying on Bluemix into the *dev* space.
-<li>The <b>Test</b> stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the *qs* space, then performing automated tests.
-<li>The <b>Prod</b> stage has one job, taking the output from the Prod stage and deploying on Bluemix into the *prod* space.
+<li>The <b>Dev</b> stage has one job, taking the output from the Build stage and deploying on Bluemix into the <i>dev</i> space.
+<li>The <b>Test</b> stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the <i>qs</i> space, then performing automated tests.
+<li>The <b>Prod</b> stage has one job, taking the output from the Prod stage and deploying on Bluemix into the <i>prod</i> space.
 </ul>
 <p>Click on the <b>Delivery Pipeline</b> tile.
 <br>
@@ -117,12 +117,22 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
     <br>
     <img src="screenshots/BuildJobToOrderDeliveryPipelineBuildStageConfiguration.jpg" alt="BuildJobToOrderDeliveryPipelineBuildStageConfiguration">
+    <li>Click <b>Save</b> to save the <b>Build</b> stage.
+    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> stage.  This stage has not been run. Click on the <b>Run Stage</b> icon to run the build.
+    <br>
+<img src="screenshots/RunBuildButton.jpg" alt="RunBuildButton">
+
     </ul>
 </ol>
-  3. Add the <b>Dev</b> stage.
-  4. Add the <b>Test</b> stage.
-  5. Add the <b>Prod</b> stage.
-
+<li>Add the <b>Dev</b> stage.
+<ol compact>
+</ol>
+<li>Add the <b>Test</b> stage.
+<ol compact>
+</ol>
+<li>Add the <b>Prod</b> stage.
+<ol compact>
+</ol>
 
 
    DThese will deploy (respectively) to the dev, qa and prod Bluemix spaces. The Dev and Prod stages will have one job each (deploy to the Bluemix space) while the Test stage will have two stages (deploy to the Bluemix space and perform an automated test).
