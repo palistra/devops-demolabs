@@ -50,14 +50,13 @@ The code for the Order microservice already exists in a GitHub repository (https
 
   ![ClickOnGitHub](screenshots/ClickOnGitHub.jpg)
 
-  * Select 'Clone' as the Repository type.
-  * Enter "https://github.com/githubuserid/orders-api-toolchain-lab.git" for the New Repository Name.
-  * Enter "https://github.com/open-toolchain/Microservices_OrdersAPI" for the Source repository URL.
-  * Ensure The 'Enable GitHub Issues' checkbox is selected.
+    * Select 'Clone' as the Repository type.
+    * Enter "https://github.com/githubuserid/orders-api-toolchain-lab.git" for the New Repository Name.
+    * Enter "https://github.com/open-toolchain/Microservices_OrdersAPI" for the Source repository URL.
+    * Ensure The 'Enable GitHub Issues' checkbox is selected.
 
      ![CreateNewGitHub](screenshots/CreateNewGitHub.jpg)
-
-  * Click **Create Integration**.
+    * Click **Create Integration**.
   3. The orders-toolchain-lab tool integrations is displayed.
   ![CreateNewGitHubResult](screenshots/CreateNewGitHubResult.jpg)
 
