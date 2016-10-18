@@ -105,17 +105,20 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
     <br>
     <img src="screenshots/CreateOrderDeliveryPipelineBuildStage.jpg" alt="CreateOrderDeliveryPipelineBuildStage">
+    </ul>
     <li>Click the **Jobs** tab.
     <li>Click **ADD JOB**.
     <li>Click the **+** and select **Build** for the JOB TYPE.
-
-      ![AddBuildJobToOrderDeliveryPipelineBuildStage](screenshots/AddBuildJobToOrderDeliveryPipelineBuildStage.jpg)
-
-    6. On the Job configuration panel, note that:
-        * 'Builder Type' is set to "Simple" (other options are available on the pull-down).
-        * 'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
-![BuildJobToOrderDeliveryPipelineBuildStageConfiguration](screenshots/BuildJobToOrderDeliveryPipelineBuildStageConfiguration.jpg)
-
+    <br>
+    <img src="screenshots/AddBuildJobToOrderDeliveryPipelineBuildStage.jpg" alt="AddBuildJobToOrderDeliveryPipelineBuildStage">
+    <li>On the Job configuration panel, note that:
+    <ul compact>
+    <li>'Builder Type' is set to "Simple" (other options are available on the pull-down).
+    <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
+    <br>
+    <img src="screenshots/BuildJobToOrderDeliveryPipelineBuildStageConfiguration.jpg" alt="BuildJobToOrderDeliveryPipelineBuildStageConfiguration">
+    </ul>
+</ol>
   3. Add the **Dev** stage.
   4. Add the **Test** stage.
   5. Add the **Prod** stage.
