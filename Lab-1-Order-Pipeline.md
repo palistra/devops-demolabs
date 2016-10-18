@@ -1,5 +1,5 @@
 # Objective
-This series of labs shows how to set up a productive toolchain with a sample that consists of three microservices. After you finish this part of the series, you will be familiar with a toolchain that demonstrates practices from the IBM¬Æ Bluemix¬Æ Garage Method. Toolchains are available in the US South region only.
+This series of labs shows how to set up a productive toolchain with a sample that consists of three microservices. After you finish this part of the series, you will be familiar with a toolchain that demonstrates practices from the IBMè¢Ó Bluemixè¢Ó Garage Method. Toolchains are available in the US South region only.
 
 ## Prerequisites
 Prior to running these labs, you must have a Bluemix account and access to a lab laptop.
@@ -73,16 +73,23 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     ![ClickConfigureDeliveryToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/ClickConfigureDeliveryToolchain.jpg)
   2. Add the **Build** stage and jobs.
     1. Click on **ADD STAGE**.
-    2. Enter "Build" for Stage Name. Note that:
-      3. 'Input Type' is set to a SCM Repository, in this case, Git.
-      4. 'Git Repository' is set to the name of the Git Repository we just cloned.
-      5. 'Git URL' is set to the URL of the Git Repository we just cloned.
-      6. 'Branch' is set to "Master".
-      7. 'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
-![CreateOrderDeliveryPipelineBuildStage](screenshots/CreateOrderDeliveryPipelineBuildStage.jpg)
+    2. On the **INPUT** tab, enter "Build" for Stage Name. Note that:
+      1. 'Input Type' is set to a SCM Repository, in this case, Git.
+      2. 'Git Repository' is set to the name of the Git Repository we just cloned.
+      3. 'Git URL' is set to the URL of the Git Repository we just cloned.
+      4. 'Branch' is set to "Master".
+      5. 'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
+    ![CreateOrderDeliveryPipelineBuildStage](screenshots/CreateOrderDeliveryPipelineBuildStage.jpg)
+    3. Click the **Jobs** tab.
+    4. Click **ADD JOB**.
+    5. Click the **+** and select **Build** for the JOB TYPE.
 
+      ![AddBuildJobToOrderDeliveryPipelineBuildStage](screenshots/AddBuildJobToOrderDeliveryPipelineBuildStage.jpg)
 
-
+    6. On the Job configuration panel, note that:
+        1. 'Builder Type' is set to "Simple" (other options are available on the pull-down).
+        2. 'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
+![      BuildJobToOrderDeliveryPipelineBuildStageConfiguration](screenshots/BuildJobToOrderDeliveryPipelineBuildStageConfiguration.jpg)
 
   3. Add the **Dev** stage.
   4. Add the **Test** stage.
