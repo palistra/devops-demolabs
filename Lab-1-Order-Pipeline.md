@@ -26,7 +26,7 @@ Prior to running these labs, you must have a Bluemix account and access to a lab
 ## Task 2: Create Toolchain for Order
   1. Click on **DevOps**.
 
-        ![DevOps](screenshots/DevOpsImage.jpg)
+  ![DevOps](screenshots/DevOpsImage.jpg)
   2. Click on **Toolchains**.
 ![Toolchain](screenshots/ToolChain.jpg)
   3. Click on the **+** plus icon on the right side of the screen.
