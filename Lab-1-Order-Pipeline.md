@@ -28,13 +28,17 @@ Prior to running these labs, you must have a Bluemix account and access to a lab
 
   ![DevOps](screenshots/DevOpsImage.jpg)
   2. Click on **Toolchains**.
+
   ![Toolchain](screenshots/ToolChain.jpg)
   3. Click on the **+** plus icon on the right side of the screen.
-![AddToolchain](screenshots/AddToolchain.jpg)
+
+  ![AddToolchain](screenshots/AddToolchain.jpg)
   4. Click on **Build your own toolchain**.
-![BuildYourOwnToolchain](screenshots/BuildYourOwnToolchain.jpg)
+
+  ![BuildYourOwnToolchain](screenshots/BuildYourOwnToolchain.jpg)
   5. Under 'Toolchain Settings', enter the name "orders-toolchain-lab" and click **Create**.
-![BuildYourOwnToolchain](screenshots/OrdersToolchainName.jpg)
+
+  ![BuildYourOwnToolchain](screenshots/OrdersToolchainName.jpg)
 Your Toolchain is created and you are redirected to the Toolchain panel.
 
 ## Task 3: Add and Configure GitHub Integration for Order
@@ -43,11 +47,12 @@ The code for the Order microservice already exists in a GitHub repository (https
   1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
   2. Click on **GitHub** to add integration with GitHub to the Toolchain.
 
-![ClickOnGitHub](screenshots/ClickOnGitHub.jpg)
+  ![ClickOnGitHub](screenshots/ClickOnGitHub.jpg)
      1. Select 'Clone' as the Repository type.
      2. Enter "https://github.com/githubuserid/orders-api-toolchain-lab.git" for the New Repository Name.
      3. Enter "https://github.com/open-toolchain/Microservices_OrdersAPI" for the Source repository URL.
      4. Ensure The 'Enable GitHub Issues' checkbox is selected.
+
      ![CreateNewGitHub](screenshots/CreateNewGitHub.jpg)
      5. Click **Create Integration**.
   3. The orders-toolchain-lab tool integrations is displayed.
