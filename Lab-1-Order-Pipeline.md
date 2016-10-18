@@ -81,17 +81,19 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     ![CreateDeliveryPipelineResult](screenshots/CreateDeliveryPipelineResult.jpg)
 
 ## Task 5: Configure Order Delivery Pipeline
-  1. Now to configure the orders-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
-    * The **Build** stage has one job, performing the initial build of the code from the GitHub Repository.
-    * The **Dev** stage has one job, taking the output from the Build stage and deploying on Bluemix into the *dev* space.
-    * The **Test** stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the *qs* space, then performing automated tests.
-    * The **Prod** stage has one job, taking the output from the Prod stage and deploying on Bluemix into the *prod* space.
 
-    Click on the **Delivery Pipeline** tile.
-
-    ![ClickConfigureDeliveryToolchain](screenshots/ClickConfigureDeliveryToolchain.jpg)
-
-  2. Add the **Build** stage and jobs.
+<ol compact>
+<li>Now to configure the orders-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
+<ul compact>
+<li>The **Build** stage has one job, performing the initial build of the code from the GitHub Repository.
+<li>The **Dev** stage has one job, taking the output from the Build stage and deploying on Bluemix into the *dev* space.
+<li>The **Test** stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the *qs* space, then performing automated tests.
+<li>The **Prod** stage has one job, taking the output from the Prod stage and deploying on Bluemix into the *prod* space.
+</ul>
+<p>Click on the **Delivery Pipeline** tile.
+<br>
+<img src="screenshots/ClickConfigureDeliveryToolchain.jpg" alt="ClickConfigureDeliveryToolchain">
+<li>Add the **Build** stage and jobs.
     1. Click on **ADD STAGE**.
     2. On the **INPUT** tab, enter "Build" for Stage Name. Note that:
       * 'Input Type' is set to a SCM Repository, in this case, Git.
@@ -100,11 +102,10 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
       * 'Branch' is set to "Master".
       * 'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
 
-    ![CreateOrderDeliveryPipelineBuildStage](screenshots/CreateOrderDeliveryPipelineBuildStage.jpg)
-
-    3. Click the **Jobs** tab.
-    4. Click **ADD JOB**.
-    5. Click the **+** and select **Build** for the JOB TYPE.
+![CreateOrderDeliveryPipelineBuildStage](screenshots/CreateOrderDeliveryPipelineBuildStage.jpg)
+<li>Click the **Jobs** tab.
+<li>Click **ADD JOB**.
+<li>Click the **+** and select **Build** for the JOB TYPE.
 
       ![AddBuildJobToOrderDeliveryPipelineBuildStage](screenshots/AddBuildJobToOrderDeliveryPipelineBuildStage.jpg)
 
