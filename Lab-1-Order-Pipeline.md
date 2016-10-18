@@ -21,19 +21,19 @@ Prior to running these labs, you must have a Bluemix account and access to a lab
 
 ## Task 1: Log into IBM Bluemix
 1. If you are not already logged into IBM Bluemix, log into IBM Bluemix.
-![Bluemix](https://github.com/palistra/devops-demolabs/blob/master/screenshots/bluemix-login.jpg)
+![Bluemix](screenshots/bluemix-login.jpg)
 
 ## Task 2: Create Toolchain for Order
   1. Click on **DevOps**.
-![DevOps](https://github.com/palistra/devops-demolabs/blob/master/screenshots/DevOpsImage.jpg)
+![DevOps](screenshots/DevOpsImage.jpg)
   2. Click on **Toolchains**.
-![Toolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/ToolChain.jpg)
+![Toolchain](screenshots/ToolChain.jpg)
   3. Click on the **+** plus icon on the right side of the screen.
-![AddToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/AddToolchain.jpg)
+![AddToolchain](screenshots/AddToolchain.jpg)
   4. Click on **Build your own toolchain**.
-![BuildYourOwnToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/BuildYourOwnToolchain.jpg)
+![BuildYourOwnToolchain](screenshots/BuildYourOwnToolchain.jpg)
   5. Under 'Toolchain Settings', enter the name "orders-toolchain-lab" and click **Create**.
-![BuildYourOwnToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/OrdersToolchainName.jpg)
+![BuildYourOwnToolchain](screenshots/OrdersToolchainName.jpg)
 Your Toolchain is created and you are redirected to the Toolchain panel.
 
 ## Task 3: Add and Configure GitHub Integration for Order
@@ -41,15 +41,15 @@ The code for the Order microservice already exists in a GitHub repository (https
 
   1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
   2. Click on **GitHub** to add integration with GitHub to the Toolchain.
-![ClickOnGitHub](https://github.com/palistra/devops-demolabs/blob/master/screenshots/ClickOnGitHub.jpg)
+![ClickOnGitHub](screenshots/ClickOnGitHub.jpg)
      1. Select 'Clone' as the Repository type.
      2. Enter "https://github.com/githubuserid/orders-api-toolchain-lab.git" for the New Repository Name.
      3. Enter "https://github.com/open-toolchain/Microservices_OrdersAPI" for the Source repository URL.
      4. Ensure The 'Enable GitHub Issues' checkbox is selected.
-     ![CreateNewGitHub](https://github.com/palistra/devops-demolabs/blob/master/screenshots/CreateNewGitHub.jpg)
+     ![CreateNewGitHub](screenshots/CreateNewGitHub.jpg)
      5. Click **Create Integration**.
   3. The orders-toolchain-lab tool integrations is displayed.
-       ![CreateNewGitHubResult](https://github.com/palistra/devops-demolabs/blob/master/screenshots/CreateNewGitHubResult.jpg)
+       ![CreateNewGitHubResult](screenshots/CreateNewGitHubResult.jpg)
 
 ## Task 4: Add Order Delivery Pipeline
 Now that you have a Git repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
@@ -57,10 +57,10 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
   1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
   2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
   3. Under 'Pipeline name:', enter "orders-toolchain-lab" and select the 'Show apps in the VIEW APP menu' checkbox.
-  ![CreateDeliveryPipeline](https://github.com/palistra/devops-demolabs/blob/master/screenshots/CreateDeliveryPipeline.jpg)
+  ![CreateDeliveryPipeline](screenshots/CreateDeliveryPipeline.jpg)
   4. Click **Create Integration**.
   5. The orders-toolchain-lab delivery pipeline is displayed.
-    ![CreateDeliveryPipelineResult](https://github.com/palistra/devops-demolabs/blob/master/screenshots/CreateDeliveryPipelineResult.jpg)
+    ![CreateDeliveryPipelineResult](screenshots/CreateDeliveryPipelineResult.jpg)
 
 ## Task 5: Configure Order Delivery Pipeline
   1. Now to configure the orders-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
@@ -70,7 +70,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     4. The **Prod** stage has one job, taking the output from the Prod stage and deploying on Bluemix into the *prod* space.
 
     Click on the **Delivery Pipeline** tile.
-    ![ClickConfigureDeliveryToolchain](https://github.com/palistra/devops-demolabs/blob/master/screenshots/ClickConfigureDeliveryToolchain.jpg)
+    ![ClickConfigureDeliveryToolchain](screenshots/ClickConfigureDeliveryToolchain.jpg)
   2. Add the **Build** stage and jobs.
     1. Click on **ADD STAGE**.
     2. On the **INPUT** tab, enter "Build" for Stage Name. Note that:
@@ -129,7 +129,7 @@ Run Prod Stage
 
 ## Task 1: Log into IBM Bluemix
 1. If you are not already logged into IBM Bluemix, log into IBM Bluemix.
-![Bluemix](https://github.com/palistra/devops-demolabs/blob/master/screenshots/bluemix-login.jpg)
+![Bluemix](screenshots/bluemix-login.jpg)
 
 
 
@@ -196,7 +196,7 @@ Run Prod Stage
 ## Prerequisites
 
 Prior to running this lab, you must have a Bluemix account and access to a lab laptop.
-Instructions are available in [prereqs](https://github.com/palistra/devops-demolabs/blob/master/0-prereqs.md)
+Instructions are available in [prereqs](0-prereqs.md)
 to create your Bluemix account, log into the Bluemix UI, and create a unique namespace.
 
 ## Task 1: Verify your environment
