@@ -57,9 +57,9 @@ The code for the Order microservice already exists in a GitHub repository (https
 
      ![CreateNewGitHub](screenshots/CreateNewGitHub.jpg)
 
-     5. Click **Create Integration**.
+* Click **Create Integration**.
   3. The orders-toolchain-lab tool integrations is displayed.
-       ![CreateNewGitHubResult](screenshots/CreateNewGitHubResult.jpg)
+  ![CreateNewGitHubResult](screenshots/CreateNewGitHubResult.jpg)
 
 ## Task 4: Add Order Delivery Pipeline
 Now that you have a Git repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
