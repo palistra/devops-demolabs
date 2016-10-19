@@ -190,6 +190,8 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <img src="screenshots/CloneDevStageOrderDeliveryPipeline.jpg" alt="CloneDevStageOrderDeliveryPipeline">
     <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Test</b>.
     <li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>qa</b> (or enter <b>qa</b> if not on the dropdown) and change the deploy script to change CF_APP_NAME to "test-$CF_APP" from ""dev-$CF_APP".
+    <br>
+    <img src="screenshots/TestStageDeployStep.jpg" alt="TestStageDeployStep">
     <li>Add a new Job of type Test called <b>Test</b>.  There are a number of different Testers available. For this exercise, we will select the default Simple Tester. Enter the following code to the <b>Test Command</b>.
     <pre>    
       #!/bin/bash
@@ -198,8 +200,6 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
       echo "Testing App Name: ${CF_APP_NAME}."
       echo "Test has passed"
     </pre>
-    <br>
-    <img src="screenshots/TestStageDeployStep.jpg" alt="TestStageDeployStep">
     <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab. Note that the environment variable CF_APP_NAME is already present.
     <li>Click <b>Save</b> to save the <b>Test</b> stage.
     <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Dev</b> stage has not been run.
