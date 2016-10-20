@@ -2,14 +2,16 @@
 This series of labs shows how to set up a productive toolchain with a sample that consists of three microservices. After you finish this part of the series, you will be familiar with a toolchain that demonstrates practices from the IBM® Bluemix® Garage Method. Toolchains are available in the US South region only.
 
 ## Prerequisites
-Prior to running these labs, you must have a Bluemix account, a GitHub account and access to a lab laptop.
+Prior to running these labs, you must have a Bluemix account, a GitHub account and access to a lab laptop.  Follow the steps in Lab 0 to create one or both of those accounts.
 
+## Labs
 - [Lab 0: Create Bluemix and GitHub accounts](#lab-0-Create-Bluemix-and-GitHub-accounts)
 - [Lab 1: Set-up Toolchain for Order](#lab-1-Set-up-Toolchain-for-Order)
 - [Lab 2: Set-up Toolchain for Catalog](#lab-2-Set-up-Toolchain-for-Catalog)
 - [Lab 3: Set-up Toolchain for UI](#lab-3-Set-up-Toolchain-for-UI)
-- [Lab 4: Add Slack Integration](#lab-4-Add-Slack-Integration)
-- [Lab 5: Deliver a UI Change](#lab-5-Deliver-a-UI-Change)
+- [Lab 5: Add PagerDuty Integration](#lab-5-Add-PagerDuty-Integration)
+- [Lab 6: Add Slack Integration](#lab-6-Add-Slack-Integration)
+- [Lab 7: Deliver a UI Change](#lab-7-Deliver-a-UI-Change)
 
 # Lab 0: Create Bluemix and GitHub accounts
 **Tasks**:
@@ -279,7 +281,6 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
     <p>The <b>Prod</b> stage has been successfully added and executed.  The Orders application has been deployed to production.
 </ol>
-
 
 
 ## Task 3: Add and Configure GitHub Interation
@@ -560,4 +561,4 @@ In this task, we will log into the IBM Containers command line to connect to Blu
 - Downloaded two new Docker images to run locally on your development VM
 - Logged into the IBM Containers command line
 
-### Time to continue with [Lab 2 - Running Docker Images in IBM Containers](2-Running-Docker-Images-in-IBM-Containers.md)
+### Time to continue with [Lab 2 - zzRunning Docker Images in IBM Containers](2-Running-Docker-Images-in-IBM-Containers.md)
