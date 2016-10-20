@@ -479,7 +479,7 @@ First, you will need to pull them down locally from the public [DockerHub](https
         lc-mongo
         ```
 
-## Task 3: Log into IBM Containers using the CLI
+## Task 3: Log into IBM Containers using the CLIII
 
 In this task, we will log into the IBM Containers command line to connect to Bluemix running on the IBM Cloud.
 
