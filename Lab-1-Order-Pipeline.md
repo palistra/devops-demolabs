@@ -6,6 +6,8 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 
 ## Labs
 - [Lab 0: Create Bluemix and GitHub accounts](#lab-0-Create-Bluemix-and-GitHub-accounts)
+
+>- [Task 1: Verify your environment](#task-1-verify-your-environment)
 - [Lab 1: Set-up Toolchain for Order](#lab-1-Set-up-Toolchain-for-Order)
 - [Lab 2: Set-up Toolchain for Catalog](#lab-2-Set-up-Toolchain-for-Catalog)
 - [Lab 3: Set-up Toolchain for UI](#lab-3-Set-up-Toolchain-for-UI)
@@ -479,7 +481,7 @@ First, you will need to pull them down locally from the public [DockerHub](https
         lc-mongo
         ```
 
-## Task 3: Log into IBM Containers using the CLIII
+## Task 3: Log into IBM Containers using the CLI
 
 In this task, we will log into the IBM Containers command line to connect to Bluemix running on the IBM Cloud.
 
