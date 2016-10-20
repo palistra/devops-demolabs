@@ -2,13 +2,31 @@
 This series of labs shows how to set up a productive toolchain with a sample that consists of three microservices. After you finish this part of the series, you will be familiar with a toolchain that demonstrates practices from the IBM® Bluemix® Garage Method. Toolchains are available in the US South region only.
 
 ## Prerequisites
-Prior to running these labs, you must have a Bluemix account and access to a lab laptop.
+Prior to running these labs, you must have a Bluemix account, a GitHub account and access to a lab laptop.
 
+- [Lab 0: Create Bluemix and GitHub accounts](#lab-0-Create-Bluemix-and-GitHub-accounts)
 - [Lab 1: Set-up Toolchain for Order](#lab-1-Set-up-Toolchain-for-Order)
 - [Lab 2: Set-up Toolchain for Catalog](#lab-2-Set-up-Toolchain-for-Catalog)
 - [Lab 3: Set-up Toolchain for UI](#lab-3-Set-up-Toolchain-for-UI)
 - [Lab 4: Add Slack Integration](#lab-4-Add-Slack-Integration)
 - [Lab 5: Deliver a UI Change](#lab-5-Deliver-a-UI-Change)
+
+# Lab 0: Create Bluemix and GitHub accounts
+**Tasks**:
+- [Task 1: Create Bluemix account](#task-1-Create-Bluemix-account)
+- [Task 2: Create GitHub account](#task-2-Create-GitHub-account)
+
+## Task 1: Create Bluemix account
+1. If you already have a Bluemix account, skip this task.
+2. In a web browser, enter the following URL: https://console.ng.bluemix.net/
+3. Click on the SIGN UP button.
+4. Follow the directions to fill out the form. Note you will need access to your IBM eMail account in order to register.
+
+## Task 2: Create GitHub account
+1. If you already have a GitHub account, skip this task.
+2. In a web browser, enter the following URL: https://github.com/
+3. Click on the SIGN UP button.
+4. Follow the directions to fill out the form. Note you will need access to your IBM eMail account in order to register.
 
 # Lab 1: Set-up Toolchain for Order
 **Tasks**:
@@ -261,23 +279,6 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
     <p>The <b>Prod</b> stage has been successfully added and executed.  The Orders application has been deployed to production.
 </ol>
-
-
-
-
-
-
-
-   DThese will deploy (respectively) to the dev, qa and prod Bluemix spaces. The Dev and Prod stages will have one job each (deploy to the Bluemix space) while the Test stage will have two stages (deploy to the Bluemix space and perform an automated test).
-
-    On the 'Pipeline: All Stages' page, click **ADD STAGE**. The Stage Configuration page opens. 8.
-
-
-  8.
-    DThese will deploy (respectively) to the dev, qa and prod Bluemix spaces.  The Dev and Prod stages will have one job each (deploy to the Bluemix space) while the Test stage will have two stages (deploy to the Bluemix space and perform an automated test).
-
-  On the 'Pipeline: All Stages' page, click **ADD STAGE**. The Stage Configuration page opens.
-  8.
 
 
 
