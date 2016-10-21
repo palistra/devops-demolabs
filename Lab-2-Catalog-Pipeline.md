@@ -22,25 +22,28 @@ Now that you have experience working with Toolchains and Pipelines, the next lab
 ## Task 2: Add and Configure GitHub Integration for Catalog
 The code for the Catalog microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_CatalogAPI).  We will clone this repository and link to the clone.
 
-  1. Ensure you are on **devops-toolchain-lab** Tool Integration.
+  1. If you are not on **devops-toolchain-lab** Tool Integration.
 
   ![DevOpsToolchainLab](screenshots/DevOpsToolchainLab.jpg)
+perform the following steps:
 
-  If you are at this place:
-    - kkkkk
-    - kjjj
+<ol compact>
+<li>Click on the Bluemix Menu Bar
+<br>
+<img src="screenshots/BluemixMenuBar.jpg" alt="BluemixMenuBar">
+and select DevOps to display all the Toolchains.
+<li>Click on the **devops-toolchain-lab** tile.
+</ol>
 
-  ![BluemixMenuBar](screenshots/BluemixMenuBar.jpg)
 
-
-  1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
-  2. Click on **GitHub** to add integration with GitHub to the Toolchain.
-  3. Select 'Clone' as the Repository type.
-  4. Enter "https://github.com/githubuserid/catalog-api-toolchain-lab.git" for the New Repository Name.
-  5. Enter "https://github.com/open-toolchain/Microservices_CatalogAPI" for the Source repository URL.
-  6. Ensure the 'Enable GitHub Issues' checkbox is selected.
-  7. Click <b>Create Integration</b>.
-  8. The catalog-toolchain-lab tool integrations is displayed.
+  2. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
+  3. Click on **GitHub** to add integration with GitHub to the Toolchain.
+  4. Select 'Clone' as the Repository type.
+  5. Enter "https://github.com/githubuserid/catalog-api-toolchain-lab.git" for the New Repository Name.
+  6. Enter "https://github.com/open-toolchain/Microservices_CatalogAPI" for the Source repository URL.
+  7. Ensure the 'Enable GitHub Issues' checkbox is selected.
+  8. Click <b>Create Integration</b>.
+  9. The catalog-toolchain-lab tool integrations is displayed.
 
   ![CreateNewGitHubResult](screenshots/CreateNewGitHubResult.jpg)
 
