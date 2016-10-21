@@ -21,32 +21,30 @@ Now that you have experience working with Toolchains and Pipelines, the next lab
 
 ## Task 2: Add and Configure GitHub Integration for Catalog
 The code for the Catalog microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_CatalogAPI).  We will clone this repository and link to the clone.
-
-  1. If you are not on **devops-toolchain-lab** Tool Integration.
-
-  ![DevOpsToolchainLab](screenshots/DevOpsToolchainLab.jpg)
-
+<ol compact>
+<li>If you are not on <b>devops-toolchain-lab</b> Tool Integration.
+<br>
+<img src="screenshots/DevOpsToolchainLab.jpg" alt="DevOpsToolchainLab">
+<br>
 perform the following steps:
-
 <ol compact>
 <li>Click on the Bluemix Menu Bar
 <br>
 <img src="screenshots/BluemixMenuBar.jpg" alt="BluemixMenuBar">
-and select DevOps to display all the Toolchains.
-<li>Click on the **devops-toolchain-lab** tile.
+<br<and select DevOps to display all the Toolchains.
+<li>Click on the <b>devops-toolchain-lab</b> tile.
 </ol>
-
-
-  2. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
-  3. Click on **GitHub** to add integration with GitHub to the Toolchain.
-  4. Select 'Clone' as the Repository type.
-  5. Enter "https://github.com/githubuserid/catalog-api-toolchain-lab.git" for the New Repository Name.
-  6. Enter "https://github.com/open-toolchain/Microservices_CatalogAPI" for the Source repository URL.
-  7. Ensure the 'Enable GitHub Issues' checkbox is selected.
-  8. Click <b>Create Integration</b>.
-  9. The catalog-toolchain-lab tool integrations is displayed.
-
-  ![CreateNewGitHubResult](screenshots/CreateNewGitHubResult.jpg)
+<li>Click on the <b>+</b> plus icon on the right side of the screen to add a Tool Integration.
+<li>Click on<b>GitHub</b> to add integration with GitHub to the Toolchain.
+<li>Select 'Clone' as the Repository type.
+<li>Enter "https://github.com/githubuserid/catalog-api-toolchain-lab.git" for the New Repository Name.
+<li>Enter "https://github.com/open-toolchain/Microservices_CatalogAPI" for the Source repository URL.
+<li>Ensure the 'Enable GitHub Issues' checkbox is selected.
+<li>Click <b>Create Integration</b>.
+<li>The catalog-toolchain-lab tool integrations is displayed.
+<br>
+<img src="screenshots/CreateNewGitHubResult.jpg" alt="CreateNewGitHubResult">
+</ol>
 
 ## Task 3: Add Catalog Delivery Pipeline
 Now that you have a Git repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
