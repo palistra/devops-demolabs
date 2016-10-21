@@ -19,10 +19,10 @@ Prior to running this lab, inform the instructor of an email address you would l
    - Enter devopslab as the PagerDuty service name
    - Enter the email address you gave to the instructor as the primary contact email address.  Leave the phone number blank unless you want to receive text messages.
 
- 4. Click **Create Integration**
+4. Click **Create Integration**
 
   ![PagerDutySetup](screenshots/PagerDutySetup.jpg)
- 5. You will need to access the eMail account to accept the PagerDuty invitation.
+5. You will need to access the eMail account to accept the PagerDuty invitation.
 
 ## Task 2: Add Eclipse Orion Web IDE to Toolchain
 We want to modify the application and one way is to use the Web IDE.
