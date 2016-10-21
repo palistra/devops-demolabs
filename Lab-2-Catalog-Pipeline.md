@@ -25,6 +25,7 @@ The code for the Catalog microservice already exists in a GitHub repository (htt
   1. If you are not on **devops-toolchain-lab** Tool Integration.
 
   ![DevOpsToolchainLab](screenshots/DevOpsToolchainLab.jpg)
+
 perform the following steps:
 
 <ol compact>
