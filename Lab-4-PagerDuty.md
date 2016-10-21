@@ -16,17 +16,18 @@ Prior to running this lab, inform the instructor of an email address you would l
 2. Select **PagerDuty**
 3. On the PagerDuty Configuration page:
    - Enter Nb8ZxY6sAWKxLp1UhA_u as the API access key
-   - Enter devopsdemo as the PagerDuty service name
+   - Enter devopslab as the PagerDuty service name
    - Enter the email address you gave to the instructor as the primary contact email address.  Leave the phone number blank unless you want to receive text messages.
-
  4. Click **Create Integration**
 
   ![PagerDutySetup](screenshots/PagerDutySetup.jpg)
+ 5. You will need to access the eMail account to accept the PagerDuty invitation.
 
 ## Task 2: Add Eclipse Orion Web IDE to Toolchain
+We want to modify the application and one way is to use the Web IDE.
 1. On the toolchain's Tool Integrations page, click the add button **+**
 2. Select **Eclipse Orion Web IDE**.
-3. Click **Create Integration**
+3. No configuration is needed. so click **Create Integration**.
 
 ## Task 3: Verify PagerDuty works by breaking application build
   1. On the toolchain's Tool Integrations page, click the **Eclipse Orion Web IDE** tile. The GitHub repos are automatically loaded in your workspace. The Web IDE workspace is on the cloud.
