@@ -546,6 +546,7 @@ Now you want to send notifications to team members when something goes wrong. In
    - Enter Nb8ZxY6sAWKxLp1UhA_u as the API access key
    - Enter devopsdemo as the PagerDuty service name
    - Leave the primary contact email address and phone number blank
+   - OPTIONAL: If you can easily access an email account, enter that email address.  Check that account to accept the invitation to join PagerDuty.
  4. Click **Create Integration**
 
   ![PagerDutySetup](screenshots/PagerDutySetup.jpg)
@@ -560,8 +561,23 @@ Now you want to send notifications to team members when something goes wrong. In
 
   ![WebIDE](screenshots/WebIDE.jpg)
   7. Update the value for memory to 96g. This setting intentionally increases your memory to exceed the quota for your org. Your changes are automatically saved.
+  8. Now to Push the changes.  From the Eclipse Orion Web IDE menu, click the **Git** icon.
 
-  Your Toolchain is created and you are redirected to the Toolchain panel.
+  ![WebIDEGit](screenshots/WebIDEGit.jpg)
+
+  9. In the Working Directory Changes section, which is in the upper-right corner of the window, make sure that the changed file is selected.
+
+  ![WebIDEPush](screenshots/WebIDEPush.jpg)
+  11. Click **Commit** to put the changes in the local master branch.
+  12. Put these changes in the origin/master branch and click **Push**. Your changes are automatically built and deployed in the pipeline.
+  13. Return to your toolchain's Tool Integrations page and click the pipeline tile for the catalog-api microservice to watch the stages run in response to your commit.
+  14. The Deploy failed.
+
+  ![WebIDEDeployFailed](screenshots/WebIDEDeployFailed.jpg)
+  15. The PagerDuty console (which you cannot get to) shows the incident:
+
+  ![PagerDutyConsole](screenshots/PagerDutyConsole.jpg)
+
 
 ## Task 3: Fix application
 The code for the Catalog microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_CatalogAPI).  We will clone this repository and link to the clone.
