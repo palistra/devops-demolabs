@@ -8,7 +8,7 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 
 **Tasks**:
 - [Task 1: Create Bluemix account](#task-1-Create-Bluemix-account)
-- [Task 2: Create GitHub account](#task-2-Create-GitHub-account)
+- [Task 2: Create GitHub account](#task-2-create-github-account)
 
 - [Task 2: Deploy a container bound to Bluemix services](#task-2-deploy-a-container-bound-to-bluemix-services)
 
