@@ -11,7 +11,7 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 - [Lab 3: Set-up Toolchain for UI](#lab-3-Set-up-Toolchain-for-UI)
 - [Lab 4: Add PagerDuty Integration](#lab-4-Add-PagerDuty-Integration)
 - [Lab 5: Add Slack Integration](#lab-5-Add-Slack-Integration)
-- [Lab 7: Deliver a UI Change](#lab-7-Deliver-a-UI-Change)
+- [Lab 6: Deliver a UI Change](#lab-7-Deliver-a-UI-Change)
 
 # Lab 0: Create Bluemix and GitHub accounts
 **Tasks**:
@@ -37,7 +37,6 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 - [Task 3: Add and Configure GitHub Integration for Order](#task-3-add-and-configure-github-integration-for-order)
 - [Task 4: Add Order Delivery Pipeline](#task-4-add-order-delivery-pipeline)
 - [Task 5: Configure Order Delivery Pipeline](#task-4-configure-order-delivery-pipeline)
-- [Task 4: Add and Configure GitHub Integration for Order](#task-3-add-and-configure-github-integration-for-order)
 
 ## Task 1: Log into IBM Bluemix
 1. If you are not already logged into IBM Bluemix, log into IBM Bluemix.
@@ -56,9 +55,9 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
   4. Click on **Build your own toolchain**.
 
   ![BuildYourOwnToolchain](screenshots/BuildYourOwnToolchain.jpg)
-  5. Under 'Toolchain Settings', enter the name "orders-toolchain-lab" and click **Create**.
+  5. Under 'Toolchain Settings', enter the name "devops-toolchain-lab" and click **Create**.
 
-  ![BuildYourOwnToolchain](screenshots/OrdersToolchainName.jpg)
+  ![BuildYourOwnToolchain](screenshots/DevOpsToolchainName.jpg)
 
   Your Toolchain is created and you are redirected to the Toolchain panel.
 
@@ -83,7 +82,7 @@ The code for the Order microservice already exists in a GitHub repository (https
 <li>Click <b>Create Integration</b>.
 </ul>
 
-  The orders-toolchain-lab tool integrations is displayed.
+  The devops-toolchain-lab tool integrations is displayed.
 
   ![CreateNewGitHubResult](screenshots/CreateNewGitHubResult.jpg)
 
@@ -96,7 +95,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 
   ![CreateDeliveryPipeline](screenshots/CreateDeliveryPipeline.jpg)
   4. Click **Create Integration**.
-  5. The orders-toolchain-lab delivery pipeline is displayed.
+  5. The devops-toolchain-lab delivery pipeline is displayed.
 
     ![CreateDeliveryPipelineResult](screenshots/CreateDeliveryPipelineResult.jpg)
 
@@ -281,16 +280,229 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
     <p>The <b>Prod</b> stage has been successfully added and executed.  The Orders application has been deployed to production.
 </ol>
-*********************************************************************
+
+
+
+
 # Lab 2: Set-up Toolchain for Catalog
 Now that you have experience working with Toolchains and Pipelines, the next lab does not go into the same level of detail.  You may want to refer to the prior lab if you need additional details.  
 You will be creating the same set of artifacts for the Catalog application.
 **Tasks**:
-- [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-Bluemix)
-- [Task 2: Create Toolchain for Catalog](#task-2-create-toolchain-for-catalog)
-- [Task 3: Add and Configure GitHub Integration for Catalog](#task-3-add-and-configure-github-integration-for-catalog)
-- [Task 4: Add Catalog Delivery Pipeline](#task-4-add-catalog-delivery-pipeline)
-- [Task 5: Configure Catalog Delivery Pipeline](#task-4-configure-catalog-delivery-pipeline)
+- [Task 1: Create Toolchain for Catalog](#task-1-create-toolchain-for-catalog)
+- [Task 2: Add and Configure GitHub Integration for Catalog](#task-2-add-and-configure-github-integration-for-catalog)
+- [Task 3: Add Catalog Delivery Pipeline](#task-3-add-catalog-delivery-pipeline)
+- [Task 4: Configure Catalog Delivery Pipeline](#task-4-configure-catalog-delivery-pipeline)
+
+## Task 1: Create Toolchain for Catalog
+  1. Click on **DevOps**.
+  2. Click on **Toolchains**.
+  3. Click on the **+** plus icon on the right side of the screen.
+  4. Click on **Build your own toolchain**.
+  5. Under 'Toolchain Settings', enter the name "catalog-toolchain-lab" and click **Create**.
+
+  Your Toolchain is created and you are redirected to the Toolchain panel.
+
+## Task 2: Add and Configure GitHub Integration for Catalog
+The code for the Catalog microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_CatalogAPI).  We will clone this repository and link to the clone.
+
+  1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
+  2. Click on **GitHub** to add integration with GitHub to the Toolchain.
+  3. Select 'Clone' as the Repository type.
+  4. Enter "https://github.com/githubuserid/catalog-api-toolchain-lab.git" for the New Repository Name.
+  5. Enter "https://github.com/open-toolchain/Microservices_CatalogAPI" for the Source repository URL.
+  6. Ensure the 'Enable GitHub Issues' checkbox is selected.
+  7. Click <b>Create Integration</b>.
+  8. The catalog-toolchain-lab tool integrations is displayed.
+
+  ![CreateNewGitHubResult](screenshots/CreateNewGitHubResult.jpg)
+
+## Task 3: Add Catalog Delivery Pipeline
+Now that you have a Git repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
+
+  1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
+  2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
+  3. Under 'Pipeline name:', enter "catalog-toolchain-lab" and select the 'Show apps in the VIEW APP menu' checkbox.
+  4. Click **Create Integration**.
+  5. The catalog-toolchain-lab delivery pipeline is displayed.
+
+## Task 4: Configure Catalog Delivery Pipeline
+
+<ol compact>
+<li>Now to configure the catalog-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
+<ul compact>
+<li>The <b>Build</b> stage has one job, performing the initial build of the code from the GitHub Repository.
+<li>The <b>Dev</b> stage has one job, taking the output from the Build stage and deploying on Bluemix into the <i>dev</i> space.
+<li>The <b>Test</b> stage has two jobs, taking the output from the Dev stage and deploying on Bluemix into the <i>qa</i> space, then performing automated tests.
+<li>The <b>Prod</b> stage has one job, taking the output from the Test stage and deploying on Bluemix into the <i>prod</i> space.  This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
+</ul>
+<p>Click on the <b>Delivery Pipeline</b> tile for the catalog-toolchain-lab delivery pipeline.
+<li>Add the <b>Build</b> stage and jobs.
+<ol compact>
+    <li>Click on <b>ADD STAGE</b>.
+    <li>On the <b>INPUT</b> tab, enter "Build" for Stage Name. Note that:
+    <ul compact>
+    <li>'Input Type' is set to a SCM Repository, in this case, Git.
+    <li>'Git Repository' is set to the name of the Git Repository we just cloned.
+    _________________________________________
+    <li>'Git URL' is set to the URL of the Git Repository we just cloned.
+    <li>'Branch' is set to "Master".
+    <li>'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
+    </ul>
+    <li>Click the <b>Jobs</b> tab.
+    <li>Click <b>ADD JOB</b>.
+    <li>Click the <b>+</b> and select <b>Build</b> for the JOB TYPE.
+    <br>
+    <img src="screenshots/AddBuildJobToOrderDeliveryPipelineBuildStage.jpg" alt="AddBuildJobToOrderDeliveryPipelineBuildStage">
+    <li>On the Job configuration panel, note that:
+    <ul compact>
+    <li>'Builder Type' is set to "Simple" (other options are available on the pull-down).
+    <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
+    <br>
+    <img src="screenshots/BuildJobToOrderDeliveryPipelineBuildStageConfiguration.jpg" alt="BuildJobToOrderDeliveryPipelineBuildStageConfiguration">
+    </ul>
+    <li>Click <b>Save</b> to save the <b>Build</b> stage.
+    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> stage.  This stage has not been run. Click on the <b>Run Stage</b> icon to run the build.
+    <br>
+    <img src="screenshots/RunBuildButton.jpg" alt="RunBuildButton">
+    <p>The JOBS section shows the Build was successful.
+    <br>
+    <img src="screenshots/BuildSuccessful.jpg" alt="BuildSuccessful.jpg">
+    <p>The <b>Build</b> stage has been successfully added and executed.
+</ol>
+<li>Add the <b>Dev</b> stage and jobs (remember, just one job, deploying to the <i>dev</i> space).
+<ol compact>
+    <li>Click on <b>ADD STAGE</b>.
+    <li>On the <b>INPUT</b> tab, enter "Dev" for Stage Name. Note that:
+    <ul compact>
+    <li>'Input Type' is set to Build Artifacts (from the <b>Build</b> stage).
+    <li>'Stage' and 'Job' are both 'Build'.
+    <li>'Stage Trigger' is set to "Run jobs when the previous stage is completed", resulting in the Dev stage running when the <b>Build</b> stage successfully completes.
+    </ul>
+    <li>Click the <b>Jobs</b> tab.
+    <li>Click <b>ADD JOB</b>.
+    <li>Click the <b>+</b> and select <b>Deploy</b> for the JOB TYPE.
+    <li>On the Job configuration panel, note that:
+    <ul compact>
+    <li>'Deployer Type' is set to "Cloud Foundry" (other options are available on the pull-down).
+    <li>'Target' is set to "US South - https://api.ng/bluemix.net" as this is where the code will be deployed.
+    <li>'Space' is set to "dev" (or Create a new space called <b>dev</b> if not on the dropdown).
+    <li>Type the following into the "Deploy Script" section. This will create and deploy the cloudantNoSQLDB service:
+    <code>cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant</code>
+    then deploy the application:
+    <code>cf push "${CF_APP_NAME}"</code>.
+    <pre>    
+        #!/bin/bash
+        cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
+        # Push app
+        export CF_APP_NAME="dev-$CF_APP"
+        cf push "${CF_APP_NAME}"
+        echo "Pushed App Name: ${CF_APP_NAME}."
+        # View logs
+        #cf logs "${CF_APP_NAME}" --recent
+    </pre>    
+    <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
+    <br>
+    <img src="screenshots/DevStageDevJobOrderDeliveryPipeline.jpg" alt="DevStageDevJobOrderDeliveryPipeline.jpg">
+    </ul>
+    <li>The bash script just entered into the Deploy Script references the <i>CF_APP_NAME</i> environment variable ($CF_APP is provided by default).  CF_APP_NAME needs to be added to the environment variables.
+    <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab.
+    <li>Click <b>ADD PROPERTY</b> and select <b>Text Property</b>.
+    <li>Enter "CF_APP_NAME" as the 'Name'.  Do not enter anything for the 'Value'.
+    <li>Click <b>Save</b> to save the <b>Dev</b> stage.
+    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Dev</b> stage has not been run. Click on the <b>Run Stage</b> icon to run the <b>Dev</b> stage and deploy the order API.
+    <br>
+    <img src="screenshots/RunningDevStageOrderDeliveryPipeline.jpg" alt="RunningDevStageOrderDeliveryPipeline">
+    <p>The JOBS section shows the Deploy was successful. Click on "View logs and history" to the Job log.
+    <br>
+    <img src="screenshots/DevStageOrderDeliveryPipelineExecutionLog.jpg" alt="DevStageOrderDeliveryPipelineExecutionLog">
+    <li>LAST EXECUTION RESULT displays the url to the successfully deployed application (dev-catalog-toolchain-lab.mybluemix.net) as well as a link to the runtime log.
+    <br>
+    <img src="screenshots/DevStageOrderDeliveryPipelineExecutionResult.jpg" alt="DevStageOrderDeliveryPipelineExecutionResult">
+    <br>Click on "dev-catalog-toolchain-lab.mybluemix.net" to access the running application.
+    <br>
+    <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
+    <p>The <b>Dev</b> stage has been successfully added and executed.
+</ol>
+
+<li>Add the <b>Test</b> stage (remember, two jobs, one to deploy to the <i>test</i> space and another to perform an automated test).  We will clone the <b>Dev</b> stage and make some modifications.
+<ol compact>
+    <li>Ensure the <b>Delivery Pipeline</b> is displayed.
+    <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
+    <br>
+    <img src="screenshots/CloneDevStageOrderDeliveryPipeline.jpg" alt="CloneDevStageOrderDeliveryPipeline">
+    <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Test</b>.
+    <li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>qa</b> (or Create a new space called <b>qa</b> if not on the dropdown) and change the deploy script to change CF_APP_NAME to "test-$CF_APP" from "dev-$CF_APP".
+    <br>
+    <img src="screenshots/TestStageDeployStep.jpg" alt="TestStageDeployStep">
+    <li>Add a new Job of type Test called <b>Test</b>.  There are a number of different Testers available. For this exercise, we will select the default Simple Tester. Enter the following code to the <b>Test Command</b>.
+    <pre>    
+      #!/bin/bash
+      # invoke tests here
+      echo "Testing of App Name ${CF_APP_NAME} was successful"      
+    </pre>
+    <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab. Note the environment variable CF_APP_NAME is already present.
+    <li>Click <b>Save</b> to save the <b>Test</b> stage.
+    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Dev</b> stage has not been run.
+    Click on the <b>Run Stage</b> icon to run the <b>Dev</b> stage and deploy the order API to the <i>test</i> space.
+    <li>As before for the <b>Dev</b> stage, the JOBS section shows the Deploy and Test Jobs were successful. Click <b>Test</b> to display the log for the <b>Test</b> job.
+    <br>
+    <img src="screenshots/TestStageOrderDeliveryPipelineClickTestLog.jpg" alt="TestStageOrderDeliveryPipelineClickTestLog">
+    <li>The <b>Test</b> job was successful.
+    <br>
+    <img src="screenshots/TestStageOrderDeliveryPipelineSuccessfulTestLog.jpg" alt="TestStageOrderDeliveryPipelineSuccessfulTestLog">
+    <br>Click on "test-orders-toolchain-lab.mybluemix.net" to access the running application.
+    <p>The <b>Test</b> stage has been successfully added and executed.
+</ol>
+<li>Add the <b>Prod</b> stage (remember, one job, to deploy to the <i>prod</i> space).   This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
+<br>We will clone the <b>Dev</b> stage and make some modifications..
+<ol compact>
+
+<li>Ensure the <b>Delivery Pipeline</b> is displayed.
+    <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
+    <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Prod</b>.
+    <li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>prod</b> (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
+    <pre>
+      #!/bin/bash
+      cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
+      if ! cf app $CF_APP; then  
+        cf push $CF_APP
+      else
+        OLD_CF_APP=${CF_APP}-OLD-$(date +"%s")
+        rollback() {
+          set +e  
+          if cf app $OLD_CF_APP; then
+            cf logs $CF_APP --recent
+            cf delete $CF_APP -f
+            cf rename $OLD_CF_APP $CF_APP
+          fi
+          exit 1
+        }
+        set -e
+        trap rollback ERR
+        cf rename $CF_APP $OLD_CF_APP
+        cf push $CF_APP
+        cf delete $OLD_CF_APP -f
+      fi
+    </pre>     
+    <br>
+    <img src="screenshots/ProdStageDeployStep.jpg" alt="ProdStageDeployStep">
+    <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab. Note that the environment variable CF_APP_NAME is already present.
+    <li>Click <b>Save</b> to save the <b>Prod</b> stage.
+    <li>Click on <b>Run Stage</b> to run the <b>Prod</b> stage and deploy the order API to the <i>prod</i> space.
+    <li>The JOBS section shows the Deploy was successful. Inspect the Job log.
+    <br>
+    <img src="screenshots/ProdStageOrderDeliveryPipelineExecutionResult1.jpg" alt="ProdStageOrderDeliveryPipelineExecutionResult1">
+    <li>Redeploy the stage.  
+    <li>The JOBS section shows the Deploy was successful. Inspect the Job log.  Note the application was renamed, replace and the old version deleted.
+    <br>
+    <img src="screenshots/ProdStageOrderDeliveryPipelineExecutionResult3.jpg" alt="ProdStageOrderDeliveryPipelineExecutionResult3">
+    <br>
+    <img src="screenshots/ProdStageOrderDeliveryPipelineExecutionResult2.jpg" alt="ProdStageOrderDeliveryPipelineExecutionResult2">
+    <br>Click on the blue arrow to display the Delivery Pipeline. Click on "orders-toolchain-lab.mybluemix.net" to access the running application.
+    <br>
+    <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
+    <p>The <b>Prod</b> stage has been successfully added and executed.  The Orders application has been deployed to production.
+</ol>
 
 
 
@@ -298,14 +510,7 @@ You will be creating the same set of artifacts for the Catalog application.
 
 
 
-
-
-
-
-
-
-
-
+******************************************************************************************************************
 # Lab 3: Set-up Toolchain for UI
 You will be creating the pipeline for the UI application.
 **Tasks**:
@@ -314,10 +519,6 @@ You will be creating the pipeline for the UI application.
 - [Task 3: Add and Configure GitHub Integration for Catalog](#task-3-add-and-configure-github-integration-for-catalog)
 - [Task 4: Add Catalog Delivery Pipeline](#task-4-add-catalog-delivery-pipeline)
 - [Task 5: Configure Catalog Delivery Pipeline](#task-4-configure-catalog-delivery-pipeline)
-
-## Task 1: Log into IBM Bluemix
-1. If you are not already logged into IBM Bluemix, log into IBM Bluemix.
-![Bluemix](screenshots/bluemix-login.jpg)
 
 ## Task 2: Create Toolchain for Catalog
   1. Click on **DevOps**.
@@ -527,9 +728,6 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 # Lab 4: Add PagerDuty Integration
 Now you want to send notifications to team members when something goes wrong. In this part of the lab, you add PagerDuty your toolchain and configure it so people get notified when things go wrong so problems can be fixed faster and reduce downtime.
 
-
-
-
 **Tasks**:
 - [Task 1: Add PagerDuty to Toolchain](#task-1-add-pagerduty-to-toolchain)
 - [Task 2: Verify PagerDuty works by breaking application build](#task-2-verify-pagerduty-works-by-breaking-application-build)
@@ -577,271 +775,25 @@ Now you want to send notifications to team members when something goes wrong. In
   15. The PagerDuty console (which you cannot get to) shows the incident:
 
   ![PagerDutyConsole](screenshots/PagerDutyConsole.jpg)
+  16. If you entered an email account when you setup the PagerDuty integration, that account will have an email.  The link in the email will allow you to view the incident on PagerDuty.
 
+  ![PagerDutyeMail](screenshots/PagerDutyeMail.jpg)
 
 ## Task 3: Fix application
-The code for the Catalog microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_CatalogAPI).  We will clone this repository and link to the clone.
 
-  1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
-  2. Click on **GitHub** to add integration with GitHub to the Toolchain.
-  3. Select 'Clone' as the Repository type.
-  4. Enter "https://github.com/githubuserid/catalog-api-toolchain-lab.git" for the New Repository Name.
-  5. Enter "https://github.com/open-toolchain/Microservices_CatalogAPI" for the Source repository URL.
-  6. Ensure the 'Enable GitHub Issues' checkbox is selected.
-  7. Click <b>Create Integration</b>.
-  8. The catalog-toolchain-lab tool integrations is displayed.
+Now to fix the application.
+  1. On the toolchain's Tool Integrations page, click the **Eclipse Orion Web IDE** tile.
+  2. In the file navigator, expand the catalog-api-toolchain_name repo (if needed).
+  3. In the file directory, click manifest.yml to open the file.
+  4. Update the value for memory to 96m.
+  5. Now to Push the changes.  From the Eclipse Orion Web IDE menu, click the **Git** icon.
+  6. In the Working Directory Changes section, which is in the upper-right corner of the window, make sure that the changed file is selected.
+  7. Click **Commit** to put the changes in the local master branch.
+  8. Put these changes in the origin/master branch and click **Push**. Your changes are automatically built and deployed in the pipeline.
+  9. Return to your toolchain's Tool Integrations page and click the pipeline tile for the catalog-api microservice to watch the stages run in response to your commit.
+  10. The deploy is successful.  And all the downstream stages run afterwards.
 
-  ![CreateNewGitHubResult](screenshots/CreateNewGitHubResult.jpg)
-HEREHERE  api access key Nb8ZxY6sAWKxLp1UhA_u
-## Task 4: Add Catalog Delivery Pipeline
-Now that you have a Git repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
-
-  1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
-  2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
-  3. Under 'Pipeline name:', enter "orders-toolchain-lab" and select the 'Show apps in the VIEW APP menu' checkbox.
-
-  ![CreateDeliveryPipeline](screenshots/CreateDeliveryPipeline.jpg)
-  4. Click **Create Integration**.
-  5. The orders-toolchain-lab delivery pipeline is displayed.
-
-    ![CreateDeliveryPipelineResult](screenshots/CreateDeliveryPipelineResult.jpg)
-
-## Task 5: Configure Catalog Delivery Pipeline
-
-<ol compact>
-<li>Now to configure the orders-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
-<ul compact>
-<li>The <b>Build</b> stage has one job, performing the initial build of the code from the GitHub Repository.
-<li>The <b>Dev</b> stage has one job, taking the output from the Build stage and deploying on Bluemix into the <i>dev</i> space.
-<li>The <b>Test</b> stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the <i>qa</i> space, then performing automated tests.
-<li>The <b>Prod</b> stage has one job, taking the output from the Test stage and deploying on Bluemix into the <i>prod</i> space.  This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
-</ul>
-<p>Click on the <b>Delivery Pipeline</b> tile.
-<br>
-<img src="screenshots/ClickConfigureDeliveryToolchain.jpg" alt="ClickConfigureDeliveryToolchain">
-<li>Add the <b>Build</b> stage and jobs.
-<ol compact>
-    <li>Click on <b>ADD STAGE</b>.
-    <li>On the <b>INPUT</b> tab, enter "Build" for Stage Name. Note that:
-    <ul compact>
-    <li>'Input Type' is set to a SCM Repository, in this case, Git.
-    <li>'Git Repository' is set to the name of the Git Repository we just cloned.
-    <li>'Git URL' is set to the URL of the Git Repository we just cloned.
-    <li>'Branch' is set to "Master".
-    <li>'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
-    <br>
-    <img src="screenshots/CreateOrderDeliveryPipelineBuildStage.jpg" alt="CreateOrderDeliveryPipelineBuildStage">
-    </ul>
-    <li>Click the <b>Jobs</b> tab.
-    <li>Click <b>ADD JOB</b>.
-    <li>Click the <b>+</b> and select <b>Build</b> for the JOB TYPE.
-    <br>
-    <img src="screenshots/AddBuildJobToOrderDeliveryPipelineBuildStage.jpg" alt="AddBuildJobToOrderDeliveryPipelineBuildStage">
-    <li>On the Job configuration panel, note that:
-    <ul compact>
-    <li>'Builder Type' is set to "Simple" (other options are available on the pull-down).
-    <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
-    <br>
-    <img src="screenshots/BuildJobToOrderDeliveryPipelineBuildStageConfiguration.jpg" alt="BuildJobToOrderDeliveryPipelineBuildStageConfiguration">
-    </ul>
-    <li>Click <b>Save</b> to save the <b>Build</b> stage.
-    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> stage.  This stage has not been run. Click on the <b>Run Stage</b> icon to run the build.
-    <br>
-    <img src="screenshots/RunBuildButton.jpg" alt="RunBuildButton">
-    <p>The JOBS section shows the Build was successful.
-    <br>
-    <img src="screenshots/BuildSuccessful.jpg" alt="BuildSuccessful.jpg">
-    <p>The <b>Build</b> stage has been successfully added and executed.
-</ol>
-<li>Add the <b>Dev</b> stage and jobs (remember, just one job, deploying to the <i>dev</i> space).
-<ol compact>
-    <li>Click on <b>ADD STAGE</b>.
-    <li>On the <b>INPUT</b> tab, enter "Dev" for Stage Name. Note that:
-    <ul compact>
-    <li>'Input Type' is set to Build Artifacts (from the <b>Build</b> stage).
-    <li>'Stage' and 'Job' are both 'Build'.
-    <li>'Stage Trigger' is set to "Run jobs when the previous stage is completed", resulting in the Dev stage running when the <b>Build</b> stage successfully completes.
-    </ul>
-    <li>Click the <b>Jobs</b> tab.
-    <li>Click <b>ADD JOB</b>.
-    <li>Click the <b>+</b> and select <b>Deploy</b> for the JOB TYPE.
-    <li>On the Job configuration panel, note that:
-    <ul compact>
-    <li>'Deployer Type' is set to "Cloud Foundry" (other options are available on the pull-down).
-    <li>'Target' is set to "US South - https://api.ng/bluemix.net" as this is where the code will be deployed.
-    <li>'Space' is set to "dev" (or Create a new space called <b>dev</b> if not on the dropdown).
-    <li>Type the following into the "Deploy Script" section. This will create and deploy the cloudantNoSQLDB service:
-    <code>cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant</code>
-    then deploy the application:
-    <code>cf push "${CF_APP_NAME}"</code>.
-    <pre>    
-        #!/bin/bash
-        cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
-        # Push app
-        export CF_APP_NAME="dev-$CF_APP"
-        cf push "${CF_APP_NAME}"
-        echo "Pushed App Name: ${CF_APP_NAME}."
-        # View logs
-        #cf logs "${CF_APP_NAME}" --recent
-    </pre>    
-    <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
-    <br>
-    <img src="screenshots/DevStageDevJobOrderDeliveryPipeline.jpg" alt="DevStageDevJobOrderDeliveryPipeline.jpg">
-    </ul>
-    <li>The bash script just entered into the Deploy Script references the <i>CF_APP_NAME</i> environment variable ($CF_APP is provided by default).  CF_APP_NAME needs to be added to the environment variables.
-    <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab.
-    <li>Click <b>ADD PROPERTY</b> and select <b>Text Property</b>.
-    <li>Enter "CF_APP_NAME" as the 'Name'.  Do not enter anything for the 'Value'.
-    <li>Click <b>Save</b> to save the <b>Dev</b> stage.
-    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Dev</b> stage has not been run. Click on the <b>Run Stage</b> icon to run the <b>Dev</b> stage and deploy the order API.
-    <br>
-    <img src="screenshots/RunningDevStageOrderDeliveryPipeline.jpg" alt="RunningDevStageOrderDeliveryPipeline">
-    <p>The JOBS section shows the Deploy was successful. Click on "View logs and history" to the Job log.
-    <br>
-    <img src="screenshots/DevStageOrderDeliveryPipelineExecutionLog.jpg" alt="DevStageOrderDeliveryPipelineExecutionLog">
-    <li>LAST EXECUTION RESULT displays the url to the successfully deployed application (dev-catalog-toolchain-lab.mybluemix.net) as well as a link to the runtime log.
-    <br>
-    <img src="screenshots/DevStageOrderDeliveryPipelineExecutionResult.jpg" alt="DevStageOrderDeliveryPipelineExecutionResult">
-    <br>Click on "dev-catalog-toolchain-lab.mybluemix.net" to access the running application.
-    <br>
-    <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
-    <p>The <b>Dev</b> stage has been successfully added and executed.
-</ol>
-
-<li>Add the <b>Test</b> stage (remember, two jobs, one to deploy to the <i>test</i> space and another to perform an automated test).  We will clone the <b>Dev</b> stage and make some modifications.
-<ol compact>
-    <li>Ensure the <b>Delivery Pipeline</b> is displayed.
-    <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
-    <br>
-    <img src="screenshots/CloneDevStageOrderDeliveryPipeline.jpg" alt="CloneDevStageOrderDeliveryPipeline">
-    <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Test</b>.
-    <li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>qa</b> (or Create a new space called <b>qa</b> if not on the dropdown) and change the deploy script to change CF_APP_NAME to "test-$CF_APP" from "dev-$CF_APP".
-    <br>
-    <img src="screenshots/TestStageDeployStep.jpg" alt="TestStageDeployStep">
-    <li>Add a new Job of type Test called <b>Test</b>.  There are a number of different Testers available. For this exercise, we will select the default Simple Tester. Enter the following code to the <b>Test Command</b>.
-    <pre>    
-      #!/bin/bash
-      # invoke tests here
-      echo "Testing of App Name ${CF_APP_NAME} was successful"      
-    </pre>
-    <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab. Note the environment variable CF_APP_NAME is already present.
-    <li>Click <b>Save</b> to save the <b>Test</b> stage.
-    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Dev</b> stage has not been run.
-    Click on the <b>Run Stage</b> icon to run the <b>Dev</b> stage and deploy the order API to the <i>test</i> space.
-    <li>As before for the <b>Dev</b> stage, the JOBS section shows the Deploy and Test Jobs were successful. Click <b>Test</b> to display the log for the <b>Test</b> job.
-    <br>
-    <img src="screenshots/TestStageOrderDeliveryPipelineClickTestLog.jpg" alt="TestStageOrderDeliveryPipelineClickTestLog">
-    <li>The <b>Test</b> job was successful.
-    <br>
-    <img src="screenshots/TestStageOrderDeliveryPipelineSuccessfulTestLog.jpg" alt="TestStageOrderDeliveryPipelineSuccessfulTestLog">
-    <br>Click on "test-orders-toolchain-lab.mybluemix.net" to access the running application.
-    <p>The <b>Test</b> stage has been successfully added and executed.
-</ol>
-<li>Add the <b>Prod</b> stage (remember, one job, to deploy to the <i>prod</i> space).   This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
-<br>We will clone the <b>Dev</b> stage and make some modifications..
-<ol compact>
-
-<li>Ensure the <b>Delivery Pipeline</b> is displayed.
-    <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
-    <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Prod</b>.
-    <li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>prod</b> (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
-    <pre>
-      #!/bin/bash
-      cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
-      if ! cf app $CF_APP; then  
-        cf push $CF_APP
-      else
-        OLD_CF_APP=${CF_APP}-OLD-$(date +"%s")
-        rollback() {
-          set +e  
-          if cf app $OLD_CF_APP; then
-            cf logs $CF_APP --recent
-            cf delete $CF_APP -f
-            cf rename $OLD_CF_APP $CF_APP
-          fi
-          exit 1
-        }
-        set -e
-        trap rollback ERR
-        cf rename $CF_APP $OLD_CF_APP
-        cf push $CF_APP
-        cf delete $OLD_CF_APP -f
-      fi
-    </pre>     
-    <br>
-    <img src="screenshots/ProdStageDeployStep.jpg" alt="ProdStageDeployStep">
-    <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab. Note that the environment variable CF_APP_NAME is already present.
-    <li>Click <b>Save</b> to save the <b>Prod</b> stage.
-    <li>Click on <b>Run Stage</b> to run the <b>Prod</b> stage and deploy the order API to the <i>prod</i> space.
-    <li>The JOBS section shows the Deploy was successful. Inspect the Job log.
-    <br>
-    <img src="screenshots/ProdStageOrderDeliveryPipelineExecutionResult1.jpg" alt="ProdStageOrderDeliveryPipelineExecutionResult1">
-    <li>Redeploy the stage.  
-    <li>The JOBS section shows the Deploy was successful. Inspect the Job log.  Note the application was renamed, replace and the old version deleted.
-    <br>
-    <img src="screenshots/ProdStageOrderDeliveryPipelineExecutionResult3.jpg" alt="ProdStageOrderDeliveryPipelineExecutionResult3">
-    <br>
-    <img src="screenshots/ProdStageOrderDeliveryPipelineExecutionResult2.jpg" alt="ProdStageOrderDeliveryPipelineExecutionResult2">
-    <br>Click on the blue arrow to display the Delivery Pipeline. Click on "orders-toolchain-lab.mybluemix.net" to access the running application.
-    <br>
-    <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
-    <p>The <b>Prod</b> stage has been successfully added and executed.  The Orders application has been deployed to production.
-</ol>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-****************************************
-
-## Task 2: Create Toolchain
-## Task 3: Add and Configure GitHub Interation for UI
-1. Add
-2. Configure
-## Task 4: Add and Configure Delivery Pipeline for UI
-1. Add Delivery Pipeline
-2. Add and Configure Dev Environment Stage
-    1. Examine Input
-    2. Add Deploy Job
-    3. Examine Environment Properties
-3. Add and Configure Test Environment Stage
-    1. Examine Input
-    2. Add Deploy Job
-    3. Add Sauce Lab Job
-        1. Tester Type
-        2. Configure Service Instance
-    4. Examine Environment Properties
-4. Add and Configure Prod Environment Stage
-    1. Examine Input
-    2. Add Deploy Job
-    3. Examine Environment Properties
-
-
+  ![WebIDEDeploySuccess](screenshots/WebIDEDeploySuccess.jpg)
 
 
 
@@ -937,124 +889,9 @@ First, you will need to pull them down locally from the public [DockerHub](https
         Digest: sha256:98d1637b93a1fcc493bb00bb122602036b784e3cde25e8b3cae29abd15275206
         Status: Image is up to date for sdelements/lets-chat:latest
 
-3. You can verify that containers can be deployed from these images and are compatible by running the applications locally.  Use the following "docker run" commands to start the two container instances.  The output is the unique container identifier and verifies completion of the executed command.
-
-        Start a Mongo instance.  This will deploy a container that is running with the MongoDB inside.  
-        ```
-        $ docker run -d --name lc-mongo mongo  
-        6ef19c325f6fda8f5c0277337dd797d4e31113daa7da92fbe85fe70557bfcb49
-        ```
-
-
-        Start a Let's Chat instance.  This will deploy a container with the Let's Chat application and link this container to the previously deployed MongoDB container.   
-        ```
-        $ docker run -d --name lets-chat --link lc-mongo:mongo -p 8080:8080 sdelements/lets-chat
-        4180a983e329947196e317563037bfd0da093ab89add16911de90534c69a7822
-        ```
-
-4. Access the Let's Chat application through your browser using the loopback IP address (127.0.0.1).
-
-           In your browser, access http://127.0.0.1:8080 or http://localhost:8080 or http://system_ip_here:8080.  
-
-5. You can now stop and remove your local running containers.
-
-        Stop the containers:  
-        ```
-        $ docker stop lets-chat lc-mongo
-        lets-chat
-        lc-mongo
-        ```
-
-        Delete the containers:  
-        ```
-        $ docker rm lets-chat lc-mongo
-        lets-chat
-        lc-mongo
-        ```
-
 ## Task 3: Log into IBM Containers using the CLI
 
 In this task, we will log into the IBM Containers command line to connect to Bluemix running on the IBM Cloud.
-
-1. Back at your Terminal window, configure the Cloud Foundry CLI to work with the nearest IBM Bluemix region.  This ensures you will be working with the US South region of Bluemix.  To use the London datacenter, the API endpoint is "cf api https://api.eu-gb.bluemix.net".
-
-        $ cf api https://api.ng.bluemix.net
-        Setting api endpoint to https://api.ng.bluemix.net...
-        OK
-
-2. Log in to Bluemix through the Cloud Foundry CLI
-
-        $ cf login
-        API endpoint: https://api.ng.bluemix.net
-
-        Email> <ENTER_EMAIL_USED_WHEN_CREATING_BLUEMIX_ACCOUNT> i.e., osowski@us.ibm.com
-
-        Password>
-        Authenticating...
-        OK
-
-        Select an org (or press enter to skip):
-        1. osowski@us.ibm.com
-        2. IBM_Containers_Demo_Org
-
-        Org> 2
-        Targeted org IBM_Containers_Demo_Org
-
-        Targeted space IBM_Containers_Demo_Org
-
-
-
-        API endpoint:   https://api.ng.bluemix.net (API version: 2.40.0)   
-        User:           osowski@us.ibm.com   
-        Org:            IBM_Containers_Demo_Org   
-        Space:          IBM_Containers_Demo_Org
-
-3. Log in to the IBM Container service on Bluemix
-
-        $ cf ic login
-        Client certificates are being retrieved from IBM Containers...
-        Client certificates are being stored in /Users/osowski/.ice/certs/containers-api.ng.bluemix.net...
-        OK
-        Client certificates were retrieved.
-
-        Checking local Docker configuration...
-        OK
-
-        Authenticating with registry at host name registry.ng.bluemix.net
-        OK
-        Your container was authenticated with the IBM Containers registry.
-        Your private Bluemix repository is URL: registry.ng.bluemix.net/ibm_containers_demo
-
-        You can choose from two ways to use the Docker CLI with IBM Containers:
-
-        Option 1: This option allows you to use "cf ic" for managing containers on IBM Containers while still using the Docker CLI directly to manage your local Docker host.
-        	Use this Cloud Foundry IBM Containers plug-in without affecting the local Docker environment:
-
-        	Example Usage:
-        	cf ic ps
-        	cf ic images
-
-        Option 2: Use the Docker CLI directly. In this shell, override the local Docker environment to connect to IBM Containers by setting these variables. Copy and paste the following commands:
-        	Note: Only Docker commands followed by (Docker) are supported with this option.
-
- 	        export DOCKER_HOST=tcp://containers-api.ng.bluemix.net:8443
-         	export DOCKER_CERT_PATH=/Users/osowski/.ice/certs/containers-api.ng.bluemix.net
-         	export DOCKER_TLS_VERIFY=1
-
-        	Example Usage:
-        	docker ps
-        	docker images
-
-## Congratulations!!!  You have successfully accomplished Lab 1.
-
-#### Let's recap what you've accomplished thus far:
-
-- Verified your Docker version
-- Downloaded and ran your first Docker container
-- Downloaded two new Docker images to run locally on your development VM
-- Logged into the IBM Containers command line
-
-### Time to continue with [Lab 2 - zzRunning Docker Images in IBM Containers](2-Running-Docker-Images-in-IBM-Containers.md)
 
 
 
