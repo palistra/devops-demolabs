@@ -733,10 +733,6 @@ Now you want to send notifications to team members when something goes wrong. In
 - [Task 2: Verify PagerDuty works by breaking application build](#task-2-verify-pagerduty-works-by-breaking-application-build)
 - [Task 3: Fix application](#task-3-fix-application)
 
-
-- [Task 4: Add Catalog Delivery Pipeline](#task-4-add-catalog-delivery-pipeline)
-- [Task 5: Configure Catalog Delivery Pipeline](#task-4-configure-catalog-delivery-pipeline)
-
 ## Task 1: Add PagerDuty to Toolchain
 1. On the toolchain's Tool Integrations page, click the add button **+**
 2. Select **PagerDuty**
