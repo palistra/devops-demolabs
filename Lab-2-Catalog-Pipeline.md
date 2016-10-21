@@ -1,89 +1,59 @@
-# Lab 1: Set-up Toolchain for Order
+# Lab 2: Set-up Toolchain for Catalog
 
 ## Objective
-This lab creates and configures the Toolchain for the Order application.
+This lab creates and configures the Toolchain for the Catalog application.
+Now that you have experience working with Toolchains and Pipelines, the next lab does not go into the same level of detail.  You may want to refer to the prior lab if you need additional details.  
+You will be creating the same set of artifacts for the Catalog application.
 
 **Tasks**:
-- [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-Bluemix)
-- [Task 2: Create Toolchain for Order](#task-2-create-toolchain-for-order)
-- [Task 3: Add and Configure GitHub Integration for Order](#task-3-add-and-configure-github-integration-for-order)
-- [Task 4: Add Order Delivery Pipeline](#task-4-add-order-delivery-pipeline)
-- [Task 5: Configure Order Delivery Pipeline](#task-4-configure-order-delivery-pipeline)
+- [Task 1: Create Toolchain for Catalog](#task-1-create-toolchain-for-catalog)
+- [Task 2: Add and Configure GitHub Integration for Catalog](#task-2-add-and-configure-github-integration-for-catalog)
+- [Task 3: Add Catalog Delivery Pipeline](#task-3-add-catalog-delivery-pipeline)
+- [Task 4: Configure Catalog Delivery Pipeline](#task-4-configure-catalog-delivery-pipeline)
 
-## Task 1: Log into IBM Bluemix
-1. If you are not already logged into IBM Bluemix, log into IBM Bluemix.
-![Bluemix](screenshots/bluemix-login.jpg)
-
-## Task 2: Create Toolchain for Order
+## Task 1: Create Toolchain for Catalog
   1. Click on **DevOps**.
-
-  ![DevOps](screenshots/DevOpsImage.jpg)
   2. Click on **Toolchains**.
-
-  ![Toolchain](screenshots/ToolChain.jpg)
   3. Click on the **+** plus icon on the right side of the screen.
-
-  ![AddToolchain](screenshots/AddToolchain.jpg)
   4. Click on **Build your own toolchain**.
-
-  ![BuildYourOwnToolchain](screenshots/BuildYourOwnToolchain.jpg)
-  5. Under 'Toolchain Settings', enter the name "devops-toolchain-lab" and click **Create**.
-
-  ![BuildYourOwnToolchain](screenshots/DevOpsToolchainName.jpg)
+  5. Under 'Toolchain Settings', enter the name "catalog-toolchain-lab" and click **Create**.
 
   Your Toolchain is created and you are redirected to the Toolchain panel.
 
-## Task 3: Add and Configure GitHub Integration for Order
-The code for the Order microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_OrdersAPI).  We will clone this repository and link to the clone.
+## Task 2: Add and Configure GitHub Integration for Catalog
+The code for the Catalog microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_CatalogAPI).  We will clone this repository and link to the clone.
 
   1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
   2. Click on **GitHub** to add integration with GitHub to the Toolchain.
-
-  ![ClickOnGitHub](screenshots/ClickOnGitHub.jpg)
-
-<ul>
-<li>Select 'Clone' as the Repository type.
-<li>Enter "https://github.com/githubuserid/orders-api-toolchain-lab.git" for the New Repository Name.
-<li>Enter "https://github.com/open-toolchain/Microservices_OrdersAPI" for the Source repository URL.
-<li>Ensure the 'Enable GitHub Issues' checkbox is selected.
-</ul>
-
-![CreateNewGitHub](screenshots/CreateNewGitHub.jpg)
-
-<ul>     
-<li>Click <b>Create Integration</b>.
-</ul>
-
-  The devops-toolchain-lab tool integrations is displayed.
+  3. Select 'Clone' as the Repository type.
+  4. Enter "https://github.com/githubuserid/catalog-api-toolchain-lab.git" for the New Repository Name.
+  5. Enter "https://github.com/open-toolchain/Microservices_CatalogAPI" for the Source repository URL.
+  6. Ensure the 'Enable GitHub Issues' checkbox is selected.
+  7. Click <b>Create Integration</b>.
+  8. The catalog-toolchain-lab tool integrations is displayed.
 
   ![CreateNewGitHubResult](screenshots/CreateNewGitHubResult.jpg)
 
-## Task 4: Add Order Delivery Pipeline
+## Task 3: Add Catalog Delivery Pipeline
 Now that you have a Git repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
 
   1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
   2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
-  3. Under 'Pipeline name:', enter "orders-toolchain-lab" and select the 'Show apps in the VIEW APP menu' checkbox.
-
-  ![CreateDeliveryPipeline](screenshots/CreateDeliveryPipeline.jpg)
+  3. Under 'Pipeline name:', enter "catalog-toolchain-lab" and select the 'Show apps in the VIEW APP menu' checkbox.
   4. Click **Create Integration**.
-  5. The devops-toolchain-lab delivery pipeline is displayed.
+  5. The catalog-toolchain-lab delivery pipeline is displayed.
 
-    ![CreateDeliveryPipelineResult](screenshots/CreateDeliveryPipelineResult.jpg)
-
-## Task 5: Configure Order Delivery Pipeline
+## Task 4: Configure Catalog Delivery Pipeline
 
 <ol compact>
-<li>Now to configure the orders-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
+<li>Now to configure the catalog-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
 <ul compact>
 <li>The <b>Build</b> stage has one job, performing the initial build of the code from the GitHub Repository.
 <li>The <b>Dev</b> stage has one job, taking the output from the Build stage and deploying on Bluemix into the <i>dev</i> space.
-<li>The <b>Test</b> stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the <i>qa</i> space, then performing automated tests.
+<li>The <b>Test</b> stage has two jobs, taking the output from the Dev stage and deploying on Bluemix into the <i>qa</i> space, then performing automated tests.
 <li>The <b>Prod</b> stage has one job, taking the output from the Test stage and deploying on Bluemix into the <i>prod</i> space.  This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
 </ul>
-<p>Click on the <b>Delivery Pipeline</b> tile.
-<br>
-<img src="screenshots/ClickConfigureDeliveryToolchain.jpg" alt="ClickConfigureDeliveryToolchain">
+<p>Click on the <b>Delivery Pipeline</b> tile for the catalog-toolchain-lab delivery pipeline.
 <li>Add the <b>Build</b> stage and jobs.
 <ol compact>
     <li>Click on <b>ADD STAGE</b>.
@@ -91,11 +61,10 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <ul compact>
     <li>'Input Type' is set to a SCM Repository, in this case, Git.
     <li>'Git Repository' is set to the name of the Git Repository we just cloned.
+    _________________________________________
     <li>'Git URL' is set to the URL of the Git Repository we just cloned.
     <li>'Branch' is set to "Master".
     <li>'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
-    <br>
-    <img src="screenshots/CreateOrderDeliveryPipelineBuildStage.jpg" alt="CreateOrderDeliveryPipelineBuildStage">
     </ul>
     <li>Click the <b>Jobs</b> tab.
     <li>Click <b>ADD JOB</b>.
@@ -164,10 +133,10 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <p>The JOBS section shows the Deploy was successful. Click on "View logs and history" to the Job log.
     <br>
     <img src="screenshots/DevStageOrderDeliveryPipelineExecutionLog.jpg" alt="DevStageOrderDeliveryPipelineExecutionLog">
-    <li>LAST EXECUTION RESULT displays the url to the successfully deployed application (dev-orders-toolchain-lab.mybluemix.net) as well as a link to the runtime log.
+    <li>LAST EXECUTION RESULT displays the url to the successfully deployed application (dev-catalog-toolchain-lab.mybluemix.net) as well as a link to the runtime log.
     <br>
     <img src="screenshots/DevStageOrderDeliveryPipelineExecutionResult.jpg" alt="DevStageOrderDeliveryPipelineExecutionResult">
-    <br>Click on "dev-orders-toolchain-lab.mybluemix.net" to access the running application.
+    <br>Click on "dev-catalog-toolchain-lab.mybluemix.net" to access the running application.
     <br>
     <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
     <p>The <b>Dev</b> stage has been successfully added and executed.
