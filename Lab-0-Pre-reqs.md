@@ -7,12 +7,8 @@ This lab sets up the pre-requisite accounts for the remaining labs.
 Prior to running these labs, you must have a Bluemix account, a GitHub account and access to a lab laptop.  Follow the steps in Lab 0 to create one or both of those accounts.
 
 **Tasks**:
-- [Task 1: Create Bluemix account](#task-1-Create-Bluemix-account)
+- [Task 1: Create Bluemix account](#task-1-create-bluemix-account)
 - [Task 2: Create GitHub account](#task-2-create-github-account)
-
-- [Task 2: Deploy a container bound to Bluemix services](#task-2-deploy-a-container-bound-to-bluemix-services)
-
-## Task 2: Deploy a container bound to Bluemix services
 
 ## Task 1: Create Bluemix account
 1. If you already have a Bluemix account, skip this task.
