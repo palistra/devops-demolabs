@@ -11,6 +11,7 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 - [Task 2: Create GitHub account](#task-2-create-github-account)
 
 ## Task 1: Create Bluemix account
+
 1. If you already have a Bluemix account, skip this task.
 2. In a web browser, enter the following URL: https://console.ng.bluemix.net/
 3. Click on the SIGN UP button.

@@ -4,7 +4,7 @@
 This lab creates and configures the Toolchain for the Order application.
 
 **Tasks**:
-- [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-Bluemix)
+- [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-bluemix)
 - [Task 2: Create Toolchain](#task-2-create-toolchain)
 - [Task 3: Add and Configure GitHub Integration for Order](#task-3-add-and-configure-github-integration-for-order)
 - [Task 4: Add Order Delivery Pipeline](#task-4-add-order-delivery-pipeline)
