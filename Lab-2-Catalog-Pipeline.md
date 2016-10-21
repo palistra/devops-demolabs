@@ -36,8 +36,6 @@ The code for the Catalog microservice already exists in a GitHub repository (htt
 <li>Ensure the 'Enable GitHub Issues' checkbox is selected.
 <li>Click <b>Create Integration</b>.
 <li>The catalog-toolchain-lab tool integrations is displayed.
-<br>
-<img src="screenshots/CreateNewGitHubResult.jpg" alt="CreateNewGitHubResult">
 </ol>
 
 ## Task 3: Add Catalog Delivery Pipeline

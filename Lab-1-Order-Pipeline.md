@@ -96,7 +96,6 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>'Branch' is set to "Master".
     <li>'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
     <br>
-    UPDATE SCREEN SHOT
     <img src="screenshots/CreateOrderDeliveryPipelineBuildStage.jpg" alt="CreateOrderDeliveryPipelineBuildStage">
     </ul>
     <li>Click the <b>Jobs</b> tab.
