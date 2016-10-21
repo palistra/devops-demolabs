@@ -1,8 +1,7 @@
 # Lab 2: Set-up Toolchain for Catalog
 
 ## Objective
-This lab adds the Catalog application to the Toolchain.  
-Now that you have experience working with Toolchains and Pipelines, the next lab does not go into the same level of detail.  You may want to refer to the prior lab if you need additional details as you will be creating the same set of artifacts for the Catalog application.
+This lab adds the Catalog application to the Toolchain.  And now that you have experience working with Toolchains and Pipelines, the next lab does not go into the same level of detail.  You may want to refer to the prior lab if you need additional details as you will be creating the same set of artifacts for the Catalog application.
 
 **Tasks**:
 - [Task 1: Go to devops-toolchain](#task-1-go-to-devops-toolchain)
@@ -16,13 +15,12 @@ Now that you have experience working with Toolchains and Pipelines, the next lab
 <li>If you are not on <b>devops-toolchain-lab</b> Tool Integration.
 <br>
 <img src="screenshots/DevOpsToolchainLab.jpg" alt="DevOpsToolchainLab">
-<br>
-perform the following steps:
-<ol compact>
+<p>perform the following steps:
+<ol>
 <li>Click on the Bluemix Menu Bar
 <br>
 <img src="screenshots/BluemixMenuBar.jpg" alt="BluemixMenuBar">
-<br<and select DevOps to display all the Toolchains.
+<li>Select DevOps to display all the Toolchains.
 <li>Click on the <b>devops-toolchain-lab</b> tile.
 </ol>
 
@@ -30,7 +28,7 @@ perform the following steps:
 The code for the Catalog microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_CatalogAPI).  We will clone this repository and link to the clone.
 <ol>
 <li>Click on the <b>+</b> plus icon on the right side of the screen to add a Tool Integration.
-<li>Click on<b>GitHub</b> to add integration with GitHub to the Toolchain.
+<li>Click on <b>GitHub</b> to add integration with GitHub to the Toolchain.
 <li>Select 'Clone' as the Repository type.
 <li>Enter "https://github.com/githubuserid/catalog-api-toolchain-lab.git" for the New Repository Name.
 <li>Enter "https://github.com/open-toolchain/Microservices_CatalogAPI" for the Source repository URL.
