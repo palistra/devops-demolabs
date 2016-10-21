@@ -1,26 +1,17 @@
 # Lab 2: Set-up Toolchain for Catalog
 
 ## Objective
-This lab creates and configures the Toolchain for the Catalog application.
+This lab adds the Catalog application to the Toolchain.  
 Now that you have experience working with Toolchains and Pipelines, the next lab does not go into the same level of detail.  You may want to refer to the prior lab if you need additional details as you will be creating the same set of artifacts for the Catalog application.
 
 **Tasks**:
-- [Task 1: Create Toolchain for Catalog](#task-1-create-toolchain-for-catalog)
-- [Task 2: Add and Configure GitHub Integration for Catalog](#task-2-add-and-configure-github-integration-for-catalog)
-- [Task 3: Add Catalog Delivery Pipeline](#task-3-add-catalog-delivery-pipeline)
-- [Task 4: Configure Catalog Delivery Pipeline](#task-4-configure-catalog-delivery-pipeline)
+- [Task 1: Go to devops-toolchain](#task-1-go-to-devops-toolchain)
+- [Task 2: Create Toolchain for Catalog](#task-1-create-toolchain-for-catalog)
+- [Task 3: Add and Configure GitHub Integration for Catalog](#task-2-add-and-configure-github-integration-for-catalog)
+- [Task 4: Add Catalog Delivery Pipeline](#task-3-add-catalog-delivery-pipeline)
+- [Task 5: Configure Catalog Delivery Pipeline](#task-4-configure-catalog-delivery-pipeline)
 
-## Task 1: Create Toolchain for Catalog
-  1. Click on **DevOps**.
-  2. Click on **Toolchains**.
-  3. Click on the **+** plus icon on the right side of the screen.
-  4. Click on **Build your own toolchain**.
-  5. Under 'Toolchain Settings', enter the name "catalog-toolchain-lab" and click **Create**.
-
-  Your Toolchain is created and you are redirected to the Toolchain panel.
-
-## Task 2: Add and Configure GitHub Integration for Catalog
-The code for the Catalog microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_CatalogAPI).  We will clone this repository and link to the clone.
+## Task 1: Go to devops-toolchain
 <ol compact>
 <li>If you are not on <b>devops-toolchain-lab</b> Tool Integration.
 <br>
@@ -34,6 +25,10 @@ perform the following steps:
 <br<and select DevOps to display all the Toolchains.
 <li>Click on the <b>devops-toolchain-lab</b> tile.
 </ol>
+
+## Task 2: Add and Configure GitHub Integration for Catalog
+The code for the Catalog microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_CatalogAPI).  We will clone this repository and link to the clone.
+<ol>
 <li>Click on the <b>+</b> plus icon on the right side of the screen to add a Tool Integration.
 <li>Click on<b>GitHub</b> to add integration with GitHub to the Toolchain.
 <li>Select 'Clone' as the Repository type.
