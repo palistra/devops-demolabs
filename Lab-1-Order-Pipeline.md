@@ -551,11 +551,15 @@ Now you want to send notifications to team members when something goes wrong. In
   ![PagerDutySetup](screenshots/PagerDutySetup.jpg)
 
 ## Task 2: Verify PagerDuty works by breaking application build
-  1. Click on **DevOps**.
-  2. Click on **Toolchains**.
-  3. Click on the **+** plus icon on the right side of the screen.
-  4. Click on **Build your own toolchain**.
-  5. Under 'Toolchain Settings', enter the name "catalog-toolchain-lab" and click **Create**.
+  1. On the toolchain's Tool Integrations page, click the add button **+**
+  2. Select **Eclipse Orion Web IDE**.
+  3. Click **Create Integration**
+  4. On the toolchain's Tool Integrations page, click the **Eclipse Orion Web IDE** tile. The GitHub repos are automatically loaded in your workspace. The Web IDE workspace is on the cloud.
+  5. In the file navigator, expand the catalog-api-toolchain_name repo (if needed).
+  6. In the file directory, click manifest.yml to open the file.
+
+  ![WebIDE](screenshots/WebIDE.jpg)
+  7. Update the value for memory to 96g. This setting intentionally increases your memory to exceed the quota for your org. Your changes are automatically saved.
 
   Your Toolchain is created and you are redirected to the Toolchain panel.
 
