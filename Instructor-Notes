@@ -19,3 +19,15 @@ Slack:
   Name:
   Admin: BluemixDevOps
   PW: bluemix4me
+-------------------------------------------------------------------------------
+Student IDs needed:
+  Bluemix - https://console.ng.bluemix.net/registration/
+  GitHub - https://github.com/join
+  PagerDuty -   https://pagerduty.com/
+  Slack - https://slack.com/
+
+
+  Three microservices
+  - Order - https://github.com/open-toolchain/Microservices_OrdersAPI
+  - Catalog - https://github.com/open-toolchain/Microservices_CatalogAPI
+  - UI - https://github.com/open-toolchain/Microservices_UI

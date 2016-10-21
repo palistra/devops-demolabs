@@ -5,7 +5,7 @@ This lab creates and configures the Toolchain for the Order application.
 
 **Tasks**:
 - [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-Bluemix)
-- [Task 2: Create Toolchain for Order](#task-2-create-toolchain-for-order)
+- [Task 2: Create Toolchain](#task-2-create-toolchain)
 - [Task 3: Add and Configure GitHub Integration for Order](#task-3-add-and-configure-github-integration-for-order)
 - [Task 4: Add Order Delivery Pipeline](#task-4-add-order-delivery-pipeline)
 - [Task 5: Configure Order Delivery Pipeline](#task-4-configure-order-delivery-pipeline)
@@ -14,7 +14,7 @@ This lab creates and configures the Toolchain for the Order application.
 1. If you are not already logged into IBM Bluemix, log into IBM Bluemix.
 ![Bluemix](screenshots/bluemix-login.jpg)
 
-## Task 2: Create Toolchain for Order
+## Task 2: Create Toolchain
   1. Click on **DevOps**.
 
   ![DevOps](screenshots/DevOpsImage.jpg)
@@ -86,7 +86,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 <br>
 <img src="screenshots/ClickConfigureDeliveryToolchain.jpg" alt="ClickConfigureDeliveryToolchain">
 <li>Add the <b>Build</b> stage and jobs.
-<ol compact>
+<ol>
     <li>Click on <b>ADD STAGE</b>.
     <li>On the <b>INPUT</b> tab, enter "Build" for Stage Name. Note that:
     <ul compact>
@@ -96,6 +96,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>'Branch' is set to "Master".
     <li>'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
     <br>
+    UPDATE SCREEN SHOT
     <img src="screenshots/CreateOrderDeliveryPipelineBuildStage.jpg" alt="CreateOrderDeliveryPipelineBuildStage">
     </ul>
     <li>Click the <b>Jobs</b> tab.
@@ -175,7 +176,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 </ol>
 
 <li>Add the <b>Test</b> stage (remember, two jobs, one to deploy to the <i>test</i> space and another to perform an automated test).  We will clone the <b>Dev</b> stage and make some modifications.
-<ol compact>
+<ol>
     <li>Ensure the <b>Delivery Pipeline</b> is displayed.
     <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
     <br>
@@ -192,8 +193,8 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     </pre>
     <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab. Note the environment variable CF_APP_NAME is already present.
     <li>Click <b>Save</b> to save the <b>Test</b> stage.
-    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Dev</b> stage has not been run.
-    Click on the <b>Run Stage</b> icon to run the <b>Dev</b> stage and deploy the order API to the <i>test</i> space.
+    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Test</b> stage has not been run.
+    Click on the <b>Run Stage</b> icon to run the <b>Test</b> stage and deploy the order API to the <i>test</i> space.
     <li>As before for the <b>Dev</b> stage, the JOBS section shows the Deploy and Test Jobs were successful. Click <b>Test</b> to display the log for the <b>Test</b> job.
     <br>
     <img src="screenshots/TestStageOrderDeliveryPipelineClickTestLog.jpg" alt="TestStageOrderDeliveryPipelineClickTestLog">
@@ -203,14 +204,16 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <br>Click on "test-orders-toolchain-lab.mybluemix.net" to access the running application.
     <p>The <b>Test</b> stage has been successfully added and executed.
 </ol>
-<li>Add the <b>Prod</b> stage (remember, one job, to deploy to the <i>prod</i> space).   This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
-<br>We will clone the <b>Dev</b> stage and make some modifications..
-<ol compact>
+
+
+<li>Add the <b>Prod</b> stage (remember, one job to deploy to the <i>prod</i> space).   This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
+<br>We will clone the <b>Dev</b> stage and make some modifications.
+<ol>
 
 <li>Ensure the <b>Delivery Pipeline</b> is displayed.
-    <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
-    <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Prod</b>.
-    <li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>prod</b> (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
+<li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
+<li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Prod</b>.
+<li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>prod</b> (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
     <pre>
       #!/bin/bash
       cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
@@ -236,14 +239,14 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     </pre>     
     <br>
     <img src="screenshots/ProdStageDeployStep.jpg" alt="ProdStageDeployStep">
-    <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab. Note that the environment variable CF_APP_NAME is already present.
-    <li>Click <b>Save</b> to save the <b>Prod</b> stage.
-    <li>Click on <b>Run Stage</b> to run the <b>Prod</b> stage and deploy the order API to the <i>prod</i> space.
-    <li>The JOBS section shows the Deploy was successful. Inspect the Job log.
+<li>Click the <b>ENVIRONMENT PROPERTIES</b> tab. Note that the environment variable CF_APP_NAME is already present.
+<li>Click <b>Save</b> to save the <b>Prod</b> stage.
+<li>Click on <b>Run Stage</b> to run the <b>Prod</b> stage and deploy the order API to the <i>prod</i> space.
+<li>The JOBS section shows the Deploy was successful. Inspect the Job log.
     <br>
     <img src="screenshots/ProdStageOrderDeliveryPipelineExecutionResult1.jpg" alt="ProdStageOrderDeliveryPipelineExecutionResult1">
-    <li>Redeploy the stage.  
-    <li>The JOBS section shows the Deploy was successful. Inspect the Job log.  Note the application was renamed, replace and the old version deleted.
+<li>Redeploy the stage.  
+<li>The JOBS section shows the Deploy was successful. Inspect the Job log.  Note the application was renamed, replace and the old version deleted.
     <br>
     <img src="screenshots/ProdStageOrderDeliveryPipelineExecutionResult3.jpg" alt="ProdStageOrderDeliveryPipelineExecutionResult3">
     <br>
