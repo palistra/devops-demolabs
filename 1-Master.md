@@ -22,7 +22,7 @@ You will be creating a toolchain and adding the following integrations:
 Prior to running these labs, you must have a Bluemix account, a GitHub account and access to a lab laptop.  Follow the steps in Lab 0 to create one or both of those accounts.
 
 ## Labs
-- [Lab 0: Create Bluemix and GitHub accounts](lab-0-Create-Bluemix-and-GitHub-accounts)
+- [Lab 0: Create Bluemix and GitHub accounts](lab-0-Pre-reqs.md)
 - [Lab 1: Set-up Toolchain for Order](#lab-1-Set-up-Toolchain-for-Order)
 - [Lab 2: Set-up Toolchain for Catalog](#lab-2-Set-up-Toolchain-for-Catalog)
 - [Lab 3: Set-up Toolchain for UI](#lab-3-Set-up-Toolchain-for-UI)
