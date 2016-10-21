@@ -117,8 +117,6 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>Enter "CF_APP_NAME" as the 'Name'.  Do not enter anything for the 'Value'.
     <li>Click <b>ADD PROPERTY</b> and select <b>Text Property</b>.
     <li>Enter "APP_URL" as the 'Name'.  Do not enter anything for the 'Value'.
-
-
     <li>Click the <b>Jobs</b> tab.
     <li>Click <b>ADD JOB</b>.
     <li>Click the <b>+</b> and select <b>Test</b> for the JOB TYPE.
@@ -154,7 +152,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
     <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Test</b>.
     <li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>qa</b> (or Create a new space called <b>qa</b> if not on the dropdown) and change the deploy script to change CF_APP_NAME to "test-$CF_APP" from "dev-$CF_APP".
-    <li>Add a new Job of type Test called <b>Test</b>. Select the default Simple Tester. Enter the following code to the <b>Test Command</b>.
+    <li>Change the Functional Test name to simply <b>Test</b>. Enter the following code to the <b>Test Command</b>.
     <pre>    
       #!/bin/bash
       # invoke tests here
@@ -167,7 +165,6 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <br>Click on "test-catalog-toolchain-lab.mybluemix.net" to access the running application.
     <p>The <b>Test</b> stage has been successfully added and executed.
 </ol>
-
 <li>Add the <b>Prod</b> stage (remember, one job, to deploy to the <i>prod</i> space).   This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
 <br>We will clone the <b>Dev</b> stage and make some modifications.
 <ol>
