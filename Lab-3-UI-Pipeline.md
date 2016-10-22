@@ -12,7 +12,7 @@ This lab adds the UI application to the Toolchain.  You may want to refer to the
 
 ## Task 1: Go to devops-toolchain
 <ol compact>
-<li>If you are not on <b>devops-toolchain-lab</b> Tool Integration.
+<li>If you are not on <b>devops-toolchain-lab</b> Toolchain:
 <br>
 <img src="screenshots/DevOpsToolchainLab.jpg" alt="DevOpsToolchainLab">
 <p>perform the following steps:
@@ -35,7 +35,7 @@ The code for the Catalog microservice already exists in a GitHub repository (htt
 <li>Enter "https://github.com/open-toolchain/Microservices_UI" for the Source repository URL.
 <li>Ensure the 'Enable GitHub Issues' checkbox is selected.
 <li>Click <b>Create Integration</b>.
-<li>The ui-toolchain-lab tool integrations is displayed.
+<li>The <b>devops-toolchain-lab</b> Toochain is displayed.
 </ol>
 
 ## Task 3: Add UI Delivery Pipeline
@@ -53,11 +53,11 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 <li>Now to configure the ui-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
 <ul>
 <li>The <b>Build</b> stage has one job, performing the initial build of the code from the GitHub Repository.
-<li>The <b>Dev</b> stage has two jobs, taking the output from the Build stage and deploying on Bluemix into the <i>dev</i> space, then performing automated functional tests.
+<li>The <b>Dev</b> stage has one job, taking the output from the Build stage and deploying on Bluemix into the <i>dev</i> space.
 <li>The <b>Test</b> stage has two jobs, taking the output from the Dev stage and deploying on Bluemix into the <i>qa</i> space, then performing automated tests.
 <li>The <b>Prod</b> stage has one job, taking the output from the Test stage and deploying on Bluemix into the <i>prod</i> space.  This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
 </ul>
-<p>Click on the <b>Delivery Pipeline</b> tile for the catalog-toolchain-lab delivery pipeline.
+<p>Click on the <b>Delivery Pipeline</b> tile for the ui-toolchain-lab delivery pipeline.
 <li>Add the <b>Build</b> stage and jobs.
 <ol>
     <li>Click on <b>ADD STAGE</b>.
@@ -82,7 +82,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <p>The JOBS section shows the Build was successful.
     <p>The <b>Build</b> stage has been successfully added and executed.
 </ol>
-<li>Add the <b>Dev</b> stage and jobs (remember, two jobs, taking the output from the Build stage and deploying on Bluemix into the <i>dev</i> space, then performing automated functional tests).
+<li>Add the <b>Dev</b> stage and jobs (remember, one job, taking the output from the Build stage and deploying on Bluemix into the <i>dev</i> space).
 <ol>
     <li>Click on <b>ADD STAGE</b>.
     <li>On the <b>INPUT</b> tab, enter "Dev" for Stage Name. Note that:
@@ -99,47 +99,18 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>'Deployer Type' is set to "Cloud Foundry" (other options are available on the pull-down).
     <li>'Target' is set to "US South - https://api.ng/bluemix.net" as this is where the code will be deployed.
     <li>'Space' is set to "dev" (or Create a new space called <b>dev</b> if not on the dropdown).
-    <li>Type the following into the "Deploy Script" section. This will create and deploy the cloudantNoSQLDB service, update the APP_URL environment variable for use by the functional test job and deploy the Catalog application.
+    <li>Type the following into the "Deploy Script" section. This will deploy the UI application.
     <pre>
     #!/bin/bash
-    cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
     # Push app
     export CF_APP_NAME="dev-$CF_APP"
     cf push "${CF_APP_NAME}"
-    export APP_URL=http://$(cf app $CF_APP_NAME | grep urls: | awk '{print $2}')
     # View logs
     #cf logs "${CF_APP_NAME}" --recent
     </pre>
     <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
     </ul>
-    <li>The bash script just entered into the Deploy Script references both the <i>CF_APP_NAME</i> and <i>APP_URL</i> environment variable ($CF_APP is provided by default).  These need to be added to the environment variables as Text.  Click the <b>ENVIRONMENT PROPERTIES</b> tab.
-    <li>Click <b>ADD PROPERTY</b> and select <b>Text Property</b>.
-    <li>Enter "CF_APP_NAME" as the 'Name'.  Do not enter anything for the 'Value'.
-    <li>Click <b>ADD PROPERTY</b> and select <b>Text Property</b>.
-    <li>Enter "APP_URL" as the 'Name'.  Do not enter anything for the 'Value'.
-
-
-    <li>Click the <b>Jobs</b> tab.
-    <li>Click <b>ADD JOB</b>.
-    <li>Click the <b>+</b> and select <b>Test</b> for the JOB TYPE.
-    <li>On the Job configuration panel, note that:
-    <ul compact>
-    <li>Job name <b>Functional Tests</b>.
-    <li>'Tester Type' is <b<Simple</b>.
-    Enter the following code to the <b>Test Command</b>.
-    <pre>    
-      #!/bin/bash
-      export CATALOG_API_TEST_SERVER=$APP_URL
-      GRUNTFILE="tests/Gruntfile.js"
-      if [ -f $GRUNTFILE ]; then
-        npm install -g npm@3.7.2 ### work around default npm 2.1.1 instability
-        npm install
-        grunt dev-fvt --no-color -f --gruntfile $GRUNTFILE --base .
-    else
-      echo "$GRUNTFILE not found."
-    fi    
-    </pre>
-    </ul>
+    <li>Add the CF_APP_NAME environment variable.
     <li>Click <b>Save</b> to save the <b>Dev</b> stage.
     <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Dev</b> stage has not been run. Click on the <b>Run Stage</b> icon to run the <b>Dev</b> stage to deploy Catalog application and run the functional tests.
     <p>The JOBS section shows the Stage was successful. Click on "View logs and history" to the Job log.
@@ -160,6 +131,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
       # invoke tests here
       echo "Testing of App Name ${CF_APP_NAME} was successful"      
     </pre>
+    <p>If we had a SauceLabs account, this is a place where we could run some automated UI tests.
     <li>Click <b>Save</b> to save the <b>Test</b> stage.
     <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Test</b> stage has not been run.
     Click on the <b>Run Stage</b> icon to run the <b>Test</b> stage and deploy the order API to the <i>test</i> space.
@@ -175,7 +147,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 <li>Ensure the <b>Delivery Pipeline</b> is displayed.
     <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
     <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Prod</b>.
-    <li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>prod</b> (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
+    <li>On the <b>Jobs</b> tab, change the Job name to 'Blue/Green Deploy', change the space from <b>dev</b> to <b>prod</b> (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
     <pre>
       #!/bin/bash
       cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant

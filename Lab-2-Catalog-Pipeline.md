@@ -12,7 +12,7 @@ This lab adds the Catalog application to the Toolchain.  And now that you have e
 
 ## Task 1: Go to devops-toolchain
 <ol compact>
-<li>If you are not on <b>devops-toolchain-lab</b> Tool Integration.
+<li>If you are not on <b>devops-toolchain-lab</b> Toolchain:
 <br>
 <img src="screenshots/DevOpsToolchainLab.jpg" alt="DevOpsToolchainLab">
 <p>perform the following steps:
@@ -33,9 +33,7 @@ The code for the Catalog microservice already exists in a GitHub repository (htt
 <li>Enter "https://github.com/<i>githubuserid</i>/catalog-api-toolchain-lab.git" for the New Repository Name.
 <br>where <i>githubuserid</i> is your GitHub userid.
 <li>Enter "https://github.com/open-toolchain/Microservices_CatalogAPI" for the Source repository URL.
-<li>Ensure the 'Enable GitHub Issues' checkbox is selected.
 <li>Click <b>Create Integration</b>.
-<li>The catalog-toolchain-lab tool integrations is displayed.
 </ol>
 
 ## Task 3: Add Catalog Delivery Pipeline
@@ -99,6 +97,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>'Deployer Type' is set to "Cloud Foundry" (other options are available on the pull-down).
     <li>'Target' is set to "US South - https://api.ng/bluemix.net" as this is where the code will be deployed.
     <li>'Space' is set to "dev" (or Create a new space called <b>dev</b> if not on the dropdown).
+    <li>'Application Name' is "catalog-api-toolchain-lab".
     <li>Type the following into the "Deploy Script" section. This will create and deploy the cloudantNoSQLDB service, update the APP_URL environment variable for use by the functional test job and deploy the Catalog application.
     <pre>
     #!/bin/bash
@@ -172,7 +171,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 <li>Ensure the <b>Delivery Pipeline</b> is displayed.
     <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
     <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Prod</b>.
-    <li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>prod</b> (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
+    <li>On the <b>Jobs</b> tab, change the Job name to 'Blue/Green Deploy', change the space from <b>dev</b> to <b>prod</b> (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
     <pre>
       #!/bin/bash
       cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant

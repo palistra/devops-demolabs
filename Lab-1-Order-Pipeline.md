@@ -136,6 +136,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>'Deployer Type' is set to "Cloud Foundry" (other options are available on the pull-down).
     <li>'Target' is set to "US South - https://api.ng/bluemix.net" as this is where the code will be deployed.
     <li>'Space' is set to "dev" (or Create a new space called <b>dev</b> if not on the dropdown).
+    <li>'Application Name' is "orders-api-toolchain-lab".
     <li>Type the following into the "Deploy Script" section. This will create and deploy the cloudantNoSQLDB service:
     <code>cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant</code>
     then deploy the application:
@@ -212,7 +213,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 <li>Ensure the <b>Delivery Pipeline</b> is displayed.
 <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
 <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Prod</b>.
-<li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>prod</b> (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
+<li>On the <b>Jobs</b> tab, change the Job name to 'Blue/Green Deploy', change the space from <b>dev</b> to <b>prod</b> (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
     <pre>
       #!/bin/bash
       cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
