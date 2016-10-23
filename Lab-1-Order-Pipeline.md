@@ -142,15 +142,16 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>'Target' is set to "US South - https://api.ng/bluemix.net" as this is where the code will be deployed.
     <li>'Space' is set to "dev" (or Create a new space called <b>dev</b> if not on the dropdown).
     <li>'Application Name' is "orders-api-toolchain-lab".
-    <li>Type the following into the "Deploy Script" section. This will create and deploy the cloudantNoSQLDB service:
-    <br>
-    <code>cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant</code>
-    then deploy the application:
-    <br>
-    <code>cf push "${CF_APP_NAME}"</code>.
-<p>
+    <li>Type the following into the "Deploy Script" section.
 <pre><code>
 #!/bin/bash
+#get user name
+a=$(cf services | grep @)
+b=${a%@\*}
+c=($b)
+len=${#c[@]}
+user_name=${c[len-1]}
+#add Cloudant service
 cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
 # Push app
 export CF_APP_NAME="dev-$CF_APP"
@@ -159,55 +160,69 @@ echo "Pushed App Name: ${CF_APP_NAME}."
 # View logs
 #cf logs "${CF_APP_NAME}" --recent
 </code></pre>    
+    This will create and deploy the cloudantNoSQLDB service:
+<p>
+    <code>cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant</code>
+    then deploy the application:
+    <p>
+    <code>cf push "${CF_APP_NAME}"</code>.
     <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
-    <br>
+    <p>
     <img src="screenshots/DevStageDevJobOrderDeliveryPipeline.jpg" alt="DevStageDevJobOrderDeliveryPipeline.jpg">
     </ul>
-    <li>The bash script just entered into the Deploy Script references the <i>CF_APP_NAME</i> environment variable ($CF_APP is provided by default).  CF_APP_NAME needs to be added to the environment variables.
+    <li>The bash script just entered into the Deploy Script references the <i>CF_APP_NAME</i> environment variable (<i>CF_APP</i> is provided by default).  CF_APP_NAME needs to be added to the environment variables.
     <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab.
     <li>Click <b>ADD PROPERTY</b> and select <b>Text Property</b>.
     <li>Enter "CF_APP_NAME" as the 'Name'.  Do not enter anything for the 'Value'.
     <li>Click <b>Save</b> to save the <b>Dev</b> stage.
     <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Dev</b> stage has not been run. Click on the <b>Run Stage</b> icon to run the <b>Dev</b> stage and deploy the order API.
-    <br>
+    <p>
     <img src="screenshots/RunningDevStageOrderDeliveryPipeline.jpg" alt="RunningDevStageOrderDeliveryPipeline">
-    <p>The JOBS section shows the Deploy was successful. Click on "View logs and history" to the Job log.
-    <br>
+    <p>The JOBS section shows the Deploy job Passed.
+    Click on the "Deploy" Jobs to to view the log for that Job.
+    <p>
+    <img src="screenshots/DeployPassed.jpg">
+    <li>Scroll to the bottom of the log to see the result.
+    <p>
     <img src="screenshots/DevStageOrderDeliveryPipelineExecutionLog.jpg" alt="DevStageOrderDeliveryPipelineExecutionLog">
-    <li>LAST EXECUTION RESULT displays the url to the successfully deployed application (dev-orders-toolchain-lab.mybluemix.net) as well as a link to the runtime log.
-    <br>
+    <li>Click on the navigation arrow to return to the orders-api-toolchain-lab Delivery Pipeline.
+    <p>
+    <img src="screenshots/DeliveryPipelineArrow.jpg" alt="DeliveryPipelineArrow">
+    <li>LAST EXECUTION RESULT displays the url to the successfully deployed application (dev-orders-api-toolchain-lab.mybluemix.net) as well as a link to the runtime log.
+    <p>
     <img src="screenshots/DevStageOrderDeliveryPipelineExecutionResult.jpg" alt="DevStageOrderDeliveryPipelineExecutionResult">
-    <br>Click on "dev-orders-toolchain-lab.mybluemix.net" to access the running application.
-    <br>
+    <li>Click on "dev-orders-api-toolchain-lab.mybluemix.net" to access the running application.
+    <p>
     <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
+    <li>CLose the application window.
     <p>The <b>Dev</b> stage has been successfully added and executed.
 </ol>
 
 <li>Add the <b>Test</b> stage (remember, two jobs, one to deploy to the <i>test</i> space and another to perform an automated test).  We will clone the <b>Dev</b> stage and make some modifications.
 <ol>
-    <li>Ensure the <b>Delivery Pipeline</b> is displayed.
+    <li>Ensure the orders-api-toolchain-lab <b>Delivery Pipeline</b> is displayed.
     <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
-    <br>
+    <p>
     <img src="screenshots/CloneDevStageOrderDeliveryPipeline.jpg" alt="CloneDevStageOrderDeliveryPipeline">
-    <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Test</b>.
-    <li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>qa</b> (or Create a new space called <b>qa</b> if not on the dropdown) and change the deploy script to change CF_APP_NAME to "test-$CF_APP" from "dev-$CF_APP".
-    <br>
+    <li>Rename the cloned stage to <b>Test</b> (from <b>Dev [copy]</b>).
+    <li>On the <b>Jobs</b> tab, change the space to <b>qa</b> (from <b>dev</b>) (or Create a new space called <b>qa</b> if not on the dropdown) and change the deploy script to change CF_APP_NAME to "test-$CF_APP" (from "dev-$CF_APP").
+    <p>
     <img src="screenshots/TestStageDeployStep.jpg" alt="TestStageDeployStep">
     <li>Add a new Job of type Test called <b>Test</b>.  There are a number of different Testers available. For this exercise, we will select the default Simple Tester. Enter the following code to the <b>Test Command</b>.
-    <pre>    
-      #!/bin/bash
-      # invoke tests here
-      echo "Testing of App Name ${CF_APP_NAME} was successful"      
-    </pre>
+<pre><code>
+#!/bin/bash
+# invoke tests here
+echo "Testing of App Name ${CF_APP_NAME} was successful"      
+</code></pre>
     <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab. Note the environment variable CF_APP_NAME is already present.
     <li>Click <b>Save</b> to save the <b>Test</b> stage.
     <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Test</b> stage has not been run.
     Click on the <b>Run Stage</b> icon to run the <b>Test</b> stage and deploy the order API to the <i>test</i> space.
     <li>As before for the <b>Dev</b> stage, the JOBS section shows the Deploy and Test Jobs were successful. Click <b>Test</b> to display the log for the <b>Test</b> job.
-    <br>
+    <p>
     <img src="screenshots/TestStageOrderDeliveryPipelineClickTestLog.jpg" alt="TestStageOrderDeliveryPipelineClickTestLog">
     <li>The <b>Test</b> job was successful.
-    <br>
+    <p>
     <img src="screenshots/TestStageOrderDeliveryPipelineSuccessfulTestLog.jpg" alt="TestStageOrderDeliveryPipelineSuccessfulTestLog">
     <br>Click on "test-orders-toolchain-lab.mybluemix.net" to access the running application.
     <p>The <b>Test</b> stage has been successfully added and executed.
