@@ -9,6 +9,7 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 **Tasks**:
 - [Task 1: Create Bluemix account](#task-1-create-bluemix-account)
 - [Task 2: Create GitHub account](#task-2-create-github-account)
+- [Task 3: Enable Open Toolchain Feature](#task-3-enable-Open-Toolchain-feature)
 
 ## Task 1: Create Bluemix account
 
@@ -23,3 +24,5 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 2. In a web browser, enter the following URL: https://github.com/
 3. Click on the SIGN UP button.
 4. Follow the directions to fill out the form. Note you will need access to your eMail account in order to register.
+
+## Task 3: Enable Open Toolchain Feature
