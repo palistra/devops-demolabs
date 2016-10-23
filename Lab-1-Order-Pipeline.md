@@ -147,14 +147,14 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 #!/bin/bash
 #get user name
 a=$(cf services | grep @)
-b=${a%@\*}
+b=${a%@&#42;}
 c=($b)
 len=${#c[@]}
 user_name=${c[len-1]}
 #add Cloudant service
 cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
 # Push app
-export CF_APP_NAME="dev-$CF_APP"
+export CF_APP_NAME="$user_name-dev-$CF_APP"
 cf push "${CF_APP_NAME}"
 echo "Pushed App Name: ${CF_APP_NAME}."
 # View logs
