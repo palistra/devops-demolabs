@@ -48,7 +48,7 @@ The code for the Order microservice already exists in a GitHub repository (https
 
 <ul>
 <li>Select 'Clone' as the Repository type.
-<li>Enter "https://github.com/<i>githubuserid</i>/orders-api-toolchain-lab.git" for the New Repository Name.
+<li>Enter "<i>githubuserid</i>/orders-api-toolchain-lab.git" for the New Repository Name.
 <br>where <i>githubuserid</i> is your GitHub userid.
 <li>Enter "https://github.com/open-toolchain/Microservices_OrdersAPI" for the Source repository URL.
 <li>Ensure the 'Enable GitHub Issues' checkbox is selected.
@@ -69,7 +69,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 
   1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
   2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
-  3. Under 'Pipeline name:', enter "orders-toolchain-lab" and select the 'Show apps in the VIEW APP menu' checkbox.
+  3. Under 'Pipeline name:', enter "orders-api-toolchain-lab".
 
   ![CreateDeliveryPipeline](screenshots/CreateDeliveryPipeline.jpg)
   4. Click **Create Integration**.
@@ -79,56 +79,56 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 
 ## Task 5: Configure Order Delivery Pipeline
 
-<ol compact>
-<li>Now to configure the orders-toolchain-lab delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
-<ul compact>
+<ol>
+<li>Now to configure the <b>orders-api-toolchain-lab</b> delivery pipeline. Four stages will be added: Build, Dev, Test and Prod.
+<ul>
 <li>The <b>Build</b> stage has one job, performing the initial build of the code from the GitHub Repository.
 <li>The <b>Dev</b> stage has one job, taking the output from the Build stage and deploying on Bluemix into the <i>dev</i> space.
 <li>The <b>Test</b> stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the <i>qa</i> space, then performing automated tests.
 <li>The <b>Prod</b> stage has one job, taking the output from the Test stage and deploying on Bluemix into the <i>prod</i> space.  This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
 </ul>
-<p>Click on the <b>Delivery Pipeline</b> tile.
-<br>
+<p>Click on the <b>Delivery Pipeline</b> tile for the <b>orders-api-toolchain-lab</b> pipeline.
+<p>
 <img src="screenshots/ClickConfigureDeliveryToolchain.jpg" alt="ClickConfigureDeliveryToolchain">
 <li>Add the <b>Build</b> stage and jobs.
 <ol>
     <li>Click on <b>ADD STAGE</b>.
     <li>On the <b>INPUT</b> tab, enter "Build" for Stage Name. Note that:
-    <ul compact>
+    <ul>
     <li>'Input Type' is set to a SCM Repository, in this case, Git.
     <li>'Git Repository' is set to the name of the Git Repository we just cloned.
     <li>'Git URL' is set to the URL of the Git Repository we just cloned.
     <li>'Branch' is set to "Master".
     <li>'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
-    <br>
+    <p>
     <img src="screenshots/CreateOrderDeliveryPipelineBuildStage.jpg" alt="CreateOrderDeliveryPipelineBuildStage">
     </ul>
     <li>Click the <b>Jobs</b> tab.
     <li>Click <b>ADD JOB</b>.
     <li>Click the <b>+</b> and select <b>Build</b> for the JOB TYPE.
-    <br>
+    <p>
     <img src="screenshots/AddBuildJobToOrderDeliveryPipelineBuildStage.jpg" alt="AddBuildJobToOrderDeliveryPipelineBuildStage">
     <li>On the Job configuration panel, note that:
-    <ul compact>
+    <ul>
     <li>'Builder Type' is set to "Simple" (other options are available on the pull-down).
     <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
-    <br>
+    <p>
     <img src="screenshots/BuildJobToOrderDeliveryPipelineBuildStageConfiguration.jpg" alt="BuildJobToOrderDeliveryPipelineBuildStageConfiguration">
     </ul>
     <li>Click <b>Save</b> to save the <b>Build</b> stage.
     <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> stage.  This stage has not been run. Click on the <b>Run Stage</b> icon to run the build.
-    <br>
+    <p>
     <img src="screenshots/RunBuildButton.jpg" alt="RunBuildButton">
     <p>The JOBS section shows the Build was successful.
-    <br>
+    <p>
     <img src="screenshots/BuildSuccessful.jpg" alt="BuildSuccessful.jpg">
     <p>The <b>Build</b> stage has been successfully added and executed.
 </ol>
 <li>Add the <b>Dev</b> stage and jobs (remember, just one job, deploying to the <i>dev</i> space).
-<ol compact>
+<ol>
     <li>Click on <b>ADD STAGE</b>.
     <li>On the <b>INPUT</b> tab, enter "Dev" for Stage Name. Note that:
-    <ul compact>
+    <ul>
     <li>'Input Type' is set to Build Artifacts (from the <b>Build</b> stage).
     <li>'Stage' and 'Job' are both 'Build'.
     <li>'Stage Trigger' is set to "Run jobs when the previous stage is completed", resulting in the Dev stage running when the <b>Build</b> stage successfully completes.
@@ -137,25 +137,28 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>Click <b>ADD JOB</b>.
     <li>Click the <b>+</b> and select <b>Deploy</b> for the JOB TYPE.
     <li>On the Job configuration panel, note that:
-    <ul compact>
+    <ul>
     <li>'Deployer Type' is set to "Cloud Foundry" (other options are available on the pull-down).
     <li>'Target' is set to "US South - https://api.ng/bluemix.net" as this is where the code will be deployed.
     <li>'Space' is set to "dev" (or Create a new space called <b>dev</b> if not on the dropdown).
     <li>'Application Name' is "orders-api-toolchain-lab".
     <li>Type the following into the "Deploy Script" section. This will create and deploy the cloudantNoSQLDB service:
+    <br>
     <code>cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant</code>
     then deploy the application:
+    <br>
     <code>cf push "${CF_APP_NAME}"</code>.
-    <pre>    
-        #!/bin/bash
-        cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
-        # Push app
-        export CF_APP_NAME="dev-$CF_APP"
-        cf push "${CF_APP_NAME}"
-        echo "Pushed App Name: ${CF_APP_NAME}."
-        # View logs
-        #cf logs "${CF_APP_NAME}" --recent
-    </pre>    
+<p>
+<pre><code>
+#!/bin/bash
+cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
+# Push app
+export CF_APP_NAME="dev-$CF_APP"
+cf push "${CF_APP_NAME}"
+echo "Pushed App Name: ${CF_APP_NAME}."
+# View logs
+#cf logs "${CF_APP_NAME}" --recent
+</code></pre>    
     <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
     <br>
     <img src="screenshots/DevStageDevJobOrderDeliveryPipeline.jpg" alt="DevStageDevJobOrderDeliveryPipeline.jpg">
