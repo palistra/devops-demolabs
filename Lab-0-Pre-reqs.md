@@ -4,7 +4,7 @@
 This lab sets up the pre-requisite accounts for the remaining labs.
 
 ## Prerequisites
-Prior to running these labs, you must have a Bluemix account, a GitHub account and access to a lab laptop.  Follow the steps in Lab 0 to create one or both of those accounts.
+Prior to running these labs, you must have a Bluemix account, a GitHub account and access to a lab laptop. You also need to enable Open Toolchain for your organization if this is the first time you use Open Toolchain.   Follow the steps in Lab 0 to create one or both of those accounts and enable Open Toolchain.
 
 **Tasks**:
 - [Task 1: Create Bluemix account](#task-1-create-bluemix-account)
