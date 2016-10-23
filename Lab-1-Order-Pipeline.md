@@ -11,13 +11,18 @@ This lab creates and configures the Toolchain for the Order application.
 - [Task 5: Configure Order Delivery Pipeline](#task-4-configure-order-delivery-pipeline)
 
 ## Task 1: Log into IBM Bluemix
-1. If you are not already logged into IBM Bluemix, log into IBM Bluemix.
+1. If you are not already logged into IBM Bluemix, log into IBM Bluemix (https://www.ibm.com/cloud-computing/bluemix/).
 ![Bluemix](screenshots/bluemix-login.jpg)
 
 ## Task 2: Create Toolchain
-  1. Click on **DevOps**.
+  1. We need to get to the DevOps Services. Click on the **Bluemix menu bar**
 
-  ![DevOps](screenshots/DevOpsImage.jpg)
+  ![BluemixMenuBar](screenshots/BluemixMenuBar.jpg)
+
+  and click on **Services** then **DevOps**.
+
+  ![BluemixDevOpsServices](screenshots/BluemixDevOpsServices.jpg)
+
   2. Click on **Toolchains**.
 
   ![Toolchain](screenshots/ToolChain.jpg)
