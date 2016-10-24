@@ -22,7 +22,7 @@ This lab show how to integrate your toolchain with Slack.  Slack provides real-t
 3. On the Slack Configuration page:
    - Enter
 
-  **xoxp-94499605861-95427969447-95425266752-d6145cbb73a02bf58c3af36f454fa76a**
+  
 
     as the API access key
    - Enter **BluemixDevOpsLab** as the Slack channel.
