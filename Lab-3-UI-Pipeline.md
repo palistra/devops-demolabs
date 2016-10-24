@@ -18,8 +18,9 @@ This lab adds the UI application to the Toolchain.  You may want to refer to the
 <p>perform the following steps:
 <ol>
 <li>Click on the Bluemix Menu Bar
-<br>
+<p>
 <img src="screenshots/BluemixMenuBar.jpg" alt="BluemixMenuBar">
+<li>Click <b>Services</b>
 <li>Select DevOps to display all the Toolchains.
 <li>Click on the <b>devops-toolchain-lab</b> tile.
 </ol>
@@ -186,6 +187,8 @@ fi
     <li>Click <b>Save</b> to save the <b>Prod</b> stage.
     <li>Click on <b>Run Stage</b> to run the <b>Prod</b> stage and deploy the order API to the <i>prod</i> space.
     <li>The JOBS section shows the Deploy was successful. Inspect the Job log.
-    <br>Click on the blue arrow to display the Delivery Pipeline. Click on "<i>user_name</i>-ui-toolchain-lab.mybluemix.net" to access the running application.
+    <br>Click on the blue arrow to display the Delivery Pipeline. Click on "<i>user_name</i>-ui-toolchain-lab.mybluemix.net" to access the running application.  You could also click on the <b>View App</b> pull-down and select the "<i>user_name</i>-ui-toolchain-lab.mybluemix.net".
+    <p>
+    <img src="screenshots/ProdUIRunning.jpg" alt="ProdUIRunning">
     <p>The <b>Prod</b> stage has been successfully added and executed.  The Catalog application has been deployed to production.
 </ol>

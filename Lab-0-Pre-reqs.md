@@ -26,3 +26,16 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 4. Follow the directions to fill out the form. Note you will need access to your eMail account in order to register.
 
 ## Task 3: Enable Open Toolchain Feature
+
+If you've already enabled Open Toolchain feature, then skip this task
+
+1. In a web browser, enter the following URL: https://console.ng.bluemix.net/ and login with your bluemix id.
+2. Click on the Bluemix Menu Bar
+  ![BluemixMenuBar](screenshots/BluemixMenuBar.jpg)
+
+3. Click **Services** then click on **DevOps**.
+
+  ![BluemixDevOpsServices](screenshots/BluemixDevOpsServices.jpg)
+4. Click on **Enable Toolchains**
+
+  ![EnableToolchains](screenshots/EnableToolchains.jpg)

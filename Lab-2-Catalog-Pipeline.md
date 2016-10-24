@@ -18,8 +18,9 @@ This lab adds the Catalog application to the Toolchain.  And now that you have e
 <p>perform the following steps:
 <ol>
 <li>Click on the Bluemix Menu Bar
-<br>
+<p>
 <img src="screenshots/BluemixMenuBar.jpg" alt="BluemixMenuBar">
+<li>Click <b>Services</b>
 <li>Select DevOps to display all the Toolchains.
 <li>Click on the <b>devops-toolchain-lab</b> tile.
 </ol>
