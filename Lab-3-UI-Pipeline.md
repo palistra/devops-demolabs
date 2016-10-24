@@ -1,4 +1,4 @@
-# Lab 2: Set-up Toolchain for UI
+# Lab 3: Set-up Toolchain for UI
 
 ## Objective
 This lab adds the UI application to the Toolchain.  You may want to refer to the prior lab if you need additional details.
