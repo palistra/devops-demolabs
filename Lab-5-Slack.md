@@ -5,9 +5,9 @@ This lab show how to integrate your toolchain with Slack.  Slack provides real-t
 
 **Tasks**:
 - [Task 1: Log into Slack](#task-1-log-into-slack)
-- [Task 1: Add Slack to Toolchain](#task-1-add-slack-to-toolchain)
-- [Task 2: Verify PagerDuty works by breaking application build](#task-2-verify-pagerduty-works-by-breaking-application-build)
-- [Task 3: Fix application](#task-3-fix-application)
+- [Task 2: Add Slack to Toolchain](#task-1-add-slack-to-toolchain)
+- [Task 3: Verify Slack works by breaking application build](#task-3-verify-slack-works-by-breaking-application-build)
+- [Task 4: Fix application](#task-4-fix-application)
 
 ## Task 1: Log into Slack
 1. Go to: https://slack.com/.
@@ -16,7 +16,7 @@ This lab show how to integrate your toolchain with Slack.  Slack provides real-t
 4. Enter **BluemixCloudDeveloper@gmail.com** as the eMail address and **devops4me** as the password. Click on **Sign in**.
 5. You are now access the BluemixDevOpsLab Slack team.
 
-## Task 1: Add Slack to Toolchain
+## Task 2: Add Slack to Toolchain
 1. On the devops-toolchain-lab toolchain's Tool Integrations page, click the add button **+**
 2. Select **Slack**
 3. On the Slack Configuration page:
@@ -34,7 +34,7 @@ This lab show how to integrate your toolchain with Slack.  Slack provides real-t
 
 4. Click **Create Integration**
 
-## Task 2: Verify Slack works by breaking application build
+## Task 3: Verify Slack works by breaking application build
   1. On the toolchain's Tool Integrations page, click the **Eclipse Orion Web IDE** tile. The GitHub repos are automatically loaded in your workspace. The Web IDE workspace is on the cloud.
   2. In the file navigator, expand the orders-api-toolchain_name repo (if needed).
   3. In the file directory, click manifest.yml to open the file.
