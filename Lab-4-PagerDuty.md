@@ -47,8 +47,8 @@ We want to modify the application and one way is to use the Web IDE.
   ![WebIDEPush](screenshots/WebIDEPush.jpg)
   7. Click **Commit** to put the changes in the local master branch.
   8. Put these changes in the origin/master branch and click **Push**. Your changes are automatically built and deployed in the pipeline.
-  9. Return to devops-toolchain-lab  toolchain's Tool Integrations page and click the pipeline tile for the orders-api microservice to watch the stages run in response to your commit. (You may have to manually start the Build if it does not start automatically)
-  10. The Deploy failed.
+  9. Return to devops-toolchain-lab toolchain's Tool Integrations page and click the pipeline tile for the orders-api microservice to watch the stages run in response to your commit (you may have to manually start the Build if it does not start automatically).
+  10. The Deploy fails.
 
   ![WebIDEDeployFailed](screenshots/WebIDEDeployFailed.jpg)
   11. The PagerDuty console (https://ibmdevopslab.pagerduty.com/incidents) shows the incident:
@@ -62,14 +62,14 @@ We want to modify the application and one way is to use the Web IDE.
 
 Now to fix the application.
   1. On the toolchain's Tool Integrations page, click the **Eclipse Orion Web IDE** tile.
-  2. In the file navigator, expand the catalog-api-toolchain_name repo (if needed).
+  2. In the file navigator, expand the orders-api-toolchain_name repo (if needed).
   3. In the file directory, click manifest.yml to open the file.
   4. Update the value for memory to 96m.
   5. Now to Push the changes.  From the Eclipse Orion Web IDE menu, click the **Git** icon.
   6. In the Working Directory Changes section, which is in the upper-right corner of the window, make sure that the changed file is selected.
   7. Click **Commit** to put the changes in the local master branch.
   8. Put these changes in the origin/master branch and click **Push**. Your changes are automatically built and deployed in the pipeline.
-  9. Return to your toolchain's Tool Integrations page and click the pipeline tile for the catalog-api microservice to watch the stages run in response to your commit.
+  9. Return to your toolchain's Tool Integrations page and click the pipeline tile for the orders-api microservice to watch the stages run in response to your commit (you may have to manually start the Build if it does not start automatically).
   10. The deploy is successful.  And all the downstream stages run afterwards.
 
   ![WebIDEDeploySuccess](screenshots/WebIDEDeploySuccess.jpg)
