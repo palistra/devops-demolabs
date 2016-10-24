@@ -20,9 +20,13 @@ This lab show how to integrate your toolchain with Slack.  Slack provides real-t
 1. On the devops-toolchain-lab toolchain's Tool Integrations page, click the add button **+**
 2. Select **Slack**
 3. On the Slack Configuration page:
-   - Enter
-
-  
+   - Enter the following all as one string as the API access key.
+<br>
+  **xoxp-94499605861-**
+<br>  
+  **95427969447-95478187570-**
+<br>  
+  **7c80a438bb48bbf435f9f10489c1cb5b**
 
     as the API access key
    - Enter **BluemixDevOpsLab** as the Slack channel.
