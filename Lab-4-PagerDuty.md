@@ -4,7 +4,7 @@
 This lab show how to integrate your toolchain with PagerDuty so people get notified when things go wrong so problems can be fixed faster and reduce downtime.
 
 ## Prerequisites
-Prior to running this lab, inform the instructor of an email address you would like to use for PagerDuty.  You will need access to this eMail account in order to see notifications in PagerDuty. Check that account to accept the invitation to join PagerDuty.
+If you want to see email otifications from PagerDuty, you will need access to an eMail account.  Once the integration is created, you can check that account to accept the invitation to join PagerDuty.
 
 **Tasks**:
 - [Task 1: Add PagerDuty to Toolchain](#task-1-add-pagerduty-to-toolchain)
