@@ -13,7 +13,7 @@ This lab adds the UI application to the Toolchain.  You may want to refer to the
 ## Task 1: Go to devops-toolchain
 <ol compact>
 <li>If you are not on <b>devops-toolchain-lab</b> Toolchain:
-<br>
+<p>
 <img src="screenshots/DevOpsToolchainLab.jpg" alt="DevOpsToolchainLab">
 <p>perform the following steps:
 <ol>
@@ -30,7 +30,7 @@ The code for the Catalog microservice already exists in a GitHub repository (htt
 <li>Click on the <b>+</b> plus icon on the right side of the screen to add a Tool Integration.
 <li>Click on <b>GitHub</b> to add integration with GitHub to the Toolchain.
 <li>Select 'Clone' as the Repository type.
-<li>Enter "https://github.com/<i>githubuserid</i>/UI-toolchain-lab.git" for the New Repository Name.
+<li>Enter "<i>githubuserid</i>/UI-toolchain-lab.git" for the New Repository Name.
 <br>where <i>githubuserid</i> is your GitHub userid.
 <li>Enter "https://github.com/open-toolchain/Microservices_UI" for the Source repository URL.
 <li>Ensure the 'Enable GitHub Issues' checkbox is selected.
@@ -45,7 +45,6 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
   2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
   3. Under 'Pipeline name:', enter "ui-toolchain-lab" and select the 'Show apps in the VIEW APP menu' checkbox.
   4. Click **Create Integration**.
-  5. The ui-toolchain-lab delivery pipeline is displayed.
 
 ## Task 4: Configure UI Delivery Pipeline
 
@@ -100,14 +99,21 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>'Target' is set to "US South - https://api.ng/bluemix.net" as this is where the code will be deployed.
     <li>'Space' is set to "dev" (or Create a new space called <b>dev</b> if not on the dropdown).
     <li>Type the following into the "Deploy Script" section. This will deploy the UI application.
-    <pre>
-    #!/bin/bash
-    # Push app
-    export CF_APP_NAME="dev-$CF_APP"
-    cf push "${CF_APP_NAME}"
-    # View logs
-    #cf logs "${CF_APP_NAME}" --recent
-    </pre>
+<pre><code>
+#!/bin/bash
+#get user name
+a=$(cf services | grep @)
+b=${a%@&#42;}
+c=($b)
+len=${#c[@]}
+user_name=${c[len-1]}
+# Push app
+export CF_APP_NAME="$user_name-dev-$CF_APP"
+cf push "${CF_APP_NAME}"
+echo "Pushed App Name: ${CF_APP_NAME}."
+# View logs
+#cf logs "${CF_APP_NAME}" --recent
+</code></pre>
     <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
     </ul>
     <li>Add the CF_APP_NAME environment variable.
@@ -136,7 +142,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Test</b> stage has not been run.
     Click on the <b>Run Stage</b> icon to run the <b>Test</b> stage and deploy the order API to the <i>test</i> space.
     <li>As before for the <b>Dev</b> stage, the JOBS section shows the Deploy and Test Jobs were successful. Click <b>Test</b> to display the log for the <b>Test</b> job.
-    <br>Click on "test-catalog-toolchain-lab.mybluemix.net" to access the running application.
+    <br>Click on "<i>user_name</i>-test-ui-toolchain-lab.mybluemix.net" to access the running application.
     <p>The <b>Test</b> stage has been successfully added and executed.
 </ol>
 
@@ -148,32 +154,38 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
     <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Prod</b>.
     <li>On the <b>Jobs</b> tab, change the Job name to 'Blue/Green Deploy', change the space from <b>dev</b> to <b>prod</b> (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
-    <pre>
-      #!/bin/bash
-      cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
-      if ! cf app $CF_APP; then  
-        cf push $CF_APP
-      else
-        OLD_CF_APP=${CF_APP}-OLD-$(date +"%s")
-        rollback() {
-          set +e  
-          if cf app $OLD_CF_APP; then
-            cf logs $CF_APP --recent
-            cf delete $CF_APP -f
-            cf rename $OLD_CF_APP $CF_APP
-          fi
-          exit 1
-        }
-        set -e
-        trap rollback ERR
-        cf rename $CF_APP $OLD_CF_APP
-        cf push $CF_APP
-        cf delete $OLD_CF_APP -f
-      fi
-    </pre>     
+<pre><code>
+#!/bin/bash
+#get user name
+a=$(cf services | grep @)
+b=${a%@&#42;}
+c=($b)
+len=${#c[@]}
+user_name=${c[len-1]}
+export CF_APP_NAME="$user_name-prod-$CF_APP"
+if ! cf app $CF_APP_NAME; then  
+  cf push $CF_APP_NAME
+else
+  OLD_CF_APP=${CF_APP_NAME}-OLD-$(date +"%s")
+  rollback() {
+    set +e  
+    if cf app $OLD_CF_APP; then
+      cf logs $CF_APP_NAME --recent
+      cf delete $CF_APP_NAME -f
+      cf rename $OLD_CF_APP $CF_APP_NAME
+    fi
+    exit 1
+  }
+  set -e
+  trap rollback ERR
+  cf rename $CF_APP_NAME $OLD_CF_APP
+  cf push $CF_APP_NAME
+  cf delete $OLD_CF_APP -f
+fi
+</code></pre>
     <li>Click <b>Save</b> to save the <b>Prod</b> stage.
     <li>Click on <b>Run Stage</b> to run the <b>Prod</b> stage and deploy the order API to the <i>prod</i> space.
     <li>The JOBS section shows the Deploy was successful. Inspect the Job log.
-    <br>Click on the blue arrow to display the Delivery Pipeline. Click on "catalog-toolchain-lab.mybluemix.net" to access the running application.
+    <br>Click on the blue arrow to display the Delivery Pipeline. Click on "<i>user_name</i>-ui-toolchain-lab.mybluemix.net" to access the running application.
     <p>The <b>Prod</b> stage has been successfully added and executed.  The Catalog application has been deployed to production.
 </ol>

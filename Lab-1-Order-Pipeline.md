@@ -160,12 +160,7 @@ echo "Pushed App Name: ${CF_APP_NAME}."
 # View logs
 #cf logs "${CF_APP_NAME}" --recent
 </code></pre>    
-    This will create and deploy the cloudantNoSQLDB service:
-<p>
-    <code>cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant</code>
-    then deploy the application:
-    <p>
-    <code>cf push "${CF_APP_NAME}"</code>.
+    <p>When an app is pushed to a space, its name is used as part of its route name.  Routes need to be unique inside Bluemix.  When there are multiple people doing the lab, they will all have the same routes, such as dev-orders-api-toolchain-lab.mybluemix.org.  The first part of the bash script adds the user name to the app name to keep it unique.
     <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
     <p>
     <img src="screenshots/DevStageDevJobOrderDeliveryPipeline.jpg" alt="DevStageDevJobOrderDeliveryPipeline.jpg">
@@ -188,10 +183,10 @@ echo "Pushed App Name: ${CF_APP_NAME}."
     <li>Click on the navigation arrow to return to the orders-api-toolchain-lab Delivery Pipeline.
     <p>
     <img src="screenshots/DeliveryPipelineArrow.jpg" alt="DeliveryPipelineArrow">
-    <li>LAST EXECUTION RESULT displays the url to the successfully deployed application (dev-orders-api-toolchain-lab.mybluemix.net) as well as a link to the runtime log.
+    <li>LAST EXECUTION RESULT displays the url to the successfully deployed application (<i>user_name</i>-dev-orders-api-toolchain-lab.mybluemix.net) as well as a link to the runtime log.
     <p>
     <img src="screenshots/DevStageOrderDeliveryPipelineExecutionResult.jpg" alt="DevStageOrderDeliveryPipelineExecutionResult">
-    <li>Click on "dev-orders-api-toolchain-lab.mybluemix.net" to access the running application.
+    <li>Click on "<i>user_name</i>-dev-orders-api-toolchain-lab.mybluemix.net" to access the running application.
     <p>
     <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
     <li>CLose the application window.
@@ -205,7 +200,7 @@ echo "Pushed App Name: ${CF_APP_NAME}."
     <p>
     <img src="screenshots/CloneDevStageOrderDeliveryPipeline.jpg" alt="CloneDevStageOrderDeliveryPipeline">
     <li>Rename the cloned stage to <b>Test</b> (from <b>Dev [copy]</b>).
-    <li>On the <b>Jobs</b> tab, change the space to <b>qa</b> (from <b>dev</b>) (or Create a new space called <b>qa</b> if not on the dropdown) and change the deploy script to change CF_APP_NAME to "test-$CF_APP" (from "dev-$CF_APP").
+    <li>On the <b>Jobs</b> tab, change the space to <b>qa</b> (from <b>dev</b>) (or Create a new space called <b>qa</b> if not on the dropdown) and change the deploy script to change CF_APP_NAME to "$user_name-test-$CF_APP" (from "$user_name-dev-$CF_APP").
     <p>
     <img src="screenshots/TestStageDeployStep.jpg" alt="TestStageDeployStep">
     <li>Add a new Job of type Test called <b>Test</b>.  There are a number of different Testers available. For this exercise, we will select the default Simple Tester. Enter the following code to the <b>Test Command</b>.
@@ -224,58 +219,66 @@ echo "Testing of App Name ${CF_APP_NAME} was successful"
     <li>The <b>Test</b> job was successful.
     <p>
     <img src="screenshots/TestStageOrderDeliveryPipelineSuccessfulTestLog.jpg" alt="TestStageOrderDeliveryPipelineSuccessfulTestLog">
-    <br>Click on "test-orders-toolchain-lab.mybluemix.net" to access the running application.
-    <p>The <b>Test</b> stage has been successfully added and executed.
+    <br>Click on "<i>user_name</i>-test-orders-api-toolchain-lab.mybluemix.net" to access the running application.
+    <p>The <b>Test</b> stage has been successfully added and executed.  Click on the
 </ol>
 
 
 <li>Add the <b>Prod</b> stage (remember, one job to deploy to the <i>prod</i> space).   This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
 <br>We will clone the <b>Dev</b> stage and make some modifications.
 <ol>
-
-<li>Ensure the <b>Delivery Pipeline</b> is displayed.
+<li>Click on the navigation arrow to return to the orders-api-toolchain-lab Delivery Pipeline.
 <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
-<li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Prod</b>.
-<li>On the <b>Jobs</b> tab, change the Job name to 'Blue/Green Deploy', change the space from <b>dev</b> to <b>prod</b> (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
-    <pre>
-      #!/bin/bash
-      cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
-      if ! cf app $CF_APP; then  
-        cf push $CF_APP
-      else
-        OLD_CF_APP=${CF_APP}-OLD-$(date +"%s")
-        rollback() {
-          set +e  
-          if cf app $OLD_CF_APP; then
-            cf logs $CF_APP --recent
-            cf delete $CF_APP -f
-            cf rename $OLD_CF_APP $CF_APP
-          fi
-          exit 1
-        }
-        set -e
-        trap rollback ERR
-        cf rename $CF_APP $OLD_CF_APP
-        cf push $CF_APP
-        cf delete $OLD_CF_APP -f
-      fi
-    </pre>     
-    <br>
-    <img src="screenshots/ProdStageDeployStep.jpg" alt="ProdStageDeployStep">
+<li>Rename the cloned stage to <b>Prod</b> (from <b>Dev [copy]</b>).
+<li>On the <b>Jobs</b> tab, change the Job name to '<b>Blue/Green Deploy</b>' (from <b>Deploy</b>), change the space to <b>prod</b> (from <b>dev</b>) (or Create a new space called <b>prod</b> if not on the dropdown) and change the deploy script to the following:
+<pre><code>
+#!/bin/bash
+#get user name
+a=$(cf services | grep @)
+b=${a%@&#42;}
+c=($b)
+len=${#c[@]}
+user_name=${c[len-1]}
+export CF_APP_NAME="$user_name-Prod-$CF_APP"
+#add Cloudant service
+cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
+if ! cf app $CF_APP_NAME; then  
+  cf push $CF_APP_NAME
+else
+  OLD_CF_APP=${CF_APP_NAME}-OLD-$(date +"%s")
+  rollback() {
+    set +e  
+    if cf app $OLD_CF_APP; then
+      cf logs $CF_APP_NAME --recent
+      cf delete $CF_APP_NAME -f
+      cf rename $OLD_CF_APP $CF_APP_NAME
+    fi
+    exit 1
+  }
+  set -e
+  trap rollback ERR
+  cf rename $CF_APP_NAME $OLD_CF_APP
+  cf push $CF_APP_NAME
+  cf delete $OLD_CF_APP -f
+fi
+</code></pre>
+<p>
+<img src="screenshots/ProdStageDeployStep.jpg" alt="ProdStageDeployStep">
 <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab. Note that the environment variable CF_APP_NAME is already present.
 <li>Click <b>Save</b> to save the <b>Prod</b> stage.
 <li>Click on <b>Run Stage</b> to run the <b>Prod</b> stage and deploy the order API to the <i>prod</i> space.
 <li>The JOBS section shows the Deploy was successful. Inspect the Job log.
-    <br>
+    <p>
     <img src="screenshots/ProdStageOrderDeliveryPipelineExecutionResult1.jpg" alt="ProdStageOrderDeliveryPipelineExecutionResult1">
-<li>Redeploy the stage.  
-<li>The JOBS section shows the Deploy was successful. Inspect the Job log.  Note the application was renamed, replace and the old version deleted.
-    <br>
+<li>Click <b>Redeploy</b> to redeploy the stage.  
+<li>The JOBS section shows the Redeploy was successful. Inspect the Job log.  Note the application was renamed, replace and the old version deleted.
+    <p>
     <img src="screenshots/ProdStageOrderDeliveryPipelineExecutionResult3.jpg" alt="ProdStageOrderDeliveryPipelineExecutionResult3">
-    <br>
-    <img src="screenshots/ProdStageOrderDeliveryPipelineExecutionResult2.jpg" alt="ProdStageOrderDeliveryPipelineExecutionResult2">
-    <br>Click on the blue arrow to display the Delivery Pipeline. Click on "orders-toolchain-lab.mybluemix.net" to access the running application.
+    <li>Click on the blue arrow (upper left) to display the Delivery Pipeline.
+    <li>Click on "<i>user_name</i>-prod-orders-api-toolchain-lab.mybluemix.net" to access the running application.
     <br>
     <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
     <p>The <b>Prod</b> stage has been successfully added and executed.  The Orders application has been deployed to production.
+    <li>Close the application window.
+    <li>Click on the blue arrow (upper left) to return to the devops-toolchain-lab Toolchain.
 </ol>
