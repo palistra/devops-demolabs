@@ -96,7 +96,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>On the <b>INPUT</b> tab, enter "Build" for Stage Name. Note that:
     <ul>
     <li>'Input Type' is set to a SCM Repository, in this case, Git.
-    <li>'Git Repository' is set to the name of the Git Repository we just cloned.
+    <li>'Git Repository' is set to the name of the Git Repository we just cloned. Make sure to select the right Github repo from the dropdown list.
     <li>'Git URL' is set to the URL of the Git Repository we just cloned.
     <li>'Branch' is set to "Master".
     <li>'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
