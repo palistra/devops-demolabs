@@ -109,7 +109,7 @@ c=($b)
 len=${#c[@]}
 user_name=${c[len-1]}
 #add Cloudant service
-cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
+cf create-service cloudantNoSQLDB Lite myMicroservicesCloudant
 # Push app
 export CF_APP_NAME="$user_name-dev-$CF_APP"
 cf push "${CF_APP_NAME}"
@@ -191,7 +191,7 @@ len=${#c[@]}
 user_name=${c[len-1]}
 export CF_APP_NAME="$user_name-prod-$CF_APP"
 #add Cloudant service
-cf create-service cloudantNoSQLDB Shared myMicroservicesCloudant
+cf create-service cloudantNoSQLDB Lite myMicroservicesCloudant
 if ! cf app $CF_APP_NAME; then  
   cf push $CF_APP_NAME
 else
