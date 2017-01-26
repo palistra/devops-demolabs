@@ -26,9 +26,9 @@ This lab adds the UI application to the Toolchain.  You may want to refer to the
 </ol>
 
 ## Task 2: Add and Configure GitHub Integration for UI
-The code for the Catalog microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_UI).  We will clone this repository and link to the clone.
+The code for the UI microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_UI).  We will clone this repository and link to the clone.
 <ol>
-<li>Click on the <b>+</b> plus icon on the right side of the screen to add a Tool Integration.
+<li>Click on <b>Add a Tool</b> on the right side of the screen to add a Tool Integration.
 <li>Click on <b>GitHub</b> to add integration with GitHub to the Toolchain.
 <li>Select 'Clone' as the Repository type.
 <li>Enter "<i>githubuserid</i>/UI-toolchain-lab.git" for the New Repository Name.
@@ -42,7 +42,7 @@ The code for the Catalog microservice already exists in a GitHub repository (htt
 ## Task 3: Add UI Delivery Pipeline
 Now that you have a Git repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
 
-  1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
+  1. Click on **Add a Tool** on the right side of the screen to add a Tool Integration.
   2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
   3. Under 'Pipeline name:', enter "ui-toolchain-lab" and select the 'Show apps in the VIEW APP menu' checkbox.
   4. Click **Create Integration**.
@@ -119,10 +119,10 @@ echo "Pushed App Name: ${CF_APP_NAME}."
     </ul>
     <li>Add the CF_APP_NAME environment variable.
     <li>Click <b>Save</b> to save the <b>Dev</b> stage.
-    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Dev</b> stage has not been run. Click on the <b>Run Stage</b> icon to run the <b>Dev</b> stage to deploy Catalog application and run the functional tests.
+    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Dev</b> stage has not been run. Click on the <b>Run Stage</b> icon to run the <b>Dev</b> stage to deploy the UI application.
     <p>The JOBS section shows the Stage was successful. Click on "View logs and history" to the Job log.
-    <li>LAST EXECUTION RESULT displays the url to the successfully deployed application (dev-catalog-toolchain-lab.mybluemix.net) as well as a link to the runtime log.
-    <br>Click on "dev-catalog-toolchain-lab.mybluemix.net" to access the running application.
+    <li>LAST EXECUTION RESULT displays the url to the successfully deployed application (dev-ui-toolchain-lab.mybluemix.net) as well as a link to the runtime log.
+    <br>Click on "dev-ui-toolchain-lab.mybluemix.net" to access the running application.
     <p>The <b>Dev</b> stage has been successfully added and executed.
 </ol>
 
@@ -190,5 +190,5 @@ fi
     <br>Click on the blue arrow to display the Delivery Pipeline. Click on "<i>user_name</i>-ui-toolchain-lab.mybluemix.net" to access the running application.  You could also click on the <b>View App</b> pull-down and select the "<i>user_name</i>-ui-toolchain-lab.mybluemix.net".
     <p>
     <img src="screenshots/ProdUIRunning.jpg" alt="ProdUIRunning">
-    <p>The <b>Prod</b> stage has been successfully added and executed.  The Catalog application has been deployed to production.
+    <p>The <b>Prod</b> stage has been successfully added and executed.  The UI application has been deployed to production.
 </ol>

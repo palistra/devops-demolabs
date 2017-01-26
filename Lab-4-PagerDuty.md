@@ -4,7 +4,7 @@
 This lab show how to integrate your toolchain with PagerDuty so people get notified when things go wrong so problems can be fixed faster and reduce downtime.
 
 ## Prerequisites
-If you want to see email otifications from PagerDuty, you will need access to an eMail account.  Once the integration is created, you can check that account to accept the invitation to join PagerDuty.
+If you want to see email notifications from PagerDuty, you will need access to an eMail account.  Once the integration is created, you can check that account to accept the invitation to join PagerDuty.
 
 **Tasks**:
 - [Task 1: Add PagerDuty to Toolchain](#task-1-add-pagerduty-to-toolchain)
@@ -12,10 +12,10 @@ If you want to see email otifications from PagerDuty, you will need access to an
 - [Task 3: Fix application](#task-3-fix-application)
 
 ## Task 1: Add PagerDuty to Toolchain
-1. On the devops-toolchain-lab toolchain's Tool Integrations page, click the add button **+**
+1. On the devops-toolchain-lab toolchain's Tool Integrations page, click **Add a Tool**
 2. Select **PagerDuty**
 3. On the PagerDuty Configuration page:
-   - Enter Nb8ZxY6sAWKxLp1UhA_u as the API access key
+   - Enter 7x-RJtTJr9H-wCn-aJCk as the API access key
    - Enter "devopslab" as the PagerDuty service name
    - Enter an email address you can access.  Leave the phone number blank unless you want to receive text messages.
 
@@ -51,7 +51,7 @@ We want to modify the application and one way is to use the Web IDE.
   10. The Deploy fails.
 
   ![WebIDEDeployFailed](screenshots/WebIDEDeployFailed.jpg)
-  11. The PagerDuty console (https://ibmdevopslab.pagerduty.com/incidents) shows the incident:
+  11. The PagerDuty console (https://devopslab01.pagerduty.com/incidents) shows the incident:
 
   ![PagerDutyConsole](screenshots/PagerDutyConsole.jpg)
     12. The account you entered when you setup the PagerDuty integration will have an alert. The link in the email will allow you to view the incident on PagerDuty (assuming you accepted the invitation from PagerDuty).

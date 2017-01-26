@@ -17,26 +17,32 @@ This lab show how to integrate your toolchain with Slack.  Slack provides real-t
 5. You are now access the BluemixDevOpsLab Slack team.
 
 ## Task 2: Add Slack to Toolchain
-1. On the devops-toolchain-lab toolchain's Tool Integrations page, click the add button **+**
+1. On the devops-toolchain-lab toolchain's Tool Integrations page, click **Add a Tool**
 2. Select **Slack**
 3. On the Slack Configuration page:
-   - Enter the following all as one string as the API access key.
+   - Enter the following all as one string as the Slack webhook.
 <br>
-  **xoxp-94499605861-**
+  **https://hooks.slack.com/services/**
 <br>  
-  **95427969447-95478187570-**
+  **T2SEPHTRB/B3XPS9JMV/CiJnw2Jg98WXYXXJ1tDMXMbK**
 <br>  
-  **7c80a438bb48bbf435f9f10489c1cb5b**
-
-    as the API access key
-   - Enter **BluemixDevOpsLab** as the Slack channel.
+   - Enter **#bluemixdevopslab** as the Slack channel.
   ![CreateSlack](screenshots/CreateSlack.jpg)
 
 4. Click **Create Integration**
 
-## Task 3: Verify Slack works by breaking application build
+## Task 3: Add Eclipse Orion Web IDE to Toolchain
+We want to modify the application and one way is to use the Web IDE.
+
+If you already added the Eclipse Orion Web ID to the toolchain,go to the next Task (to break the application build).
+
+1. On the toolchain's Tool Integrations page, click **Add a Tool**
+2. Select **Eclipse Orion Web IDE**.
+3. No configuration is needed. so click **Create Integration**.
+
+## Task 4: Verify Slack works by breaking application build
   1. On the toolchain's Tool Integrations page, click the **Eclipse Orion Web IDE** tile. The GitHub repos are automatically loaded in your workspace. The Web IDE workspace is on the cloud.
-  2. In the file navigator, expand the orders-api-toolchain_name repo (if needed).
+  2. In the file navigator, expand the <i>githubuserid</i>orders-api-toolchain_lab repo (if needed).
   3. In the file directory, click manifest.yml to open the file.
 
   ![WebIDE](screenshots/WebIDE.jpg)
@@ -59,7 +65,7 @@ This lab show how to integrate your toolchain with Slack.  Slack provides real-t
   ![SlackChannelFailure](screenshots/SlackChannelFailure.jpg)
   12. If you completed the PagerDuty lab successfully with a valid email account, that account will have an email.  The link in the email will allow you to view the incident on PagerDuty.
 
-## Task 4: Fix application
+## Task 5: Fix application
 
 Now to fix the application.
   1. On the toolchain's Tool Integrations page, click the **Eclipse Orion Web IDE** tile.
