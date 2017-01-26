@@ -28,7 +28,7 @@ This lab adds the Catalog application to the Toolchain.  And now that you have e
 ## Task 2: Add and Configure GitHub Integration for Catalog
 The code for the Catalog microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_CatalogAPI).  We will clone this repository and link to the clone.
 <ol>
-<li>Click on the <b>+</b> plus icon on the right side of the screen to add a Tool Integration.
+<li>Click on <b>Add a Tool</b> on the right side of the screen to add a Tool Integration.
 <li>Click on <b>GitHub</b> to add integration with GitHub to the Toolchain.
 <li>Select 'Clone' as the Repository type.
 <li>Enter "<i>githubuserid</i>/catalog-api-toolchain-lab.git" for the New Repository Name.
@@ -40,7 +40,7 @@ The code for the Catalog microservice already exists in a GitHub repository (htt
 ## Task 3: Add Catalog Delivery Pipeline
 Now that you have a Git repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
 
-  1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
+  1. Click on **Add a Tool** on the right side of the screen to add a Tool Integration.
   2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
   3. Under 'Pipeline name:', enter "catalog-api-toolchain-lab" and select the 'Show apps in the VIEW APP menu' checkbox.
   4. Click **Create Integration**.
@@ -168,7 +168,7 @@ fi
 echo "Testing of App Name ${CF_APP_NAME} was successful"      
 </code></pre>
     <li>Click <b>Save</b> to save the <b>Test</b> stage.
-    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Test</b> stage has not been run.
+    <li>The <b>Delivery Pipeline</b> displays the <b>Build</b>, <b>Dev</b> and <b>Test</b> stages.  The <b>Test</b> stage has not been run.
     Click on the <b>Run Stage</b> icon to run the <b>Test</b> stage and deploy the order API to the <i>test</i> space.
     <li>As before for the <b>Dev</b> stage, the JOBS section shows the Deploy and Test Jobs were successful. Click <b>Test</b> to display the log for the <b>Test</b> job.
     <br>Click on "test-catalog-toolchain-lab.mybluemix.net" to access the running application.

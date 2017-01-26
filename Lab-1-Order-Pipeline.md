@@ -26,9 +26,9 @@ This lab creates and configures the Toolchain for the Order application.
   2. Click on **Toolchains**.
 
   ![Toolchain](screenshots/ToolChain.jpg)
-  3. Click on the **+** plus icon on the right side of the screen.
+  3. Click on **Create a Toolchain** on the right side of the screen.
 
-  ![AddToolchain](screenshots/AddToolchain.jpg)
+  ![AddToolchain](screenshots/CreateAToolchain.jpg)
   4. Click on **Build your own toolchain**.
 
   ![BuildYourOwnToolchain](screenshots/BuildYourOwnToolchain.jpg)
@@ -41,7 +41,7 @@ This lab creates and configures the Toolchain for the Order application.
 ## Task 3: Add and Configure GitHub Integration for Order
 The code for the Order microservice already exists in a GitHub repository (https://github.com/open-toolchain/Microservices_OrdersAPI).  We will clone this repository and link to the clone.
 
-  1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
+  1. Click on **Add a tool** on the right side of the screen to add a Tool Integration.
   2. Click on **GitHub** to add integration with GitHub to the Toolchain.
 
   ![ClickOnGitHub](screenshots/ClickOnGitHub.jpg)
@@ -67,7 +67,7 @@ The code for the Order microservice already exists in a GitHub repository (https
 ## Task 4: Add Order Delivery Pipeline
 Now that you have a Git repository clone of the code, we will add a Delivery Pipeline to deploy it and test it.
 
-  1. Click on the **+** plus icon on the right side of the screen to add a Tool Integration.
+  1. Click on **Add a Tool** on the right side of the screen to add a Tool Integration.
   2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
   3. Under 'Pipeline name:', enter "orders-api-toolchain-lab".
 
@@ -84,7 +84,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 <ul>
 <li>The <b>Build</b> stage has one job, performing the initial build of the code from the GitHub Repository.
 <li>The <b>Dev</b> stage has one job, taking the output from the Build stage and deploying on Bluemix into the <i>dev</i> space.
-<li>The <b>Test</b> stage has two jobs, taking the output from the Dev  stage and deploying on Bluemix into the <i>qa</i> space, then performing automated tests.
+<li>The <b>Test</b> stage has two jobs, taking the output from the Dev stage and deploying on Bluemix into the <i>qa</i> space, then performing automated tests.
 <li>The <b>Prod</b> stage has one job, taking the output from the Test stage and deploying on Bluemix into the <i>prod</i> space.  This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
 </ul>
 <p>Click on the <b>Delivery Pipeline</b> tile for the <b>orders-api-toolchain-lab</b> pipeline.
@@ -93,7 +93,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 <li>Add the <b>Build</b> stage and jobs.
 <ol>
     <li>Click on <b>ADD STAGE</b>.
-    <li>On the <b>INPUT</b> tab, enter "Build" for Stage Name. Note that:
+    <li>On the <b>INPUT</b> tab, change "MyStage" to "Build" for Stage Name. Note that:
     <ul>
     <li>'Input Type' is set to a SCM Repository, in this case, Git.
     <li>'Git Repository' is set to the name of the Git Repository we just cloned. Make sure to select the "order" repo from the dropdown list.
@@ -111,7 +111,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>On the Job configuration panel, note that:
     <ul>
     <li>'Builder Type' is set to "Simple" (other options are available on the pull-down).
-    <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed is this Job fails.
+    <li>'Run Conditions' is set to "Stop running this stage if this job fails" to prevent any other jobs in this stage from running and to make the stage failed if this Job fails.
     <p>
     <img src="screenshots/BuildJobToOrderDeliveryPipelineBuildStageConfiguration.jpg" alt="BuildJobToOrderDeliveryPipelineBuildStageConfiguration">
     </ul>
@@ -189,14 +189,13 @@ echo "Pushed App Name: ${CF_APP_NAME}."
     <li>Click on "<i>user_name</i>-dev-orders-api-toolchain-lab.mybluemix.net" to access the running application.
     <p>
     <img src="screenshots/DevStageOrderDeliveryPipelineRunning.jpg" alt="DevStageOrderDeliveryPipelineRunning">
-    <li>CLose the application window.
-    <p>The <b>Dev</b> stage has been successfully added and executed.
+    <li>CLose the application window.    
 </ol>
-
+<p>The <b>Dev</b> stage has been successfully added and executed.
 <li>Add the <b>Test</b> stage (remember, two jobs, one to deploy to the <i>test</i> space and another to perform an automated test).  We will clone the <b>Dev</b> stage and make some modifications.
 <ol>
     <li>Ensure the orders-api-toolchain-lab <b>Delivery Pipeline</b> is displayed.
-    <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
+    <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> gear and select "Clone Stage".
     <p>
     <img src="screenshots/CloneDevStageOrderDeliveryPipeline.jpg" alt="CloneDevStageOrderDeliveryPipeline">
     <li>Rename the cloned stage to <b>Test</b> (from <b>Dev [copy]</b>).
@@ -220,7 +219,7 @@ echo "Testing of App Name ${CF_APP_NAME} was successful"
     <p>
     <img src="screenshots/TestStageOrderDeliveryPipelineSuccessfulTestLog.jpg" alt="TestStageOrderDeliveryPipelineSuccessfulTestLog">
     <br>Click on "<i>user_name</i>-test-orders-api-toolchain-lab.mybluemix.net" to access the running application.
-    <p>The <b>Test</b> stage has been successfully added and executed.  Click on the
+    <p>The <b>Test</b> stage has been successfully added and executed.  Close the browser tab with the running application.
 </ol>
 
 
