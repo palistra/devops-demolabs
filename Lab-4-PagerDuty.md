@@ -12,17 +12,31 @@ If you want to see email notifications from PagerDuty, you will need access to a
 - [Task 3: Fix application](#task-3-fix-application)
 
 ## Task 1: Add PagerDuty to Toolchain
+As a developer or operations person, you may want to be notified of the status of code deployments.  One way to be alerted  is to integrate third-party tools such as [PagerDuty](https://www.pagerduty.com/).  IBM Bluemix has made it easy to add PagerDuty integration into a Toolchain so the teams such as development or operations are notified of the status of deployments.
+
+**Note:** The PagerDuty integration feature is not created by, affiliated with, or supported by PagerDuty, Inc.
+
+
 1. On the devops-toolchain-lab toolchain's Tool Integrations page, click **Add a Tool**
 2. Select **PagerDuty**
 3. On the PagerDuty Configuration page:
    - Enter 7x-RJtTJr9H-wCn-aJCk as the API access key
    - Enter "devopslab" as the PagerDuty service name
-   - Enter an email address you can access.  Leave the phone number blank unless you want to receive text messages.
+   - Enter an email address you can access.  Leave the phone number blank.  PagerDuty has a place for you to enter your phone number if you want to receive text messages or receive phone calls.
 
 4. Click **Create Integration**
 
   ![PagerDutySetup](screenshots/PagerDutySetup.jpg)
 5. You can access the eMail account to accept the PagerDuty invitation.
+
+  ![PagerDutyInvite](screenshots/PagerDutyInvite.jpg)
+
+6. You can enter your phone information into your PagerDuty account (if you have one).
+
+  ![PagerDutyPhone](screenshots/PagerDutyPhone.jpg)
+
+  The list of countries PagerDuty supports is at: [PagerDuty Country Support](https://support.pagerduty.com/hc/en-us/articles/202828860-Countries-PagerDuty-supports-for-SMS-and-phone-call-notifications)
+
 
 ## Task 2: Add Eclipse Orion Web IDE to Toolchain
 We want to modify the application and one way is to use the Web IDE.
@@ -54,9 +68,11 @@ We want to modify the application and one way is to use the Web IDE.
   11. The PagerDuty console (https://devopslab01.pagerduty.com/incidents) shows the incident:
 
   ![PagerDutyConsole](screenshots/PagerDutyConsole.jpg)
-    12. The account you entered when you setup the PagerDuty integration will have an alert. The link in the email will allow you to view the incident on PagerDuty (assuming you accepted the invitation from PagerDuty).
+  12. The account you entered when you setup the PagerDuty integration will have an alert. The link in the email will allow you to view the incident on PagerDuty (assuming you accepted the invitation from PagerDuty).
 
   ![PagerDutyeMail](screenshots/PagerDutyeMail.jpg)
+  13. If you added a mobile phone number to your PagerDuty account, that phone will receive an alert and/or phone message.
+  ![PagerDutyPager](screenshots/PagerDutyPager.jpg)
 
 ## Task 4: Fix application
 
