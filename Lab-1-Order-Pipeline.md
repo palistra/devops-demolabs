@@ -192,7 +192,7 @@ echo "Pushed App Name: ${CF_APP_NAME}."
     <li>CLose the application window.    
 </ol>
 <p>The <b>Dev</b> stage has been successfully added and executed.
-<li>Add the <b>Test</b> stage (remember, two jobs, one to deploy to the <i>test</i> space and another to perform an automated test).  We will clone the <b>Dev</b> stage and make some modifications.
+<li>Add the <b>Test</b> stage (remember, two jobs, one to deploy to the <i>qa</i> space and another to perform an automated test).  We will clone the <b>Dev</b> stage and make some modifications.
 <ol>
     <li>Ensure the orders-api-toolchain-lab <b>Delivery Pipeline</b> is displayed.
     <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> gear and select "Clone Stage".
@@ -208,6 +208,8 @@ echo "Pushed App Name: ${CF_APP_NAME}."
 # invoke tests here
 echo "Testing of App Name ${CF_APP_NAME} was successful"      
 </code></pre>
+This 'test' script just echos the app name to the console log.  In a real environment, we would execute automated test tools and scripts to validate the deployed service still worked.
+<br>
     <li>Click the <b>ENVIRONMENT PROPERTIES</b> tab. Note the environment variable CF_APP_NAME is already present.
     <li>Click <b>Save</b> to save the <b>Test</b> stage.
     <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Test</b> stage has not been run.

@@ -1,10 +1,10 @@
 # Lab 4: Add PagerDuty Integration
 
 # Objective
-This lab show how to integrate your toolchain with PagerDuty so people get notified when things go wrong so problems can be fixed faster and reduce downtime.
+This lab show how to integrate your toolchain with PagerDuty so teams get notified when things go wrong so problems can be fixed faster and reduce downtime.
 
 ## Prerequisites
-If you want to see email notifications from PagerDuty, you will need access to an eMail account.  Once the integration is created, you can check that account to accept the invitation to join PagerDuty.
+If you want to see email notifications from PagerDuty, you will need access to an eMail account.  Once the integration is created, you can check that account to accept the invitation to join PagerDuty and to see alerts from PagerDuty.
 
 **Tasks**:
 - [Task 1: Add PagerDuty to Toolchain](#task-1-add-pagerduty-to-toolchain)
@@ -31,7 +31,7 @@ As a developer or operations person, you may want to be notified of the status o
 
   ![PagerDutyInvite](screenshots/PagerDutyInvite.jpg)
 
-6. You can enter your phone information into your PagerDuty account (if you have one).
+6. You can enter your phone information into your PagerDuty account (if you have one).  If you do this, you will get text messages and/or phone calls, depending on where you entered your phone number.  Normal messaging rates apply.
 
   ![PagerDutyPhone](screenshots/PagerDutyPhone.jpg)
 

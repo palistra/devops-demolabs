@@ -28,8 +28,8 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 - [Lab 3: Set-up Toolchain for UI](Lab-3-UI-Pipeline.md)
 - [Lab 4: Add PagerDuty Integration](Lab-4-PagerDuty.md)
 - [Lab 5: Add Slack Integration](Lab-5-Slack.md)
-- [Lab 6: Review paper on using templates to create tool chains located here: https://ibm.biz/Bds4cG]( https://ibm.biz/Bds4cG)
-- [Lab 7: Create a tool chain from an example tempalte (and button): https://ibm.biz/Bds4cV]( https://ibm.biz/Bds4cV)
-- [Lab 8: Answer the guided questions for the BlueCompute tool chain example](Bluecompute-guided.md)
+- [Lab 6: Read Template Paper](Lab-6-Read-Template-Paper.md)
+- [Lab 7: Create a tool chain from an example template](Lab-7-Create-Toolchain-From-Template.md)
+- [Lab 8: Answer the guided questions for the BlueCompute tool chain example](Lab-8-Answer-guided-questions.md)
 
 [//]: # (- [Lab 6: Deliver a UI Change](#lab-7-Deliver-a-UI-Change) )
