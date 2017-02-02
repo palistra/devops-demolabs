@@ -146,6 +146,7 @@ if [ -f $GRUNTFILE ]; then
    echo "$GRUNTFILE not found."
 fi    
 </code></pre>
+This bash shell will execute Grunt JavaScript tasks to run functional test scripts on the catalog service prior to deploying the service to the Test stage (and qa space).
     </ul>
     <li>Click <b>Save</b> to save the <b>Dev</b> stage.
     <li>The <b>Delivery Pipeline</b> displays the <b>Build</b> and <b>Dev</b> stages.  The <b>Dev</b> stage has not been run. Click on the <b>Run Stage</b> icon to run the <b>Dev</b> stage to deploy Catalog application and run the functional tests.
@@ -155,25 +156,26 @@ fi
     <p>The <b>Dev</b> stage has been successfully added and executed.
 </ol>
 
-<li>Add the <b>Test</b> stage (remember, two jobs, one to deploy to the <i>test</i> space and another to perform an automated test).  We will clone the <b>Dev</b> stage and make some modifications.
+<li>Add the <b>Test</b> stage (remember, two jobs, one to deploy to the <i>qa</i> space and another to perform an automated test).  We will clone the <b>Dev</b> stage and make some modifications.
 <ol>
     <li>Ensure the catalog-api-toolchain-lab <b>Delivery Pipeline</b> is displayed.
     <li>On the <b>Dev</b> stage, click the <b>Stage Configuration</b> and select "Clone Stage".
     <li>Rename the cloned stage to <b>Test</b> (from <b>Dev [copy]</b>).
     <li>On the <b>Jobs</b> tab, for the <b>Deploy</b> job, change the space to <b>qa</b> (from <b>dev</b>) (or Create a new space called <b>qa</b> if not on the dropdown) and change the deploy script to change CF_APP_NAME to "$user_name-test-$CF_APP" from "$user_name-dev-$CF_APP".
-    <li>On the <b>Jobs</b> tab, for the <b>Functional Test</b> job, change the Functional Test name to simply <b>Test</b>. Enter the following code to the <b>Test Command</b>.
+    <li>On the <b>Jobs</b> tab, enter the following code to the <b>Test Command</b>.
 <pre><code>
 #!/bin/bash
 # invoke tests here
 echo "Testing of App Name ${CF_APP_NAME} was successful"      
 </code></pre>
+This 'test' script just echos the app name to the console log.  In a real environment, we would execute automated test tools and scripts to validate the deployed service still worked.
+<br>
     <li>Click <b>Save</b> to save the <b>Test</b> stage.
     <li>The <b>Delivery Pipeline</b> displays the <b>Build</b>, <b>Dev</b> and <b>Test</b> stages.  The <b>Test</b> stage has not been run.
     Click on the <b>Run Stage</b> icon to run the <b>Test</b> stage and deploy the order API to the <i>test</i> space.
-    <li>As before for the <b>Dev</b> stage, the JOBS section shows the Deploy and Test Jobs were successful. Click <b>Test</b> to display the log for the <b>Test</b> job.
-    <br>Click on "test-catalog-toolchain-lab.mybluemix.net" to access the running application.
-    <p>The <b>Test</b> stage has been successfully added and executed.
-</ol>
+    <li>As before for the <b>Dev</b> stage, the JOBS section shows the Deploy and Test Jobs were successful. Click <b>Test</b> to display the log for the <b>Test</b> job. Notice the "Testing of App Name" message was echoed.    
+    <li>Click on "test-catalog-toolchain-lab.mybluemix.net" to access the running application.
+    </ol><p>The <b>Test</b> stage has been successfully added and executed.
 <li>Add the <b>Prod</b> stage (remember, one job, to deploy to the <i>prod</i> space).  This stage will also check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.
 <br>We will clone the <b>Dev</b> stage and make some modifications.
 <ol>

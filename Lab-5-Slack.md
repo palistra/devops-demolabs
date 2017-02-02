@@ -6,15 +6,16 @@ This lab show how to integrate your toolchain with Slack.  Slack provides real-t
 **Tasks**:
 - [Task 1: Log into Slack](#task-1-log-into-slack)
 - [Task 2: Add Slack to Toolchain](#task-1-add-slack-to-toolchain)
-- [Task 3: Verify Slack works by breaking application build](#task-3-verify-slack-works-by-breaking-application-build)
-- [Task 4: Fix application](#task-4-fix-application)
+- [Task 3: Add Eclipse Orion Web IDE to Toolchain](#task-3-add-eclipse-orion-web-ide-to-toolchain)
+- [Task 4: Verify Slack works by breaking application build](#task-4-verify-slack-works-by-breaking-application-build)
+- [Task 5: Fix application](#task-5-fix-application)
 
 ## Task 1: Log into Slack
-1. Go to: https://slack.com/.
-2. Click on **sign in**.
-3. Enter **BluemixDevOpsLab** as the Domain name and click **Continue**.
-4. Enter **BluemixCloudDeveloper@gmail.com** as the eMail address and **devops4me** as the password. Click on **Sign in**.
-5. You are now access the BluemixDevOpsLab Slack team.
+1. Go to the [Slack login panel for BluemixDevOpsLab (https://bluemixdevopslab.slack.com)](https://bluemixdevopslab.slack.com).
+2. If you have a Slack account, ask your lab instructor to add you to the BluemixDevOpsLab Slack team.  After they do, check the eMail account associated with that Slack account for the verification link and click that link to validate joining the BluemixDevOpsLab Slack team. Go to [Task 2: Add Slack to Toolchain](#task-2-add-slack-to-toolchain) (**Note**: IBM employees who have a @us.ibm.com ID can create an account on the BluemixDevOps Slack team by clicking the link https://bluemixdevopslab.slack.com/signup/.  You will need to access your IBM eMail account to confirm adding your account to the BluemixDevOpsLab Slack team).
+3.  If you do not have a Slack account, you can:
+    - Create a new Slack account and ask the lab instructor to add that account to the BluemixDevOpsLab Slack team.  You will need to access the eMail associated with the Slack account OR
+    - Use an ID already created for this lab.  Enter **BluemixCloudDeveloper@gmail.com** as the eMail address and **devops4me** as the password.
 
 ## Task 2: Add Slack to Toolchain
 1. On the devops-toolchain-lab toolchain's Tool Integrations page, click **Add a Tool**
