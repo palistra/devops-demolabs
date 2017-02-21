@@ -33,10 +33,16 @@ This lab will build the all three microservices and deploy them to the Developme
 
 1. Clicking on one of the GitHub repo links or the **Configured** link will display the respective GitHub repo.
   ![GitHubRepoLink](screenshots/GitHubRepoLink.png)
+
 2. You can either click on the three vertical dots on the upper-right of the _ui-toolchain-demo_ Delivery Pipeline tile to display **Action** and then click on **Configure**
+
   ![UIPipelineConfigureLink](screenshots/UIPipelineConfigureLink.png)
+
   **or** click on the circle in the center of the _ui-toolchain-demo_ Delivery Pipeline tile
+
   ![UIPipelineConfigureLink2](screenshots/UIPipelineConfigureLink2.png)
+
   to display the delivery pipeline.
+
   ![UIPipeline](screenshots/UIPipeline.png)
 3.
