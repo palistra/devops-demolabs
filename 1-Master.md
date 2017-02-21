@@ -24,6 +24,7 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 ## Labs
 - [Lab 0: Create Bluemix and GitHub accounts](Lab-0-Pre-reqs.md)
 - [Lab 0: Create Bluemix and GitHub accounts](Lab-0-Pre-reqs.md)
+- [Lab 0: Create Bluemix and GitHub accounts](Lab-0-Pre-reqs.md)
 - [Lab 1: Set-up Toolchain for Order](Lab-1-Order-Pipeline.md)
 - [Lab 2: Set-up Toolchain for Catalog](Lab-2-Catalog-Pipeline.md)
 - [Lab 3: Set-up Toolchain for UI](Lab-3-UI-Pipeline.md)
