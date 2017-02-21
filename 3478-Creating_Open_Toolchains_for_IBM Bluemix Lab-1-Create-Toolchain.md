@@ -12,7 +12,7 @@ This lab takes you throught the process of creating the Continuous Delivery tool
 
 1. We need to get to the DevOps Services. Click on the hamburger menu, then **Menu**.
 
-![BluemixMenuBar](screenshots/BluemixMenuBar.jpg)
+  ![BluemixMenuBar](screenshots/BluemixMenuBar.jpg)
 2. Click on **Services** then **DevOps**.
 3. Click on **Toolchains**.
 4. Click on **Create a Toolchain**.
@@ -24,7 +24,7 @@ This lab takes you throught the process of creating the Continuous Delivery tool
   - GitHub
   - Delivery pipeline
 
-  Some of which we will not confguire:
+  Some of which we will not configure:
   - PagerDuty
   - Sauce labs
   - Slack
