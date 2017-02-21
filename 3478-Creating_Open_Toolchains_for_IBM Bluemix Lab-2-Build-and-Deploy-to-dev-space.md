@@ -20,7 +20,9 @@ This lab will build the all three microservices and deploy them to the Developme
   Return to the Microservices toolchain by either clicking on the **Go back one page** arrow on the browser or, if you clicked the right-mouse button to open a new tab, close the GitHub Issues page. (Note that the remainder of these lab instructions will not go into this level of detail on opening and closing pages and tabs - pick the method that is best for you.)
 
 4. **Code** is where [GitHub](https://github.com/) code repos, [Sauce Labs](https://saucelabs.com/) and Eclipse Orion Web IDE are integrated. Clicking on one of the three repos will display the respective (cloned) repo
+
   ![GitHubPage](screenshots/GitHubPage.png)
+
   while clicking on the **Eclipse Orion Web IDE** will display the Web editor.  We do not have a Sauce Labs account, so we really don't need the Sauce Labs integration.  We will leave it alone for now.
  5. **Deliver** is where the code gets built, tested and deployed through the integrations of build pipelines, one per microservice. We explore build pipelines later.
  6. **Manage** is where the intergrations to management tools, such as [Pager Duty](https://www.pagerduty.com/), get added.
