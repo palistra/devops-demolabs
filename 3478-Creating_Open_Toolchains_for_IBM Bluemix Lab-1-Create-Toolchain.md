@@ -45,10 +45,10 @@ This lab takes you throught the process of creating the Continuous Delivery tool
     2. Click **Authorize application**.
 
 7. Once authorized, you see the three Source Repositories (one for each of Catalog, Orders and UI) where the code is stored and three corresponding Target Repositories, where the Source Repositories will be cloned. The Target Repository name is generated and just like Toolchain Name, you can leave the default generated name or make it something more memorable.
-![GitHubConfiguration](screenshots/GitHubConfiguration.png)
+  ![GitHubConfiguration](screenshots/GitHubConfiguration.png)
 8. Click on **Delivery Pipeline**. We will be creating three delivery pipelines, one for each microservices. This is where the application name for each microservice will be specified, as well as the Bluemix Region, Organization and Space where the microservices will be deployed.
 9. The application names for the three microservices must be unique in the Bluemix environment so it is best to leave them as generated.
-![PipelineConfiguration](screenshots/PipelineConfiguration.png)
+  ![PipelineConfiguration](screenshots/PipelineConfiguration.png)
 10. Pipelines can only be created in the US South region so to keep things simple we will deploy to only the US South region and in the Organization we are logged into.
 11. We have three spaces for our environment corresponding to the lifecycle we are using.
 
@@ -56,12 +56,13 @@ This lab takes you throught the process of creating the Continuous Delivery tool
     2. Testing or Quality Assurance (**qa**) where testing takes plave
     3. Production (**prod**) where the application is available to end users (in our lab scenario, we do not restrict access to the dev or qa applications but in real life you would).
 
-![DeployConfiguration](screenshots/DeployConfiguration.png)
+  ![DeployConfiguration](screenshots/DeployConfiguration.png)
+
 ## Task 3: Create  Microservices Toolchain
 
 1. Click **Create** to create the toolchain.
 
-![CreateToolchainButton](screenshots/CreateToolchainButton.png)
-
+  ![CreateToolchainButton](screenshots/CreateToolchainButton.png)
 2. The Microservices toolchain is created.
-![ToolchainCreated](screenshots/ToolchainCreated.png)
+
+  ![ToolchainCreated](screenshots/ToolchainCreated.png)
