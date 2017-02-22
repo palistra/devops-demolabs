@@ -58,6 +58,8 @@ This lab takes you throught the process of creating the Continuous Delivery tool
 
   ![DeployConfiguration](screenshots/DeployConfiguration.png)
 
+<div class="page-break"></div>
+
 ## Task 3: Create  Microservices Toolchain
 
 1. Click **Create** to create the toolchain.

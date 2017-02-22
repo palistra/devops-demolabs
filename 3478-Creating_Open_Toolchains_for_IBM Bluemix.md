@@ -10,7 +10,8 @@
 </div>
 
 <div class="author">
-<H2>Jim Palistrant, Bluemix Enablement</H2>
+<H3>Jim Palistrant, Bluemix Skills and Learning</H3>
+<H3>John Liu, DevOps Solution Architect</H3>
 </div>
 
 <div class="page-break"></div>
@@ -28,8 +29,7 @@ The information contained in these materials is provided for informational purpo
 
 <div class="page-break"></div>
 
-
-#Bluemix DevOps Toolchain Lab
+# Bluemix DevOps Toolchain Lab
 
 ## Objective
 This series of labs shows how to set up a productive Continuous Delivery toolchain with a sample that consists of three microservices. After you finish this part of the series, you will be familiar with a toolchain that demonstrates practices from the IBM® Bluemix® Garage Method. ***Note:*** Toolchains are currently available in the US South region only and the instructions in this lab are written for the US South region.
@@ -58,6 +58,7 @@ In the real world, many enterprises have a process for developing, testing and d
 - While we could edit locally (using Eclipse for example) and push the code up to Bluemix, we will instead use the Eclipse Orion Web IDE, which you can use to edit your code and deploy it with the pipeline from a web browser.
 - We want our application to scale as needed so we will be deploying one of the microservices into Bluemix containers
 
+<div class="page-break"></div>
 Conceptually, the process looks like:
 
   ![PipelinesAndStages](Screenshots/PipelinesAndStages.jpg)
@@ -71,6 +72,8 @@ Software development is a team activity.  The lab scenario also shows how Bluemi
 - Bluemix Availbility Monitoring is configured to monitor the application in production and alert the team when outages occur
 
 It sounds like a lot ... and it is!  Thankfully, it is all handled by a Bluemix Continuous Delivery toolchain.  And even better, we will use an existing template to give a great starting point.
+
+<div class="page-break"></div>
 
 ## Prerequisites
 Prior to running these labs, you must have a Bluemix account, a GitHub account and access to a lab laptop.  Follow the steps in Lab 0 to create one or both of those accounts.
@@ -99,13 +102,3 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 [comment]: # (Lab 6: Add Bluemix IBM Alert Notification to notify people when production breaks.)
 [comment]: # (Lab 7: Modify Pipeline for Catalog to deploy Catalog to Containers in Prod space to handle scability issue)
 [comment]: # (Lab 8: Add auto-scaling support to Catalog)
-
-
-Lab 1: Click-create and customize Toolchain for Order and UI Pipelines. Run Toolchain to deploy to Dev and Prod space. Test UI with browser, see output for Order.
-Lab 2: Set-up Pipeline for Catalog (more manual effort). Run Toolchain to deploy to Dev and Prod space. See output for Catalog.
-Lab 3: Customize Pipeline for Catalog to incorporate real test scripts for Dev space (not sure what tool to put into the Toolchain, Sauce Labs is nice but not free ... mochajs ? Something else?). First test is fine. Break app and show how test finds bug. How to notify team?
-Lab 4: Customize Toolchain to add Slack Integration and show how team is auto-notified when test fails. Fix bug, (re-) run test, deploy to production.
-Lab 5: Customize Toolchain to add Bluemix Availability Monitoring for Production. Break something to show what happens (be nice to have some sort of scalability problem?)
-Lab 6: Add Bluemix IBM Alert Notification to notify people when production breaks.
-Lab 7: Modify Pipeline for Catalog to deploy Catalog to Containers (in Prod space) to handle scability issue
-Lab 8: Add auto-scaling support to Catalog
