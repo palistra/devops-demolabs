@@ -5,7 +5,10 @@ This lab will integrate Slack into the Continuous Delivery Toolchain. [Slack](ht
 
 **Tasks**:
 - Task 1: Integrate Slack
-- Task 2: Examine Slack notifications
+- Task 2: Work with Slack
+- Task 3: Modify Toolchain for Sauce Labs test job
+- Task 4: Modify Toolchain for Functional Tests job
+- Task 5: Examine PROD Stage
 
 ## Task 1: Integrate Slack
 
@@ -18,69 +21,158 @@ This lab will integrate Slack into the Continuous Delivery Toolchain. [Slack](ht
 3. Click on **Configure** to configure the connection between Bluemix and Slack.
   ![ClickConfigureSlack](screenshots/ClickConfigureSlack.png)
 
-3. Enter the following all as one string as the Slack webhook.
-  **https://hooks.slack.com/services/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**
+3. Enter the following information:
+   1. Slack webhook (all one string):
+   **https://hooks.slack.com/services/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**
 
+   2. Slack channel:
+   **interconnect_devops**
 
-This displays the **GitHub Issues** page.  Issues are used to track todos, bugs, feature requests, and more.  Each GitHub repository (_repo_ for short) can include issues.  The Microservices template we used only included issues for the UI repo.
-  ![GitHubIssuePage](screenshots/GitHubIssuePage.png)
-  Return to the Microservices toolchain by either clicking on the **Go back one page** arrow on the browser or, if you clicked the right-mouse button to open a new tab, close the GitHub Issues page. (Note that the remainder of these lab instructions will not go into this level of detail on opening and closing pages and tabs - pick the method that is best for you.)
+   3. Slack team URL Host name:
+   **bluemixdevopslab**
 
-4. **Code** is where [GitHub](https://github.com/) code repos, [Sauce Labs](https://saucelabs.com/) and Eclipse Orion Web IDE are integrated. Clicking on one of the three repos will display the respective (cloned) repo
-  ![GitHubPage](screenshots/GitHubPage.png)
-  while clicking on the **Eclipse Orion Web IDE** will display the Web editor.  We do not have a Sauce Labs account, so we really don't need the Sauce Labs integration.  We will leave it alone for now.
- 5. **Deliver** is where the code gets built, tested and deployed through the integrations of build pipelines, one per microservice. We explore build pipelines later.
- 6. **Manage** is where the intergrations to management tools, such as [Pager Duty](https://www.pagerduty.com/), get added.
- 7. **Learn** is where the integrations to tools helping to drive application insight, such as [DevOps Insights](https://console.ng.bluemix.net/catalog/services/devops-insights/), get added.
- 8. **Culture** is where the integrations to teams collaborate more effectively are integrated, such as [Slack](http://slack.com/).
+   ![CreateSlack](screenshots/CreateSlack.png)
 
-## Task 2: Examine the build pipelines
+4. Click **Save Integration** to save the information.
 
-1. Clicking on one of the GitHub repo links or the **Configured** link will display the respective GitHub repo.
-  ![GitHubRepoLink](screenshots/GitHubRepoLink.png)
+5. Slack should now be Configured
+   ![ConfiguredSlack](screenshots/ConfiguredSlack.png)
 
-2. You can either click on the three vertical dots on the upper-right of the _ui-toolchain-demo_ Delivery Pipeline tile to display **Action** and then click on **Configure**
-  ![UIPipelineConfigureLink](screenshots/UIPipelineConfigureLink.png)
-  **or** click on the circle in the center of the _ui-toolchain-demo_ Delivery Pipeline tile
-  ![UIPipelineConfigureLink2](screenshots/UIPipelineConfigureLink2.png)
-  to display the UI delivery pipeline.
-  ![UIPipeline](screenshots/UIPipeline.png)
+## Task 2: Work with Slack
 
-3. While we were busy exploring the toolchain, the various pipelines (remember, we have 3) started the build process.  The UI delivery pipeline displays the status of each stage in the UI pipeline.  The **Build** and **Dev** stage passed, while the **Test** stage failed.  The **Prod** stage was not even attempted.  If you look at the other 2 pipelines (catalog and orders) you would see similar results.
+1. In the browser, open a new tab and go to the following URL to go to the (already created) Slack team.
+   https://bluemixdevopslab.slack.com
 
-4. In the Build stage, click **View logs and history**
-  ![ClickUIBuildLog](screenshots/ClickUIBuildLog.png)
-  to display the commands and results of the Build stage, in this case simply cloning the repo.
-  ![UIBuildLog](screenshots/UIBuildLog.png)
-  Click the arrow to the left of Pipeline
-  ![UIClickPipelineArrowToReturn](screenshots/ClickPipelineArrowToReturn.png)
-  to return to the delivery pipeline.
+2. Enter the following information:
+   1. Email address: **BluemixInterConnectDevOps@gmail.com**
+   2. Password: **devops4me**
+   ![SignIntoSlack](screenshots/SignIntoSlack.png)
 
-5. In the **Dev** stage, click **View logs and history** to display the commands and results of the Dev stage. This stage deployed the UI microservice to the dev space.
-  ![UIDevBuildResults](screenshots/UIDevBuildResults.png)
+   and click **Sign In**.
 
-6. If you scroll through the log, you can see all the details of that job.
+3. Click on the **interconnect_devops** channel to show the messages for that channel.
+  ![SlackChannel](screenshots/SlackChannel.png)
 
-7. Click **Configure** in the upper right hand corner of the display
-  ![UIDevClickConfigure](screenshots/UIDevClickConfigure.png)
-  to display the Stage Configuration screen.
-  ![UIDevStage1](screenshots/UIDevStage1.png)
+  This channel will show all the messages the Toolchain sends to it.
 
-8. The Stage Configuration displays details about the stage.  The _INPUT_ tab displays the input to the stage, the _JOBS_ tabs displays the discrete pieces of the stage, and the _ENVIRONMENT PROPERTIES_ tab displays variables used by the jobs in the stage.
-  ![UIDevStage4](screenshots/UIDevStage4.png)
+4. Leaving the Slack browser tab open, switch over to the Toolchain browser tab.
+5. Click on the UI Delivery Pipeline tile to display the UI Delivery Pipeline.
+  ![ClickUIDeliveryPipeline](screenshots/ClickUIDeliveryPipeline.png)
+6. Click on the arrow in the DEV stage to run the jobs in the DEV stage.
+  ![UIDevRunBuild](screenshots/UIDevRunBuild.png)
+7. The DEV stage runs the jobs and you get a visual indication of the progress of the stage.
+  ![UIDevBuildRunningBMX](screenshots/UIDevBuildRunningBMX.png)
+8. Switch to the Slack browser tab.  Here you also get a visual indication of the progress of the DEV stage process.  This is useful for notifying team members when events occur without them being logged into Bluemix the DEV stage passed but the TEST stage failed.  The _Deploy_ job was successful, but the _Sauce Labs Test_ job failed and the _Functional Tests_ job was not attempted.
+  ![UIDevFailedBuildSlack](screenshots/UIDevFailedBuildSlack.png)
+9. Switch back to the Bluemix browser tab. The Toolchain indicates the same results. Something is wrong with the Toolchain.
+  ![UIDevFailedBuildBMX](screenshots/UIDevFailedBuildBMX.png)
 
-9. The UI Dev stage has just one job, the _Deploy_ job. The job name can be changed by simply typing over the name. The job can be removed by clicking the **Remove** button and a new job can be added by clicking the **Add Job** button.
-  ![UIDevStage2](screenshots/UIDevStage2.png)
+## Task 3: Modify Toolchain for Sauce Labs test job
 
-10. Details of the each job are displayed when the job is selected.
-  ![UIDevStage3](screenshots/UIDevStage3.png)
-  The lines in the Deploy Script:<br>
-  `export CF_APP_NAME="dev-$CF_APP"`<br>
-  `cf push "${CF_APP_NAME}"`<br>
-set the name of the application to deploy as the application name prefaced with _dev_ and the issues the Cloud Foundry command to deploy it.
+1. Remember we ran the DEV stage.  Why did the TEST stage start?  In the TEST stage tile, click on the gear and then click on **Configure Stage**.
+  ![UITestStageClickToConfigure](screenshots/UITestStageClickToConfigure.png)
+1. The TEST stage has three jobs, _Deploy_, _Sauce Labs Test_, and _Functional Tests_.
+  ![UITestStageJobs](screenshots/UITestStageJobs.png)
+2. The _Deploy_ job is highlighted (the blue circle around the icon), so details are the _Deploy_ job are displayed.
+3. Click **INPUT** to display the input settings for the TEST stage.
+  ![UITestStageClickInput](screenshots/UITestStageClickInput.png)
+4. The Stage Trigger for the TEST stage indicates that this stage will run when the prior stage is complete.  So in this case, when the DEV stage is complete, the Toolchain started the TEST stage.
+  ![UITestStageTrigger](screenshots/UITestStageTrigger.png)
+5. Click on **JOBS** to display the jobs for the TEST stage.
+6. Click on the **Sauce Labs Test** icon to display the details for the _Sauce Labs Test_ job.
+7. At the bottom of the details, under _Run Conditions_, the option to stop the stage if this job (the _Sauce Labs Test_ job) fails. That explains why this stage stopped and why the _Functional Tests_ job did not run.
+  ![UITestStageSauceJobStop](screenshots/UITestStageSauceJobStop.png)
+8. Why did the _Sauce Labs Test_ job fail?  As you may recall, we never configured that tool integration after we created the Toolchain.  Sauce Labs requires a valid userid and password and we do not have those.  If we did, we would configure the Sauce Labs integration with those details.  So we have two choices, either remove the _Sauce Labs Test_ job from the TEST stage or, assuming we may one day get a Sauce Labs account, allow the _Sauce Labs Test_ job to fail but continue the stage.  We will choose this option.
+9. Deselect the option to stop the stage if this job fails and click **SAVE**.
+  ![UITestStageSauceJobGo](screenshots/UITestStageSauceJobGo.png)
+10. Click on the arrow in the TEST stage to run the jobs in the TEST stage.
+  ![UITestStageRun](screenshots/UITestStageRun.png)
+11. Both Bluemix and Slack show the TEST stage executing, even though the _Sauce Labs Test_ job still fails.
+  ![UITestStageRunSlack](screenshots/UITestStageRunSlack.png)
+12. After a few moments (or minutes), the _Functional Tests_ job also fails.  This is the first time we executed it.  There is still a problem.
+  ![UITestStageFVTestFails](screenshots/UITestStageFVTestFails.png)
 
-11. Return to the delivery pipeline. Click on the application link to display the application.
-  ![UIPipelineClickApp](screenshots/UIPipelineClickApp.png)
+## Task 4: Modify Toolchain for Functional Tests job
 
-12. The application is displayed. We deployed all the microservices to the _dev_ space and prefaced each deployed app with _dev_.
-  ![UIPipelineDevApp](screenshots/UIPipelineDevApp.png)
+1. Click **View logs and history**.
+  ![UITestStageFVTestClickLog](screenshots/UITestStageFVTestClickLog.png)
+2. The stage log history displays  the number of times the stage has been executed and the results, showing the individual jobs.
+  ![UITestStageLogHistoryFailures](screenshots/UITestStageLogHistoryFailures.png)
+
+  The _Deploy_ job passed and the _Sauce Labs Test_ job and the _Functional Tests_ job both failed.
+
+3. Click **Functional Tests** to display the log for that job.
+  ![UITestStageLogHistoryClickFVTest](screenshots/UITestStageLogHistoryClickFVTest.png)
+4. Scroll to the bottom of the log file. The message indicates that the missing Sauce Labs credentials are again making the job fail.
+  ![UITestStageLogHistoryMissingSauceLabs](screenshots/UITestStageLogHistoryMissingSauceLabs.png)
+5. We could modify the _Functional Tests_ job options to allow the TEST stage to continue despite the failure of the _Functional Tests_ job.  Instead, we will remove the job from the stage.
+6. Scroll back to the top of the browser tab. Click **CONFIGURE** to configure the TEST stage.
+  ![UITestStageLogHistoryClickToConfigure](screenshots/UITestStageLogHistoryClickToConfigure.png)
+7. Click the **Functional Tests** job to select it.
+  ![UITestStageSelectFVT](screenshots/UITestStageSelectFVT.png)
+8. Click **REMOVE** to delete the _Functional Tests_ job from the TEST stage.  Click **OK** to confirm.
+  ![UITestStageRemoveFVT](screenshots/UITestStageRemoveFVT.png)
+9. Scroll to the bottom of the page and click **SAVE** to save the stage changes.
+10. The Deivery Pipeline is displayed.  Run the _TEST_ stage by clicking on the arrow in the TEST stage.
+11. Look at both the Bluemix console and the Slack channel. The _Deploy_ job runs (and passes), the _Sauce Labs Test_ job fails, and the _TEST_ stage completes.
+  ![UITestStagePassed](screenshots/UITestStagePassed.png)
+12. Click on the application link to display the application running in the _TEST_ space.
+    ![UIPipelineTestClickApp](screenshots/UIPipelineTestClickApp.png)
+
+## Task 5: Examine PROD Stage
+
+1. Since the _TEST_ stage completed, the next stage, _PROD_, executed.  The _PROD_ stage successfully executed.
+  ![UIProdStagePassedBMX](screenshots/UIProdStagePassedBMX.png)
+2. Display the Slack browser tab. This also shows the successful execution of the _PROD_ stage.
+  ![UIProdStageSuccessSlack](screenshots/UIProdStageSuccessSlack.png)
+3. Click on the **PASSED** link at the end of the line _Job '**Blue/Green Deploy**' in Stage '**PROD**' #1 has passed_.  
+  ![UIProdStageSlackClickForBlueGreenJob](screenshots/UIProdStageSlackClickForBlueGreenJob.png)
+  This displays the job log for the _Blue/Green Deploy_ job in the _PROD_ stage.  We could have gotten to this display from the Bluemix console, but clicking on the link in Slack accesses the log directly from Slack without the need to go through Bluemix.
+4. The log shows the first step of the job failing.
+  ![UIProdStageSlackBlueGreenJobFailedFind](screenshots/UIProdStageSlackBlueGreenJobFailedFind.png)
+5. A look at the script used in this job (by clicking on **CONFIGURE** in the upper right hand corner) shows the following:
+ ```
+#!/bin/bash
+     if ! cf app $CF_APP; then
+       cf push $CF_APP
+     else
+       OLD_CF_APP=${CF_APP}-OLD-$(date +"%s")
+       rollback() {
+         set +e
+         if cf app $OLD_CF_APP; then
+           cf logs $CF_APP --recent
+           cf delete $CF_APP -f
+           cf rename $OLD_CF_APP $CF_APP
+         fi
+         exit 1
+       }
+       set -e
+       trap rollback ERR
+       cf rename $CF_APP $OLD_CF_APP
+       cf push $CF_APP
+       cf delete $OLD_CF_APP -f
+     fi
+```
+  This script does a _Blue-green_ deployment. A blue-green deployment is a release technique reducing downtime and risk by running two identical production environments called Blue and Green. At any time, only one of the environments is live, with the live environment serving all production traffic.
+
+  The script first issues the Cloud Foundry (cf) app command for the UI application to be deployed.  If the command returns without finding the application, then the script pushes (deploys) the UI application.
+  ```
+  #!/bin/bash
+      if ! cf app $CF_APP; then
+        cf push $CF_APP
+  ```
+  This is what happens the first time this job and script are run, as the application has never been deployed.
+6. The end of the log shows the successful deployment.  All that failed was finding a running UI application.
+  ![UIProdStageSlackBlueGreenJobFailedFindDeploy](screenshots/UIProdStageSlackBlueGreenJobFailedFindDeploy.png)
+6. Return to the delivery pipeline (by clicking on the left arrow next to _Pipeline_).
+  ![UIProdStageClickPipeline](screenshots/UIProdStageClickPipeline.png)
+7. Run the _PROD_ stage again by clicking on the arrow next to _PROD_.
+8. Wait for the _PROD_ stage to complete, remembering you can watch either the Bluemix console or the Slack channel.
+9. Once the _PROD_ stage completes, look at the job log for the deployment.  It shows the first step of the job finding a running UI application.
+  ![UIProdStageSlackBlueGreenJobGoodFind](screenshots/UIProdStageSlackBlueGreenJobGoodFind.png)
+10. Scrolling down the log further, we see the old UI application being renamed and the new one being deployed.
+  ![UIProdStageSlackBlueGreenJobGoodFindRename](screenshots/UIProdStageSlackBlueGreenJobGoodFindRename.png)
+11. Finally, once the new UI application is successfully deployed, the old one is deleted.
+  ![UIProdStageSlackBlueGreenJobGoodFindDelete](screenshots/UIProdStageSlackBlueGreenJobGoodFindDelete.png)
+12. Return to the Pipeline by clicking on the arrow to the left of _Pipeline_ in the upper left corner.
+13. Return to the Toolchain by clicking on the arrow to the left of _Toolchain_ in the upper left corner.
