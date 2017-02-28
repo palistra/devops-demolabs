@@ -50,7 +50,7 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 ## Labs
 - [Lab 0: Create Bluemix and GitHub accounts](Lab-0-Pre-reqs.md)
 - [Lab 1: Create Toolchain for Sample Application](Lab-1-Create-Toolchain.md)
-- [This is text](#Lab-1:-Create-Toolchain-for-Sample-Application)
+- [This is text](#Lab-1-Create-Toolchain-for-Sample-Application)
 - [Lab 2: Build and deploy to dev space](Lab-2-Build-and-Deploy-to-dev-space.md)
 - [Lab 3: Customize Toolchain to add Slack Integration](Lab-3-Customize-Toolchain-Slack.md)
 - [Lab 4: Customize Toolchain to allow full deployment](Lab-4-Customize-Toolchain-Full-Deployment.md)
@@ -75,6 +75,8 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 
 
 # Lab 1: Create Toolchain for Sample Application
+
+# Lab 1 Create Toolchain for Sample Application
 
 ## Objective
 This lab takes you throught the process of creating the Continuous Delivery toolchain for the sample online application.
