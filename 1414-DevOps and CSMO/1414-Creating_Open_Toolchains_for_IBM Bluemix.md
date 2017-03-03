@@ -53,10 +53,11 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 - [Lab 2: Build and deploy to dev space](#lab-2-build-and-deploy-to-dev-space)
 - [Lab 3: Customize Toolchain to add Slack Integration](#lab-3-customize-toolchain-to-add-slack-integration)
 - [Lab 4: Customize Toolchain to allow full deployment](#lab-4-customize-toolchain-to-allow-full-deployment)
-- [Lab 5: Customize Toolchain to add Bluemix Availability Monitoring](Lab-5-Customize-Toolchain-BAM.md)
-- [Lab 6: Add Bluemix IBM Alert Notification](Lab-6-Add-Bluemix-IAN.md)
-- [Lab 7: Modify Pipeline for Catalog to deploy Catalog to Containers](Lab-8-Modify-Pipeline-for-Catalog-Containers.md)
-- [Lab 8: Add auto-scaling support to Catalog](Lab-8-Add-auto-scaling-support-to-Catalog.md)
+
+[Lab 5: Customize Toolchain to add Bluemix Availability Monitoring]: # (Lab-5-Customize-Toolchain-BAM)
+[Lab 6: Add Bluemix IBM Alert Notification]: # (Lab-6-Add-Bluemix-IAN)
+[Lab 7: Modify Pipeline for Catalog to deploy Catalog to Containers]: # (Lab-8-Modify-Pipeline-for-Catalog-Containers)
+[Lab 8: Add auto-scaling support to Catalog]: # (Lab-8-Add-auto-scaling-support-to-Catalog)
 
 [comment]: # (Lab 8: Answer the guided questions for the BlueCompute tool chain example)
 [comment]: # (Lab 6: Deliver a UI Change)
@@ -486,47 +487,3 @@ This lab first updates the UI Delivery Pipeline so the UI application will fully
 ## Task 3: Update Catalog and Orders Delivery Pipelines
 
 1. The Catalog and Orders delivery pipeline have the same problems as the UI delivery pipeline.  Modify both to remove the _Sauce Labs Tests_ and the _Functional Tests_ jobs (or make failure of those jobs non-blocking) from the _TEST_ stage of those Delivery Pipelines.  If you are uncertain, take a look at the steps used for removing the _Functional Test_ job from the _TEST_ stage of the UI delivery pipeline.
-<div class="page-break"></div>
-
-# Lab 5 Customize Toolchain to add Bluemix Availability Monitoring
-
-## Objective
-This lab ...
-
-**Tasks**:
-  - Task 1: ...
-  - Task 2: ...
-  - Task 3: ...
-<div class="page-break"></div>
-
-# Lab 6 Add Bluemix IBM Alert Notification
-
-## Objective
-This lab ...
-
-**Tasks**:
-  - Task 1: ...
-  - Task 2: ...
-  - Task 3: ...
-<div class="page-break"></div>
-
-# Lab 7 Modify Pipeline for Catalog to deploy Catalog to Containers
-
-## Objective
-This lab ...
-
-**Tasks**:
-  - Task 1: ...
-  - Task 2: ...
-  - Task 3: ...
-<div class="page-break"></div>
-
-# Lab 8 Add auto-scaling support to Catalog
-
-## Objective
-This lab ...
-
-**Tasks**:
-  - Task 1: ...
-  - Task 2: ...
-  - Task 3: ...
