@@ -1,0 +1,49 @@
+Instructor Details:
+
+PagerDuty:
+  Admin:
+  https://devopslab01.pagerduty.com/
+  Name: Bluemix DevOps
+  ID: JimPTest01@gmail.com
+  PW: bluemix4me
+
+  User:
+  Name: Bluemix Cloud Developer
+  ID: BluemixCloudDeveloper@gmail.com
+  PW: devsop44me
+
+
+
+Gmail:
+  http://gmail.com
+  Name: Bluemix DevOps
+  ID: BluemixDevOps@gmail.com
+  PW: bluemix4me
+
+  http://gmail.com
+  Name: Bluemix Cloud Developer
+  ID: BluemixCloudDeveloper@gmail.com
+  PW: devsop4me
+  
+  http://gmail.com
+  InterConnect DevOps
+  ID: BluemixInterConnectDevOps@gmail.com
+  PW: devsop4me
+
+Slack:
+  http://BluemixDevOpsLab.slack.com
+  Name:
+  Admin: BluemixDevOps
+  PW: bluemix4me
+-------------------------------------------------------------------------------
+Student IDs needed:
+  Bluemix - https://console.ng.bluemix.net/registration/
+  GitHub - https://github.com/join
+  PagerDuty -   https://pagerduty.com/
+  Slack - https://slack.com/
+
+
+  Three microservices
+  - Order - https://github.com/open-toolchain/Microservices_OrdersAPI
+  - Catalog - https://github.com/open-toolchain/Microservices_CatalogAPI
+  - UI - https://github.com/open-toolchain/Microservices_UI
