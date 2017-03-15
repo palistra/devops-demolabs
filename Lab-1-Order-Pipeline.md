@@ -4,7 +4,7 @@
 This lab creates and configures the Toolchain for the Order application.
 
 **Tasks**:
-- [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-bluemix)
+- [Task 1: Log into IBM Bluemix and create spaces](#task-1-log-into-ibm-bluemix)
 - [Task 2: Create Toolchain](#task-2-create-toolchain)
 - [Task 3: Add and Configure GitHub Integration for Order](#task-3-add-and-configure-github-integration-for-order)
 - [Task 4: Add Order Delivery Pipeline](#task-4-add-order-delivery-pipeline)
@@ -13,6 +13,12 @@ This lab creates and configures the Toolchain for the Order application.
 ## Task 1: Log into IBM Bluemix
 1. If you are not already logged into IBM Bluemix, log into IBM Bluemix (https://www.ibm.com/cloud-computing/bluemix/).
 ![Bluemix](screenshots/bluemix-login.jpg)
+2. The toolchain will be deploying into three Bluemix spaces that are named `dev, qa, and prod`. Before creating the toolchain, first create these spaces in your Bluemix organization. Froom the Bluemix console, click your account information at the top. This displays the Account, Region, Organization, and space that you are currently logged into and displaying. <br>
+   ![AccountDetails](screenshots/AccountDetails.png)
+3. Click `Create a Space` to create a new space in the current org. Enter **dev** for the space name and click **Create**.<br>
+   ![CreateSpace](screenshots/CreateSpace.png)
+4. Repeat the previous step to create spaces that are named **test** and **prod**. The spaces are listed in the account information. <br>
+    ![NewSpaces](screenshots/NewSpaces.png)
 
 ## Task 2: Create Toolchain
   1. We need to get to the DevOps Services. Click on the **Bluemix menu bar**
