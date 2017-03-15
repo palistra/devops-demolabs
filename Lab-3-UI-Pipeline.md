@@ -1,7 +1,7 @@
 # Lab 3: Set-up Toolchain for UI
 
 ## Objective
-This lab adds the UI application to the Toolchain.  You may want to refer to the prior lab if you need additional details.
+This lab deploys an existing application (the UI microservice of the retail store sample) to Bluemix.  A Toolchain is created from the deployed application.
 
 **Tasks**:
 - [Task 1: Go to devops-toolchain](#task-1-go-to-devops-toolchain)
@@ -64,7 +64,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
     <li>On the <b>INPUT</b> tab, enter "Build" for Stage Name. Note that:
     <ul compact>
     <li>'Input Type' is set to a SCM Repository, in this case, Git.
-    <li>Make sure 'Git Repository' points to the "UI" repo from the dropdown list.    
+    <li>Make sure 'Git Repository' points to the "UI" repo from the dropdown list.
     <li>'Git URL' is set to the URL of the Git Repository we just cloned.
     <li>'Branch' is set to "Master".
     <li>'Stage Trigger' is set to "Run jobs whenever a change is pushed to Git", resulting in the Build stage running continuously when Git is updated.
@@ -133,10 +133,10 @@ echo "Pushed App Name: ${CF_APP_NAME}."
     <li>Rename the cloned stage from <b>Dev [copy]</b> to <b>Test</b>.
     <li>On the <b>Jobs</b> tab, change the space from <b>dev</b> to <b>qa</b> (or Create a new space called <b>qa</b> if not on the dropdown) and change the deploy script to change CF_APP_NAME to "test-$CF_APP" from "dev-$CF_APP".
     <li>Add a new Job of type Test called <b>Test</b>. Select the default Simple Tester. Enter the following code to the <b>Test Command</b>.
-    <pre>    
+    <pre>
       #!/bin/bash
       # invoke tests here
-      echo "Testing of App Name ${CF_APP_NAME} was successful"      
+      echo "Testing of App Name ${CF_APP_NAME} was successful"
     </pre>
     <p>If we had a SauceLabs account, this is a place where we could run some automated UI tests.
     <li>Click <b>Save</b> to save the <b>Test</b> stage.
@@ -164,12 +164,12 @@ c=($b)
 len=${#c[@]}
 user_name=${c[len-1]}
 export CF_APP_NAME="$user_name-prod-$CF_APP"
-if ! cf app $CF_APP_NAME; then  
+if ! cf app $CF_APP_NAME; then
   cf push $CF_APP_NAME
 else
   OLD_CF_APP=${CF_APP_NAME}-OLD-$(date +"%s")
   rollback() {
-    set +e  
+    set +e
     if cf app $OLD_CF_APP; then
       cf logs $CF_APP_NAME --recent
       cf delete $CF_APP_NAME -f

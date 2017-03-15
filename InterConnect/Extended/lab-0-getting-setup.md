@@ -1,16 +1,15 @@
-# Lab 0: Pre-requisites
+# Lab 0: Getting Setup
 
 ## Objective
 This lab takes you through the various activities to prepare for the rest of the labs.
 
-## Prerequisites
-Prior to running these labs, you must have a Bluemix account, a GitHub account and access to a lab laptop. Your Bluemix account needs to have an appropriate organization and spaces.
+Prior to running these labs, you must have access to a lab laptop, an active Bluemix account, a GitHub account and Slack access. Your Bluemix account needs to have an appropriate organization and spaces. Follow the steps in Lab 0 to set these up. _Note:_ If you need to login to the virtual machine running on the lab laptop, the ID is `bmxuser` and the password is `passw0rd`.
 
 **Tasks**:
 - [Task 1: Create Bluemix trial account](#task-1-create-bluemix-account)
-- [Task 2: Create Bluemix organization and spaces]()
-- [Task 3: Create GitHub account](#task-2-create-github-account)
-- [Task 3: Set up Slack access](#task-2-set-up-slack-access)
+- [Task 2: Create Bluemix organization and spaces](#task-2-create-bluemix-organization-and-spaces)
+- [Task 3: Create GitHub account](#task-3-create-github-account)
+- [Task 4: Set up Slack access](#task-4-set-up-slack-access)
 
 ## Task 1: Create Bluemix trial account
 
@@ -27,30 +26,22 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 
 1. Log in to Bluemix at: [https://console.ng.bluemix.net/](https://console.ng.bluemix.net/)
 2. If this is your first time logging into this Bluemix account, You will be asked to enter an organization name. Ensure you are in the _US South_ region, enter **DevOpsLabs** as the Organization name and click **Create**.
-
-  ![OrgDevOpsLab](screenshots/OrgDevOpsLab.png)
-
-  If this is not your first time to log in to this Bluemix account, and this is a trial account, use the Organization you created when you first logged into this Bluemix account.
+![OrgDevOpsLab](screenshots/OrgDevOpsLab.png)
+If this is not your first time to log in to this Bluemix account, and this is a trial account, use the Organization you created when you first logged into this Bluemix account.
 
 3. We will create three spaces (_dev_, _qa_ and _prod_) for use in this lab. If this is your first time logging into this Bluemix account, you will be prompted to create a space right after creating an Organization.  Enter **dev** as the space name and click **Create**.
-
-  ![SpaceDev](screenshots/SpaceDev.png)
-
-  Click **I'm Ready**.
-
-  If you are not prompted to create a space, create the _dev_ space when you create the _qa_ and _prod_ space below.
+![SpaceDev](screenshots/SpaceDev.png)
+Click **I'm Ready**.
+If you are not prompted to create a space, create the _dev_ space when you create the _qa_ and _prod_ space below.
 
 4. Click the upper-right hand corner environment settings and click on **Create a space**.
-
-  ![SpaceCreate](screenshots/SpaceCreate.png)
-
+![SpaceCreate](screenshots/SpaceCreate.png)
 5. Enter **qa** as the space name and click **Create**.
 6. Repeat the steps to create a space called **prod**.
 6. If you have created all three spaces correctly, when you click the upper-right hand corner environment settings and click on the down-arrow for _Space_ you will see all three spaces.
+![SpaceAllCreated](screenshots/SpaceAllCreated.png)
 
- ![SpaceAllCreated](screenshots/SpaceAllCreated.png)
-
-## Task 2: Create GitHub account
+## Task 3: Create GitHub account
 
 1. If you already have a GitHub account, skip this task.
 2. In a web browser, enter the following URL: [https://github.com/](https://github.com/).
@@ -60,11 +51,11 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 6. Click on the **Verify email address** link.
 8. You now have an active GitHub account.
 
-## Task 3: Set up Slack access
+## Task 4: Set up Slack access
 
-There are a number of ways to access Slack.  One is through the web browser, another is through a desktop application and a third is through your mobile device.  The method used in these labs in web browser.  Feel free to install the deskop or mobile app if you prefer acccessing Slack in that way.
+There are a number of ways to access Slack.  One is through the web browser, another is through a desktop application and a third is through your mobile device.  The method used in these labs in web browser.  Feel free to install the desktop or mobile app if you prefer accessing Slack in that way.
 
-1. In a web browser, open a new tab and go to the following URL to go to the (already created) Slack team.  You could create and administer your own Slack team if you would prefer, the instructions for doing so are not part of this exercise.  Addiionally, you could also download and install the SLack app to your SmartPhone and access Slack that way.
+1. In a web browser, open a new tab and go to the following URL to go to the (already created) Slack team.  You could create and administer your own Slack team if you would prefer, the instructions for doing so are not part of this exercise.  Additionally, you could also download and install the SLack app to your SmartPhone and access Slack that way.
    [https://bluemixdevopslab.slack.com](https://bluemixdevopslab.slack.com)
 
 2. Enter the following information:
