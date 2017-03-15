@@ -33,5 +33,3 @@ Prior to running these labs, you must have a Bluemix account, a GitHub account a
 - [Lab 6: Read Template Paper](Lab-6-Read-Template-Paper.md)
 - [Lab 7: Create a tool chain from an example template](Lab-7-Create-Toolchain-From-Template.md)
 - [Lab 8: Answer the guided questions for the BlueCompute tool chain example](Lab-8-Answer-guided-questions.md)
-
-[//]: # (- [Lab 6: Deliver a UI Change](#lab-7-Deliver-a-UI-Change) )
