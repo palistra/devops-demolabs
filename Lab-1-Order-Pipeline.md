@@ -10,7 +10,7 @@ This lab creates and configures the Toolchain for the Order application.
 - [Task 4: Add Order Delivery Pipeline](#task-4-add-order-delivery-pipeline)
 - [Task 5: Configure Order Delivery Pipeline](#task-4-configure-order-delivery-pipeline)
 
-## Task 1: Log into IBM Bluemix
+## Task 1: Log into IBM Bluemix and create spaces
 1. If you are not already logged into IBM Bluemix, log into IBM Bluemix (https://www.ibm.com/cloud-computing/bluemix/).
 ![Bluemix](screenshots/bluemix-login.jpg)
 2. The toolchain will be deploying into three Bluemix spaces that are named `dev, qa, and prod`. Before creating the toolchain, first create these spaces in your Bluemix organization. Froom the Bluemix console, click your account information at the top. This displays the Account, Region, Organization, and space that you are currently logged into and displaying. <br>
