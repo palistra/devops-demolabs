@@ -20,7 +20,7 @@ As a developer or operations person, you may want to be notified of the status o
 1. On the devops-toolchain-lab toolchain's Tool Integrations page, click **Add a Tool**
 2. Select **PagerDuty**
 3. On the PagerDuty Configuration page:
-   - Enter 7x-RJtTJr9H-wCn-aJCk as the API access key
+   - Enter zfuzadTuRc-z2rzbyq9K as the API access key
    - Enter "devopslab" as the PagerDuty service name
    - Enter an email address you can access.  Leave the phone number blank.  PagerDuty has a place for you to enter your phone number if you want to receive text messages or receive phone calls.
 
