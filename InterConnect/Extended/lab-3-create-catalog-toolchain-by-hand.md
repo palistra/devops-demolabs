@@ -132,8 +132,7 @@ Now we add the _Dev_ stage and jobs.  The _Dev_ stage has two jobs.  The first j
    export APP_URL=http://$(cf app $CF_APP_NAME | grep urls: | awk '{print $2}')
    ```
    ![CatalogAPIBuildDeployScript](screenshots/CatalogAPIBuildDeployScript.png)
-4. Click **SAVE**.
-5. The bash script just entered into the Deploy Script references both the _CF_APP_NAME_ and _APP_URL_ environment variable (remember, _$CF_APP_ is provided by default).  These two environment variables are used to pass information between jobs in this stage and need to be added to the environment variables as Text.
+5. The bash script just entered into the Deploy Script references both the _CF_APP_NAME_ and _APP_URL_ environment variables (remember, _CF_APP_ is provided by default).  These two environment variables are used to pass information between jobs in this stage and need to be added to the environment variables as Text.
 6. Click the **ENVIRONMENT PROPERTIES** tab.
 7. Click **ADD PROPERTY** and select **Text Property**.
 8. Enter **CF_APP_NAME** as the 'Name'.  Do not enter anything for the 'Value'.
@@ -161,7 +160,7 @@ Now we add the _Dev_ stage and jobs.  The _Dev_ stage has two jobs.  The first j
 5. Click **Save** to save the _Dev_ stage.
 6. The _Delivery Pipeline_ displays the _Build_ and _Dev_ stages.  The _Dev_ stage has not been run. Click on the **Run Stage** icon (the right arrow next the _Dev_ stage) to run the _Dev_ stage, deploying the Catalog application to the _dev_ space and executing the functional tests.
 7. The _JOBS_ section shows the Stage was successful. Click on "View logs and history" to the Stage history.
-8. Stage History displays the execution history of the stage in reverse chronological order (so the most recent on top and the oldest at the bottom).  Within the history of a stage execution, the job history is displayed in the order in which the job was attempted.  For example, the following screen shot shows that this stage was executed twice.  Within the most recent execution (_9_), the _Deploy_ stage was attempted (and passed) followed by the _Functional Tests_ stage (which also passed). Your screen will probably just have the **1**.
+8. Stage History displays the execution history of the stage in reverse chronological order (so the most recent on top and the oldest at the bottom).  Within the history of a stage execution, the job history is displayed in the order in which the job was attempted.  For example, the following screen shot shows that this stage was executed twice.  Within the most recent execution (_9_), the _Deploy_ stage was attempted (and passed) followed by the _Functional Tests_ stage (which also passed). Your screen will probably just have **1** attempt.
 ![CatalogAPIDevJobsDisplay](screenshots/CatalogAPIDevJobsDisplay.png)
 1. This display shows that the _Dev_ stage ran both jobs and they both passed.  Initially, the log for the _Deploy_ job is displayed. Scrolling to the bottom and you see the application was deployed as _dev-catalog-api-toolchain-lab_timestamp_ into the _dev_ space.
 ![CatalogAPIDevDeploySuccessful](screenshots/CatalogAPIDevDeploySuccessful.png)
@@ -176,10 +175,10 @@ Now we add the _Test_ stage and jobs.  The _Test_ stage has two jobs.  The first
 1. On the _Dev_ stage, click the _Configure Stage_ gear icon and select **Clone Stage**.
 ![CatalogAPIDevClickToClone](screenshots/CatalogAPIDevClickToClone.png)
 2. Rename the cloned stage to **Test** from _Dev [copy]_.
-3. On the _Jobs_ tab, for the _Deploy_ job, change the space to **qa** from _Dev_..
+3. On the _Jobs_ tab, for the _Deploy_ job, change the space to **qa** from _dev_..
 4. Change the _Deploy_ deploy script so CF_APP_NAME gets set to **"test-$CF_APP"** from _"dev-$CF_APP"_.
 ![CatalogAPIDevDeployChanges](screenshots/CatalogAPIDevDeployChanges.png)
-5. Switch to the _Test_ job.
+5. Switch to the _Functional Test_ job.
 6. Change the _Test Command_ to:
    ```
    #!/bin/bash
@@ -187,7 +186,7 @@ Now we add the _Test_ stage and jobs.  The _Test_ stage has two jobs.  The first
    echo "Testing of App Name ${CF_APP_NAME} was successful"
    ```
    This 'test' script just echos the app name to the console log.  In a real environment, we would execute automated test tools and scripts to validate the deployed service still worked.
-7. Click **Save** _Test_ stage.
+7. Click **Save** to save the _Test_ stage.
 8. The Delivery Pipeline displays the _Build_, _Dev_ and _Test_ stages.  The _Test_ stage has not been run. Click on the **Run Stage** icon to run the _Test_ stage and deploy the order API to the _test_ space.
 9. As before for the _Dev_ stage, the JOBS section shows the _Deploy_ and _Functional Tests_ jobs were successful. Click **Functional Tests** to display the log for the _Functional Tests_ job. Notice the "Testing of App Name" message was echoed to the log.
 0. Return to the Delivery Pipeline.  Click on the application URL (http://test-catalog-api-toolchain-lab-timestamp.mybluemix.net/) to access the running application.  Note that _test-_ was added to the start of the application name.
@@ -199,10 +198,10 @@ Now we will add the final stage to the Delivery Pipeline, the _Prod_ stage.  Thi
 
 So during deployment, this stage will check to see there is an earlier instance of this application running and if it is, keep it around in case the deploy of the new version of the app has problems.  If the new version deploys successfully, the old version is deleted.  If not, the new version is deleted and the old version continues to run.  To do this, we will clone the _Dev_ stage and make some modifications.
 
-1. Ensure the Delivery Pipeline
+1. Ensure the Delivery Pipeline is displayed.
 2. Clone the _Dev_ stage.
-3. Rename the cloned stage to <b>Prod</b> (from _Dev [copy]_</b>_).
-4. On the _Jobs_ tab, change the Job name to **Blue/Green Deploy** and change the space from _dev_ to **prod**
+3. Rename the cloned stage to **Prod** (from _Dev [copy]_).
+4. On the _Jobs_ tab, change the Deploy Job name to **Blue/Green Deploy** and change the space from _dev_ to **prod**
 5. Change the deploy script to the following _HINT_: It is very similar to the script we used for the Order Pipeline lab, perhaps you configure that Job to copy and paste the deploy script _or_ you can enter the following URL into another browser tab to display the code for easy copy and pasting: [http://ibm.biz/CatalogAPIProdBlueGreenDeploy](http://ibm.biz/CatalogAPIProdBlueGreenDeploy)
    ```
    #!/bin/bash
@@ -243,5 +242,5 @@ So during deployment, this stage will check to see there is an earlier instance 
 7. Click on **Run Stage** to run the _Prod_ stage and deploy the Catalog API app to _prod_ space.
 8. The JOBS section of the _Blue/Green Deploy_ shows the Deploy was successful. Inspect the _Deploy_ Job log to see where the app was deployed and the _Functional Tests_ Job log to ensure the tests were successful.
 9. Return to the Delivery Pipeline.
-0. Click the application URL in the _Prod_ stage to to access the running application.  Note that _prod-_ was added to the start of the application name.
+0. Click the application URL in the _Prod_ stage to access the running application.  Note that _prod-_ was added to the start of the application name.
 1. Close the application browser window.  The **Prod** stage has been successfully added and executed, deploying the application to the _prod_ space.
