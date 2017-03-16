@@ -27,8 +27,8 @@ The visual display of the Delivery Pipeline is great if you want to watch it.  B
 
 1. If you are not on the Toolchains page (if you don't see a button called _Create a Toolchain_), cick on the **Bluemix menu bar** in the upper left corner.
 ![BluemixMenuBar](screenshots/BluemixMenuBar.png)
-and click on **Services** then **DevOps**
-![BluemixDevOpsServices](screenshots/BluemixDevOpsServices.png)
+and click on **Services** then **DevOps**.
+2. Click _simple-order-toolchain-timestamp_.
 1. On the <b>simple-order-toolchain-<i>timestamp</i></b> Toolchain page, click **Add a Tool**.
 2. Select **Slack**
 3. On the Slack Configuration page:
@@ -47,6 +47,8 @@ and click on **Services** then **DevOps**
 ![SlackIntegrationCreated](screenshots/SlackIntegrationCreated.png)
 6. Switch to the browser tab that has Slack open.  Slack notifies us that the integration was added.
 ![SlackIntegrationSlackNotice](screenshots/SlackIntegrationSlackNotice.png)
+
+<div class="page-break"></div>
 
 ## Task 2: Test Slack Integration
 
@@ -109,7 +111,7 @@ Let's see what happens when the application build is broken.
 7. Your changes are automatically built and deployed in the pipeline.
 8. Click the blue arrow in the upper left hand corner to return to the Toolchain.
 ![OrderAPIOrionReturn](screenshots/OrderAPIOrionReturn.png)
-9. Click the tile for the order-api-toolchain-lab Delivery Pipeline. Our change caused the deployment to fail.
+9. Click the tile for the _order-api-toolchain-lab_ Delivery Pipeline. Our change caused the deployment to fail.
 ![OrderAPIDevDeployFailed](screenshots/OrderAPIDevDeployFailed.png)
 1. If you accepted the PagerDuty invitation and are logged into PagerDuty, the Incidents pages shows a triggered incident:
 ![SimpleOrdersAPIPagerDutyDeployFailed](screenshots/SimpleOrdersAPIPagerDutyDeployFailed.png)
@@ -126,12 +128,14 @@ Let's see what happens when the application build is broken.
 Return to the Toolchain by clicking on the vertical ellipsis on the upper right of the Bluemix console page and selecting **View Toolchain**.
 ![SimpleOrdersAPIClickToolchain](screenshots/SimpleOrdersAPIClickToolchain.png)
 
+<div class="page-break"></div>
+
 ## Task 4: Fix application
 
 Now to fix the application.
 1. On the <b>simple-order-toolchain-<i>timestamp</i></b> Toolchain, click the **Eclipse Orion Web IDE** tile.
 2. In the file directory, click manifest.yml to open the file.
-3. Update the value for memory to 96m.
+3. Update the value for memory to 96M.
 4. Now to Commit and Push the changes.  From the Eclipse Orion Web IDE menu, click the **Git** icon.
 5. Click **Commit** to put the changes in the local master branch (enter a relevant Commit comment).
 6. Click **Push**. Your changes are automatically built and deployed in the pipeline.

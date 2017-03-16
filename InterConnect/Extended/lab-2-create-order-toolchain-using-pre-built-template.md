@@ -1,13 +1,13 @@
 # Lab 2: Create Order Toolchain Using Pre-Built Template
 
 ## Objective
-This lab creates a simple toolchain for the Orders API microservice and then examines it.  It assumes that the _DevOpsLabs_ Organization and _dev_, _qa_ and _prod_ Spaces are already created.
+This lab creates a simple toolchain for the Orders API microservice and then examines it.  It assumes that a Bluemix organization and _dev_, _qa_ and _prod_ Spaces are already created.
 
 **Tasks**:
 - [Task 1: Log into IBM Bluemix](#task-1-log-into-ibm-bluemix)
 - [Task 2: Create Toolchain](#task-2-create-toolchain)
 - [Task 3: Explore Toolchain](#task-3-explore-toolchain)
-- [Task 4: Explore Delivery Pipeline](#task-3-delivery-pipeline)
+- [Task 4: Explore the Delivery Pipeline](#task-3-delivery-pipeline)
 
 ## Task 1: Log into IBM Bluemix
 1. If you are not already logged into IBM Bluemix, log into IBM Bluemix (https://www.ibm.com/cloud-computing/bluemix/).
@@ -37,14 +37,13 @@ and click on **Services** then **DevOps**.
 6. If you haven't authorized Bluemix to access GitHub, you need to:
 
       1. Click **Authorize** to go to the GitHub website.
-      2. Enter your GitHub username and password.
-      3. Click **Sign in**.
+      2. If prompted for credentials, enter your GitHub username and password. and click **Sign in**.
       4. Click **Authorize application**.
 
 7. The input panel for the Toolchain creation is displayed.  A graphical representation of the Toolchain is at the top.  This Toolchain uses the GitHub repository to store and version code.  It includes the GitHub Issue tracker.  It has one Pipeline for building and deploying code and the application gets deployed to Bluemix.
 ![DevOpsSimpleOrderToolchainGraphical](screenshots/DevOpsSimpleOrderToolchainGraphical.png)
 
-8. The Organization is pre-populated with the _DevOpsLab_ Organization we created earlier.  The _ToolchainName_ is pre-populated with the name specified in the template and a timestamp appended to keep it unique.  An enterprise might rename the Toolchain to something more meaningful, but we will leave it as is.  (Note that all the fields and field values are specified in the Template.)
+8. The Organization is pre-populated with the Organization we created earlier.  The _Toolchain Name_ is pre-populated with the name specified in the template and a timestamp appended to keep it unique.  An enterprise might rename the Toolchain to something more meaningful, but we will leave it as is.  (Note that all the fields and field values are specified in the Template.)
 ![DevOpsSimpleOrderToolchainOrg](screenshots/DevOpsSimpleOrderToolchainOrg.png)
 
 9. The next section displays the configuration for the Tool Integrations.  The blue box surrounds and highlights the tool for which integration information is displayed, initially GitHub.
@@ -54,10 +53,10 @@ and click on **Services** then **DevOps**.
 ![DevOpsSimpleOrderToolchainGitHub](screenshots/DevOpsSimpleOrderToolchainGitHub.png)
 
 11. Click on _Eclipse Orion Web IDE_. No information is needed to integration this browser based Integrated Development Environment (IDE).
-12. Click on _Delivery Pipeline_. This displays the configuration information for the Delivery Pipeline. The application name to be deployed is the _Orders app name_. This pipeline only has one Stage or set of jobs.  We will see what gets specified there later.  This Stage will deploy the _Orders app name_ to the specified Region (US South), Organization (DevOpsLab) and Space (dev).
+12. Click on _Delivery Pipeline_. This displays the configuration information for the Delivery Pipeline. The application name to be deployed is the _Orders app name_. This pipeline only has one Stage or set of jobs.  We will see what gets specified there later.  This Stage will deploy the _Orders app name_ to the specified Region (US South), Organization, and Space (dev).
 ![DevOpsSimpleOrderDeliveryPipeline](screenshots/DevOpsSimpleOrderDeliveryPipeline.png)
 
-12. Use the drop down arrow next to the _dev_ space to specify _prod_.
+12. Use the drop down arrow for space to specify _prod_.
 ![DevOpsSimpleOrderDeliveryPipelineProd](screenshots/DevOpsSimpleOrderDeliveryPipelineProd.png)
 
 13. Click **Create**.  Your Toolchain is created and you are redirected to the Toolchain panel.
@@ -73,7 +72,7 @@ and click on **Services** then **DevOps**.
 
 3. This displays the **GitHub Issues** page.  Issues are used to track todos, bugs, feature requests, and more.  Each GitHub repository (_repo_ for short) can include issues.
 ![GitHubIssuePage](screenshots/GitHubIssuePage.png)
-Return to the Toolchain by either clicking on the **Go back one page** arrow on the browser or, if you clicked the right-mouse button to open a new tab, close the GitHub Issues tab. (Note that the remainder of these lab instructions will not go into this level of detail on opening and closing pages and tabs - pick the method that is best for you.)
+Return to the Toolchain by either clicking on the **Go back one page** arrow on the browser or, if you clicked the right-mouse button to open a new browser tab, close the GitHub Issues browser tab. (Note that the remainder of these lab instructions may not go into this level of detail on opening and closing pages and tabs - pick the method that is best for you.)
 
 4. **Code** is where [GitHub](https://github.com/) code repos and Eclipse Orion Web IDE are integrated.
       1. Clicking on the repo
@@ -81,6 +80,7 @@ Return to the Toolchain by either clicking on the **Go back one page** arrow on 
       will display the respective (cloned) repo
       ![GitHubPage](screenshots/GitHubPage.png)
       Note that the creation of the Toolchain did clone the repo in GitHub.
+      Return to the Toolchain page by either clicking on the **Go back one page** arrow on the browser or, if you clicked the right-mouse button to open a new browser tab, close the GitHub Issues browser tab.
 
       2. Clicking on the **Eclipse Orion Web IDE** will display the Web editor.
       ![OrionEditor](screenshots/OrionEditor.png)
@@ -90,7 +90,7 @@ Return to the Toolchain by either clicking on the **Go back one page** arrow on 
 
 5. **Deliver** is where the code gets built, tested and deployed through the integrations of build pipelines. We look at those in the next task.
 
-## Task 4: Explore Delivery Pipeline
+## Task 4: Explore the Delivery Pipeline
 1.  Click on the circle in the center of the _orders-api-toolchain-demo_ Delivery Pipeline tile.
 ![OrdersAPIPipelineConfigureLink](screenshots/OrdersAPIPipelineConfigureLink.png)
 to display the Orders API delivery pipeline.
@@ -117,7 +117,7 @@ to display the Orders API delivery pipeline.
 5. By default, the JOBS view is displayed. The _INPUT_ tab displays the input to the stage, the _JOBS_ tab displays the discrete jobs of the stage, and the _ENVIRONMENT PROPERTIES_ tab displays variables used by the jobs in the stage.
 ![OrdersAPIPipelineClickConfigureDeployStage](screenshots/OrdersAPIDeployStageJobs.png)
 
-6. There is only one job in this stage, the job named _Blue-Green Deploy_. Scrolling down you see the _Deployer Type_ (Cloud Foundry), _Target_ region (US South), _Organization_ (DevOpsLab), _Space_ (prod) and the deployed _Application Name_ (orders-api-toolchain-demo-<time stamp>).
+6. There is only one job in this stage, the job named _Blue-Green Deploy_. Scrolling down you see the _Deployer Type_ (Cloud Foundry), _Target_ region (US South), _Organization_, _Space_ (prod) and the deployed _Application Name_ (orders-api-toolchain-demo-<i>timestamp</i>).
 7. Look at the _Deploy Script_. This script does a _Blue-green_ deployment. A blue-green deployment is a release technique reducing downtime and risk by running two identical production environments called Blue and Green. At any time, only one of the environments is live, with the live environment serving all production traffic.
 8. The first section put a comment into the log file and then issue the Cloud Foundry (_cf_ command to create the service _cloudantNoSQLDB_.  It the service already exists, the script simply continues.
    ```
@@ -168,28 +168,28 @@ to display the Orders API delivery pipeline.
 ![OrdersAPIDeployStageJobFails](screenshots/OrdersAPIDeployStageJobFails.png)
 
 4. Click on ENVIRONMENT PROPERTIES to see the user-defined environment properties used to share information in the Pipeline.  There are also a number of pre-defined Environment Properties.  For example, the _CF_APP_ property is pre-defined and for deployments is the name of the app to deploy. This property is required for deployment and can be specified in the script itself (as done here), the deploy job configuration interface, or the project's manifest.yml file.
-5. Click the left arrow to the left of _Pipelines_ to return to the Delivery Pipeline.
+5. Click the left arrow to the left of _Pipeline_ to return to the Delivery Pipeline.
 ![OrdersAPIDeployStageJobReturnArrow](screenshots/OrdersAPIDeployStageJobReturnArrow.png)
 6. In the **DEPLOY** stage, click **View logs and history** to display the commands and results of the stage.
 ![OrdersAPIPipelineClickLog](screenshots/OrdersAPIPipelineClickLog.png)
 5. If you scroll through the log, you can see the details of the job execution.  Note that the __myMicroservicesCloudant_ service was created.
 ![OrdersAPIDeployStageJobCloudantCreated](screenshots/OrdersAPIDeployStageJobCloudantCreated.png)
-6. Then the existence of the deployed app _orders-api-toolchain-demo_ is checked for.  As it does not exist, there is no need to rename it.  Just deploy it.
+6. Then the existence of the deployed app _orders-api-toolchain-demo-timestamp_ is checked for.  As it does not exist, there is no need to rename it.  Just deploy it.
 ![OrdersAPIDeployStageJobAppDeploying](screenshots/OrdersAPIDeployStageJobAppDeploying.png)
 7. Scroll past the all the necessary runtime packages to get to the bottom of the log, showing the application starting and the URL to access the application.
 ![OrdersAPIDeployStageJobAppStarting](screenshots/OrdersAPIDeployStageJobAppStarting.png)
-8. Click the left arrow to the left of _Pipelines_ to return to the Delivery Pipeline.
+8. Click the left arrow to the left of _Pipeline_ to return to the Delivery Pipeline.
 9. Click the application URL to display the application.
 ![OrdersAPIPipelineClickAppURL](screenshots/OrdersAPIPipelineClickAppURL.png)
 0. The application is displayed in a new browser tab.
 ![OrdersAPIPipelineApp](screenshots/OrdersAPIPipelineApp.png)
 1. Close the browser tab displaying the application.
 2. On the _DEPLOY_ stage click the **Run Stage** arrow to run the stage again.
-![OrdersAPIPipelineClickLog](screenshots/OrdersAPIPipelineClickLog.png)
+![SimpleOrdersAPIClickRunDeployStage](screenshots/SimpleOrdersAPIClickRunDeployStage.png)
 3. When the stage completes, view the log.
 4. Note that the __myMicroservicesCloudant_ service already existed so there is no need to create it.
 ![OrdersAPIDeployStageJobCloudantExists](screenshots/OrdersAPIDeployStageJobCloudantExists.png)
-5. Then the existence of the deployed app _orders-api-toolchain-demo_ is checked for.  This time it does exist as Cloud Foundry returns information about it.
+5. Then the existence of the deployed app _orders-api-toolchain-demo-timestamp_ is checked for.  This time it does exist as Cloud Foundry returns information about it.
 ![OrdersAPIDeployStageJobAppExists](screenshots/OrdersAPIDeployStageJobAppExists.png)
 6. Since the application does exist, rename it and push out the new version of the application.
 ![OrdersAPIDeployStageJobNewAppDeploying](screenshots/OrdersAPIDeployStageJobNewAppDeploying.png)

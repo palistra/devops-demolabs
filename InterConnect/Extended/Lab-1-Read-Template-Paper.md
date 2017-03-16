@@ -1,4 +1,4 @@
-# Lab 6: Read Template Paper
+# Lab 1: Read Template Paper
 
 ## Objective
 This lab is a reading exercise that will introduce you to some of the other ways to create and use Toolchains.

@@ -23,7 +23,7 @@ from the panel and then select **Byobu Terminal**.
 `cd Microservices_UI`
 6. If you are curious, you can enter the ls command to see the files.
 7. Login to Bluemix from the command line by entering the following command:
-`cf login -a https://api.ng.bluemix.net -u userid@domain.com -o DevOpsLab -s prod`
+`cf login -a https://api.ng.bluemix.net -u userid@domain.com -o _org_name_ -s prod`
 8. Push the application to Bluemix with the following command:
 `cf push prod-ui-toolchain-lab-timestamp`
 ![UICommandLineDeploy](screenshots/UICommandLineDeploy.png)
@@ -41,6 +41,8 @@ and click on **Toolchains**.
 2. Click **Create a Toolchain**.
 3. Click on **Create a toolchain from an application**.
 4. Click on the application to display the application dashboard.
+5. If the _prod_ space is not displayed in the upper right hand corner, click the upper-right hand corner account settings and select **prod** as the _Space_.
+![UISelectProdSpace](screenshots/UISelectProdSpace.png)
 5. Click on your (just created) application to display the application overview page.
 ![UIClickAppForDashboard](screenshots/UIClickAppForDashboard.png)
 6. Click on the **Enable** button for _Continuous Delivery_.
@@ -64,14 +66,18 @@ We need to create a repo and link that to the Toolchain (remember, we just clone
 ![UIGitHubImport](screenshots/UIGitHubImport.png)
 3. Enter **https://github.com/open-toolchain/Microservices_UI** as the clone URL.
 ![UIClickGitHubCloneURL](screenshots/UIClickGitHubCloneURL.png)
-4. Wait for the import to complete.
+4. Click **Begin Importe**.
+5. Wait for the import to complete.
 ![UIClickGitHubCloneComplete](screenshots/UIClickGitHubCloneComplete.png)
+6. Close the GitHub browser tab.
+7. Close the Bluemix application dashboard browser tab.
 
 <div class="page-break"></div>
 
 ## Task 4: Build Application
 
-1. Click the browser back button to return to the Toolchain.
+1. On the Bluemix _Create a Toolchain_ page, click the blue arrow to the left of _Toolchains_ to return to the Toolchains.
+2. Click the just created Toolchain _(prod-ui-toolchain-lab-timestamp)_.
 2. Click on the _Delivery Pipeline_ tile.
 3. Run the _Build Stage_.
 4. The _Build_ and _Deploy_ stages complete (the _Deploy Stage_ was started as a result of the _Build Stage_ running).

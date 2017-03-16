@@ -25,7 +25,7 @@ Prior to running these labs, you must have access to a lab laptop, an active Blu
 ## Task 2: Create Bluemix organization and spaces
 
 1. Log in to Bluemix at: [https://console.ng.bluemix.net/](https://console.ng.bluemix.net/)
-2. If this is your first time logging into this Bluemix account, You will be asked to enter an organization name. Ensure you are in the _US South_ region, enter **DevOpsLabs** as the Organization name and click **Create**.
+2. If this is your first time logging into this Bluemix account, You will be asked to enter an organization name. Ensure you are in the _US South_ region, pick one of the suggested defaults, such as your Bluemix ID or eMail address as the Organization name and click **Create**.
 ![OrgDevOpsLab](screenshots/OrgDevOpsLab.png)
 If this is not your first time to log in to this Bluemix account, and this is a trial account, use the Organization you created when you first logged into this Bluemix account.
 
@@ -55,7 +55,7 @@ If you are not prompted to create a space, create the _dev_ space when you creat
 
 There are a number of ways to access Slack.  One is through the web browser, another is through a desktop application and a third is through your mobile device.  The method used in these labs in web browser.  Feel free to install the desktop or mobile app if you prefer accessing Slack in that way.
 
-1. In a web browser, open a new tab and go to the following URL to go to the (already created) Slack team.  You could create and administer your own Slack team if you would prefer, the instructions for doing so are not part of this exercise.  Additionally, you could also download and install the SLack app to your SmartPhone and access Slack that way.
+1. In a web browser, open a new tab and go to the following URL to go to the (already created) Slack team.  You could create and administer your own Slack team if you would prefer, the instructions for doing so are not part of this exercise.  Additionally, you could also download and install the Slack app to your SmartPhone and access Slack that way.
    [https://bluemixdevopslab.slack.com](https://bluemixdevopslab.slack.com)
 
 2. Enter the following information:

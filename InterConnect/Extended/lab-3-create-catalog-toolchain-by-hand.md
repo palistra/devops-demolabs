@@ -1,7 +1,7 @@
 # Lab 3: Create Catalog Toolchain by Hand
 
 ## Objective
-This lab manually creates a simple toolchain for the Catalog API microservice and then configures it.  It assumes that the _DevOpsLabs_ Organization and _dev_, _qa_ and _prod_ Spaces are already created.
+This lab manually creates a simple toolchain for the Catalog API microservice and then configures it.  It assumes that a Bluemix Organization and _dev_, _qa_ and _prod_ Spaces are already created.
 
 **Tasks**:
 - [Task 1: Create Toolchain](#task-1-create-toolchain)
@@ -14,10 +14,10 @@ This lab manually creates a simple toolchain for the Catalog API microservice an
 - [Task 8: Add Prod stage to Catalog Delivery Pipeline](#task-8-add-prod-stage-to-catalog-delivery-pipeline)
 
 ## Task 1: Create Toolchain
+Throughout the lab, the phrase _timestamp_ is used to indicate the same timestamp string that was appended to _simple-order-toolchain_.  While a timestamp string is not required, it does help make the name of the created objects unique.
+
 1. If you are not already logged into IBM Bluemix, log into IBM Bluemix (https://www.ibm.com/cloud-computing/bluemix/).
 ![Bluemix](screenshots/bluemix-login.png)
-
-Throughout the lab, the phrase _timestamp_ is used to indicate the same timestamp string that was appended to _simple-order-toolchain_.  While a timestamp string is not required, it does help make the name of the created objects unique.
 
 1. If you don't see a button called _Create a Toolchain_, you need to get to DevOps Services. Click on the **Bluemix menu bar** in the upper left corner.
 ![BluemixMenuBar](screenshots/BluemixMenuBar.png)
@@ -42,6 +42,8 @@ The code for the Catalog microservice already exists in a GitHub repository (htt
 6. Click on **Create Integration**.  The integration is created.
 ![CatalogAPIGitHubConfigured](screenshots/CatalogAPIGitHubConfigured.png)
 
+<div class="page-break"></div>
+
 ## Task 3: Add Eclipse Orion Web IDE to Toolchain
 
 If we want to modify the application, one way is to use the Web IDE.
@@ -55,7 +57,7 @@ If we want to modify the application, one way is to use the Web IDE.
 Now that you have a Git repository clone of the code, we will add a Delivery Pipeline to deploy and test the application.
 
 1. Click on **Add a Tool** on the right side of the screen to add a Tool Integration.
-2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add tool integrations to this).
+2. Click on **Delivery Pipeline** to create a new Delivery Pipeline (we will add Stages and Jobs to this).
 3. For 'Pipeline name:', enter "<b>catalog-api-toolchain-lab-<i>timestamp</i></b>" and select the 'Show apps in the VIEW APP menu' checkbox.
 ![CatalogAPICreateDeliveryPipeline](screenshots/CatalogAPICreateDeliveryPipeline.png)
 4. Click **Create Integration**.
@@ -63,7 +65,7 @@ Now that you have a Git repository clone of the code, we will add a Delivery Pip
 
 ## Task 5: Add Build stage to Catalog Delivery Pipeline
 
-Now to configure the catalog-api-toolchain-lab-timestamp delivery pipeline. We will make this pipeline a little more complex.  We will add four stages: Build, Dev, Test and Prod.
+Now to configure the catalog-api-toolchain-lab-timestamp Delivery Pipeline. We will make this pipeline a little more complex.  We will add four stages: Build, Dev, Test and Prod.
 
 - The **Build** stage has two jobs, performing the initial build of the code from the GitHub Repository then some unit tests.
 - The **Dev** stage has two jobs, taking the output from the Build stage and deploying on Bluemix into the _dev_ space, then performing automated functional tests.
@@ -77,7 +79,7 @@ Now to configure the catalog-api-toolchain-lab-timestamp delivery pipeline. We w
 5. Click the _JOBS_ tab so we can add some jobs.
 ![CatalogAPIBuildClickJobs](screenshots/CatalogAPIBuildClickJobs.png)
 6. Click **ADD JOB**.
-7. 7. Click the **+** and select **Build** for the JOB TYPE.
+7. Click the **+** and select **Build** for the JOB TYPE.
 ![CatalogAPIBuildClickBuild](screenshots/CatalogAPIBuildClickBuild.png)
 On the Build configuration panel, note that:
 
@@ -107,6 +109,8 @@ On the Build configuration panel, note that:
 ![CatalogAPIBuildBuildPassed](screenshots/CatalogAPIBuildBuildPassed.png)
 4. Click _View logs and history_ for the jobs to examine the logs for each job.  When done, return to the Delivery Pipeline.
 
+<div class="page-break"></div>
+
 ## Task 6: Add Dev stage to Catalog Delivery Pipeline
 
 Now we add the _Dev_ stage and jobs.  The _Dev_ stage has two jobs.  The first job deploys the just built Catalog API microservice and deploys it into the _dev_ space on Bluemix and the second job performs some automated tests on the deployed microservice.
@@ -117,7 +121,7 @@ Now we add the _Dev_ stage and jobs.  The _Dev_ stage has two jobs.  The first j
 - _Input Type_ is set to Build Artifacts (from the **Build** stage).
 - _Stage_ and _Job_ are both _Build_.
 - _Stage Trigger_ is set to "Run jobs when the previous stage is completed", resulting in the Dev stage running when the **Build** stage successfully completes.
-3. Click the **Jobs** tab and add a new job of type **Deploy**.  Note that:
+3. Click the **JOBS** tab and add a new job of type **Deploy**.  Note that:
 
 - _Deployer Type_ is set to "Cloud Foundry" (other options are available on the pull-down).
 - _Target_ is set to "US South - https://api.ng/bluemix.net" as this is where the code will be deployed.
@@ -139,7 +143,7 @@ Now we add the _Dev_ stage and jobs.  The _Dev_ stage has two jobs.  The first j
 9. Click **ADD PROPERTY** and select **Text Property**.
 0. Enter **APP_URL** as the 'Name'.  Do not enter anything for the 'Value'.
 ![CatalogAPIDevEnvironmentVariables](screenshots/CatalogAPIDevEnvironmentVariables.png)
-1. Click the **Jobs** tab and add a new job of type **Test**.
+1. Click the **JOBS** tab and add a new job of type **Test**.
 2. Change the jobs name from _Tests_ to **Functional Tests**.
 3. Note that the _Tester Type_ is _Simple_.
 4. Enter the following code to the  _Test Command_ section.  _Note:_ You can enter the following URL into another browser tab to display the code for easy copy and pasting: [http://ibm.biz/CatalogAPIDevFVT](http://ibm.biz/CatalogAPIDevFVT)
@@ -160,7 +164,7 @@ Now we add the _Dev_ stage and jobs.  The _Dev_ stage has two jobs.  The first j
 5. Click **Save** to save the _Dev_ stage.
 6. The _Delivery Pipeline_ displays the _Build_ and _Dev_ stages.  The _Dev_ stage has not been run. Click on the **Run Stage** icon (the right arrow next the _Dev_ stage) to run the _Dev_ stage, deploying the Catalog application to the _dev_ space and executing the functional tests.
 7. The _JOBS_ section shows the Stage was successful. Click on "View logs and history" to the Stage history.
-8. Stage History displays the execution history of the stage in reverse chronological order (so the most recent on top and the oldest at the bottom).  Within the history of a stage execution, the job history is displayed in the order in which the job was attempted.  For example, the following screen shot shows that this stage was executed twice.  Within the most recent execution (_9_), the _Deploy_ stage was attempted (and passed) followed by the _Functional Tests_ stage (which also passed). Your screen will probably just have **1** attempt.
+8. Stage History displays the execution history of the stage in reverse chronological order (so the most recent on top and the oldest at the bottom).  Within the history of a stage execution, the job history is displayed in the order in which the job was attempted.  For example, the following screen shot shows that this stage was executed twice.  Within the most recent execution (_9_), the _Deploy_ job was attempted (and passed) followed by the _Functional Tests_ job (which also passed). Your screen will probably just have **1** attempt.
 ![CatalogAPIDevJobsDisplay](screenshots/CatalogAPIDevJobsDisplay.png)
 1. This display shows that the _Dev_ stage ran both jobs and they both passed.  Initially, the log for the _Deploy_ job is displayed. Scrolling to the bottom and you see the application was deployed as _dev-catalog-api-toolchain-lab_timestamp_ into the _dev_ space.
 ![CatalogAPIDevDeploySuccessful](screenshots/CatalogAPIDevDeploySuccessful.png)
