@@ -32,7 +32,8 @@ and click on **Services** then **DevOps**.
 1. On the <b>simple-order-toolchain-<i>timestamp</i></b> Toolchain page, click **Add a Tool**.
 2. Select **Slack**
 3. On the Slack Configuration page:
-   - Enter the following all as one string as the Slack webhook.
+   - Enter the following all as one string as the Slack webhook. This is also available for copying and pasting at:
+   [http://ibm.biz/SlackWebHook](http://ibm.biz/SlackWebHook).
 <br>
   **https://hooks.slack.com/services/**
 <br>
