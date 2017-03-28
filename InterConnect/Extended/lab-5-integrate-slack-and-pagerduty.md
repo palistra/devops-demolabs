@@ -34,11 +34,10 @@ and click on **Services** then **DevOps**.
 3. On the Slack Configuration page:
    - Enter the following all as one string as the Slack webhook. This is also available for copying and pasting at:
    [http://ibm.biz/SlackWebHook](http://ibm.biz/SlackWebHook).
-<br>
-  **https://hooks.slack.com/services/**
-<br>
-  **T2SEPHTRB/B3XPS9JMV/CiJnw2Jg98WXYXXJ1tDMXMbK**
-<br>
+```
+  https://hooks.slack.com/services/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
+```
+
    - Enter **#interconnect_devops** as the Slack channel.
    - Enter **BluemixDevOpsLab** as the Slack team name.
   ![CreateSlack](screenshots/CreateSlack.png)
