@@ -22,8 +22,9 @@ You will be creating a toolchain and adding the following integrations:
 - Three delivery pipelines, one for each GitHub repo. The pipelines are independent and can run in parallel.
 - The Eclipse Orion Web IDE, which you can use to edit your code and deploy it with the pipeline from a web browser.
 - Slack, which you can use to get real-time notifications about the status of builds and deployments.
+- Bluemix Availability Monitoring is configured to monitor the application in production and alert the team when outages occur
 [comment]: # (- [IBM Alert Notification] is configured to alert the team when events happen)
-[comment]: # (- Bluemix Availability Monitoring is configured to monitor the application in production and alert the team when outages occur)
+
 
 
 ## Labs
@@ -34,6 +35,5 @@ You will be creating a toolchain and adding the following integrations:
 - [Lab 3: Create Catalog Toolchain by Hand](lab-3-create-catalog-toolchain-by-hand.md)
 - [Lab 4: Create UI Toolchain from deployed application](lab-4-create-ui-toolchain-from-deployed-application.md)
 - [Lab 5: Integrate Slack](lab-5-integrate-slack.md)
-
-[comment]: # (- [Lab 6: Integrate Bluemix Availability Monitoring](lab-6-integrate-bluemix-availability-monitoring.md)
+- [Lab 6: Integrate Bluemix Availability Monitoring](lab-6-integrate-bluemix-availability-monitoring.md
 [comment]: # (- [Lab 7: Integrate IBM Alert Notification Service](lab-7-integrate-ibm-alert-notification.md)

@@ -2,7 +2,7 @@
 
 ## Objective
 
-This lab integrates Bluemix Availability Monitoring into the Continuous Delivery Toolchain. [Bluemix Availability Monitoring](https://console.ng.bluemix.net/docs/services/AvailabilityMonitoring/index.html) helps DevOps teams ensure their applications are always available and meeting user expectations for response time as they roll out continuous updates. The service, which is tightly integrated into the DevOps toolchain, runs synthetic tests from locations around the world, around the clock to proactively detect and fix performance issues before they impact users.
+This lab integrates Bluemix Availability Monitoring into the Continuous Delivery Toolchain. [Bluemix Availability Monitoring](https://console.ng.bluemix.net/docs/services/AvailabilityMonitoring/index.html) helps DevOps teams ensure their applications are always available and meeting user expectations for response time as they roll out continuous updates. The service, which is tightly integrated into the DevOps toolchain, runs synthetic tests from locations around the world, around the clock to pro-actively detect and fix performance issues before they impact users.
 
 ## Tasks
 - [Task 1: Integrate Bluemix Availability Monitoring](#task-1-integrate-bluemix-availability monitoring)
@@ -39,7 +39,7 @@ The connection and transfer times from Melbourne are longer than Dallas.  Rememb
 The screenshot was taken after the application has been running for some time.
 9. Click **Metric Feed** to display more details.
 ![BAMResponseTimeMetricFeed](screenshots/BAMResponseTimeMetricFeed.png)
-0. Click **Metric Selection** to display the different locations that can be used for availability tests. Click on the plus sign to ther right of **Add more locations** to add and remove additional locations for response time monitoring.
+0. Click **Metric Selection** to display the different locations that can be used for availability tests. Click on the plus sign to the right of **Add more locations** to add and remove additional locations for response time monitoring.
 ![BAMMetricLocationSelection](screenshots/BAMMetricLocationSelection.png)
 1. Scroll down to _Settings_.  Click on some more locations to add them to the list checking the application response time, then click **Finish**.
 ![BAMMetricLocationCitySelection](screenshots/BAMMetricLocationCitySelection.png)
@@ -48,19 +48,19 @@ The screenshot was taken after the application has been running for some time.
 3. The Response Time display indicates the new locations as well by the additional colored circles.
 ![BAMAdditionalResponseTime](screenshots/BAMAdditionalResponseTime.png)
 7. At the bottom of this page, you see the activity related to the monitored application in the last 24 hours.
-   ![ApplicationActivity](screenshots/ApplicationActivity.png)
-8. Scroll back to the top of the page and click Edit from the pull down menu beside the appliction name in the Test Summary Section.
-   ![EditTest](screenshots/EditTest.png)
-9. Here you can make changes to the API that is being monitored, the test name, frequency, locations , etc. Click on a location name to add it to the test, or click on a selected location to remove it. Notice the Notification Setup on the left side of the window. If you were using IBM Alert Notification Service, you could configure your notifications for these tests from here. You will add that to the toolchain in the next lab.
-   ![EditTests](screenshots/EditTests.png)
-   ![EditTests2](screenshots/EditTests2.png)
-10. Click the 'X' at the top of this window to close it. Click the arrow at the top to return to the Availability Monitoring Summary page.
-   ![ReturnToMonitoring](screenshots/ReturnToMonitoring.png)
-11. Click **Add a New Test**. Notice the different types of tests that you can add:
+![BAMApplicationActivity](screenshots/BAMApplicationActivity.png)
+8. Scroll back to the top of the page and click the three ellipsis next to the application name in the Test Summary Section to display the Actions pull-down menu then click **Edit**.
+![BAMEditTest](screenshots/BAMEditTest.png)
+9. Here you can make changes to the API that is being monitored, the test name, frequency, locations, etc. Click on a location name to add it to the test, or click on a selected location to remove it. Notice the Notification Setup on the left side of the window. If you were using IBM Alert Notification Service, you could configure your notifications for these tests from here. You will add that to the toolchain in the next lab.
+![BAMEditTests](screenshots/BAMEditTestsDetail.png)
+0. Click the **X** at the top of this window to close it. Click the arrow at the top to return to the Availability Monitoring Summary page.
+![BAMReturnToMonitoring](screenshots/BAMReturnToMonitoring.png)
+1. Click **Add a New Test**. Notice the different types of tests that you can add:
   - Response time and availability trends for this as well as dependent web pages and APIs
   - Availability of the app in different locations
   - Identify patterns by correlating performance with detailed alerts and development activity
   - Imitate real end-user behavior by monitoring synthetic scripts.
-  <p>Click on each of the options to see how easily new tests can be added
 
-Due to time constraints you won't add additional tests now. If you would like to explore Bluemix Availability Monitoring in more detail, visit the open labs area and check out Lab Number 9902. When you are finished viewing the monitoring information, return to your toolchain.
+    Click on each of the options to see how easily new tests can be added.
+
+When you are finished viewing the monitoring information, return to your toolchain.
