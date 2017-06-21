@@ -20,7 +20,7 @@ Software development is a team activity.  The lab scenario shows how Bluemix Con
 
 The visual display of the Delivery Pipeline is great if you want to watch it.  But if you don't want to watch or if you did not even start the build, how do you get notified of events that you are interested in?  One way is Slack.  Slack provides real-time messaging for team communications. You can integrate Slack with your Bluemix DevOps Services project so that notifications about build results from your Delivery Pipeline are posted on a Slack channel.
 
-1. If you are not on the Toolchains page (if you don't see a button called _Create a Toolchain_), cick on the **Bluemix menu bar** in the upper left corner.
+1. If you are not on the Toolchains page (if you don't see a button called _Create a Toolchain_), click on the **Bluemix menu bar** in the upper left corner.
 ![BluemixMenuBar](screenshots/BluemixMenuBar.png)
 and click on **Services** then **DevOps**.
 2. Click <b>simple-order-toolchain-<i>timestamp</i></b>.
